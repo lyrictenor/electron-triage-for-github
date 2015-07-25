@@ -1,37 +1,37 @@
 var path = require('path');
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var root = process.cwd();
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry: {
     main: path.join(root, 'lib', 'main.js')
   },
   target: 'atom',
   output: {
-    filename: path.join('js', '[name].dev.js'),
+    filename: path.join('[name].js'),
     path: path.join(root, 'dist'),
     publicPath: ''
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development')
+        'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.join(root, 'template', 'index.template.html')
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
     })
   ],
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'],
+        test: /\.js$/,
+        loaders: ['babel'],
         exclude: /node_modules/
       }
     ]

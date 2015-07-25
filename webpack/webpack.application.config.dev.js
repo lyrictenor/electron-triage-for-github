@@ -6,32 +6,33 @@ var root = process.cwd();
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: {
-    main: [
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
-      path.join(root, 'lib', 'main.js')
-    ]
+    application: path.join(root, 'lib', 'application.js')
   },
+  target: 'atom',
   output: {
-    filename: path.join('js', '[name].js'),
+    filename: path.join('[name].dev.js'),
     path: path.join(root, 'dist'),
     publicPath: ''
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(root, 'template', 'index.template.html')
-    }),
-    new webpack.ExternalsPlugin('remote', 'icp', 'browser-window', 'app')
+    })
   ],
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         loaders: ['react-hot', 'babel'],
-        exclude: /node_modules/
+        exclude: [/node_modules/]
       }
     ]
   }

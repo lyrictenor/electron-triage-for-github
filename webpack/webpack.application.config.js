@@ -4,39 +4,33 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var root = process.cwd();
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   entry: {
-    main: path.join(root, 'lib', 'main.js')
+    application: [
+      'webpack-dev-server/client?http://localhost:3000',
+      'webpack/hot/only-dev-server',
+      path.join(root, 'lib', 'application.js')
+    ]
   },
-  target: 'atom',
   output: {
-    filename: path.join('js', '[name].min.js'),
+    filename: path.join('[name].js'),
     path: path.join(root, 'dist'),
     publicPath: ''
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(root, 'template', 'index.template.html')
-    })
+    }),
+    new webpack.ExternalsPlugin('remote', 'icp', 'browser-window', 'app')
   ],
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
+        loaders: ['react-hot', 'babel'],
         exclude: /node_modules/
       }
     ]
