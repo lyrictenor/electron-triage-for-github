@@ -54,7 +54,7 @@
     "clean": "rimraf dist",
     "david": "david update",
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
-    "electron": "npm run build:dev && electron dist",
+    "electron": "npm run build:dev && cd dist && electron . && cd ..",
     "eslint": "eslint .",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
