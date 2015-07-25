@@ -3,6 +3,8 @@ var webpack = require('webpack');
 var root = process.cwd();
 
 module.exports = {
+  __filename: true,
+  __dirname: true,
   devtool: 'source-map',
   entry: {
     main: path.join(root, 'lib', 'main.js')
@@ -19,11 +21,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
       }
     })
   ],

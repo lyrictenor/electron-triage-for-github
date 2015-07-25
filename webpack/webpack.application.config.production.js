@@ -10,7 +10,7 @@ module.exports = {
   },
   target: 'atom',
   output: {
-    filename: path.join('[name].min.js'),
+    filename: path.join('[name].js'),
     path: path.join(root, 'dist'),
     publicPath: ''
   },
@@ -20,11 +20,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
       }
     }),
     new HtmlWebpackPlugin({

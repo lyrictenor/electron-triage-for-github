@@ -1,5 +1,6 @@
 {
   "name": "npm-modules",
+  "productName": "TraceNPMModules",
   "description": "My spectacular module",
   "version": "0.0.0",
   "author": {
@@ -37,9 +38,6 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "electron-app"
   ],
@@ -47,8 +45,9 @@
   "main": "main.js",
   "repository": "sanemat/npm-modules",
   "scripts": {
-    "build:dev": "npm run clean && npm run resource && webpack --config webpack/webpack.main.config.dev.js && webpack --config webpack/webpack.application.config.dev.js",
-    "build:dist": "npm run clean && npm run resource && webpack --config webpack/webpack.main.config.production.js && webpack --config webpack/webpack.application.config.production.js",
+    "build": "npm run build:dist && rimraf output && cd dist && electron-packager ./ $npm_package_productName --out=../output --platform=darwin --arch=x64 --version=0.30.1 && cd ..",
+    "build:dev": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.dev.js",
+    "build:dist": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.production.js",
     "build:local": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.js",
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
     "clean": "rimraf dist",
@@ -59,7 +58,7 @@
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
-    "resource": "cpy package.json dist",
+    "resource": "cpy package.json dist && cpy lib/main.js dist",
     "start": "npm run build:local && node lib/server.js",
     "test": "mocha --require ./enable-power-assert.js -- ./test.js",
     "verify": "npm run lint && npm run test"

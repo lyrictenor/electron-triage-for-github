@@ -10,7 +10,7 @@ module.exports = {
   },
   target: 'atom',
   output: {
-    filename: path.join('[name].dev.js'),
+    filename: path.join('[name].js'),
     path: path.join(root, 'dist'),
     publicPath: ''
   },

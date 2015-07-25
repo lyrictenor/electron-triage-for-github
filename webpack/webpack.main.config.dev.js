@@ -3,6 +3,8 @@ var webpack = require('webpack');
 var root = process.cwd();
 
 module.exports = {
+  __filename: true,
+  __dirname: true,
   devtool: 'cheap-module-eval-source-map',
   entry: {
     main: path.join(root, 'lib', 'main.js')
@@ -19,7 +21,8 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('development')
       }
-    })
+    }),
+    new webpack.ExternalsPlugin('remote')
   ],
   module: {
     loaders: [
