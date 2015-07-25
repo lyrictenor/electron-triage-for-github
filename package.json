@@ -1,6 +1,5 @@
 {
   "name": "npm-modules",
-  "productName": "TraceNPMModules",
   "description": "My spectacular module",
   "version": "0.1.0",
   "author": {
@@ -43,6 +42,8 @@
   ],
   "license": "MIT",
   "main": "main.js",
+  "private": true,
+  "productName": "TraceNPMModules",
   "repository": "sanemat/npm-modules",
   "scripts": {
     "build": "npm run build:dist && rimraf output && cd dist && electron-packager ./ $npm_package_productName --out=../output --platform=darwin --arch=x64 --version=0.30.1 && cd ..",
