@@ -1,0 +1,45 @@
+{
+  "name": "npm-modules",
+  "description": "My spectacular module",
+  "version": "0.0.0",
+  "author": {
+    "name": "sanemat",
+    "email": "o.gata.ken@gmail.com",
+    "url": "sane.jp"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "conventional-changelog": "*",
+    "david": "*",
+    "eclint": "*",
+    "eslint": "^1.0.0-rc",
+    "espower-loader": "*",
+    "fixpack": "*",
+    "globstar": "*",
+    "mocha": "*",
+    "power-assert": "*",
+    "touch": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "license": "MIT",
+  "repository": "sanemat/npm-modules",
+  "scripts": {
+    "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
+    "david": "david update",
+    "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
+    "eslint": "eslint .",
+    "fixpack": "fixpack",
+    "git:tag": "git tag v${npm_package_version}",
+    "lint": "npm run eclint && npm run eslint",
+    "test": "mocha --require ./enable-power-assert.js -- ./test.js",
+    "verify": "npm run lint && npm run test"
+  }
+}

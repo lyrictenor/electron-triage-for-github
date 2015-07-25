@@ -1,0 +1,27 @@
+# http://www.appveyor.com/docs/appveyor-yml
+
+# init
+clone_depth: 20
+
+# install
+install:
+- node --version
+- npm --version
+- npm install
+
+# build
+build: off
+
+# test
+test_script:
+- npm run verify
+
+# deploy
+deploy: off
+
+# notify
+notifications:
+- provider: Email
+  to:
+  - o.gata.ken@gmail.com
+  on_build_status_changed: true
