@@ -63,7 +63,7 @@
     "lint": "npm run eclint && npm run eslint",
     "resource": "cpy package.json dist && cpy lib/main.js dist && cd dist && npm install menubar && cd ..",
     "start": "npm run build:local && node lib/server.js",
-    "test": "mocha --require ./enable-power-assert.js -- ./test.js",
-    "verify": "npm run lint && npm run test"
+    "test": "mocha --require ./enable-power-assert.js -- ./test/*test.js",
+    "verify": "npm run lint"
   }
 }
