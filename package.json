@@ -7,11 +7,15 @@
     "email": "o.gata.ken@gmail.com",
     "url": "sane.jp"
   },
-  "dependencies": {},
+  "dependencies": {
+    "electron-debug": "^0.1.1"
+  },
   "devDependencies": {
     "conventional-changelog": "*",
     "david": "*",
     "eclint": "*",
+    "electron-packager": "^5.0.1",
+    "electron-prebuilt": "^0.30.1",
     "eslint": "^1.0.0-rc",
     "espower-loader": "*",
     "fixpack": "*",
@@ -27,7 +31,7 @@
     "dist"
   ],
   "keywords": [
-    ""
+    "electron-app"
   ],
   "license": "MIT",
   "main": "",
@@ -40,6 +44,7 @@
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
+    "start": "electron dist",
     "test": "mocha --require ./enable-power-assert.js -- ./test.js",
     "verify": "npm run lint && npm run test"
   }
