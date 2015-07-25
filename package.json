@@ -11,6 +11,9 @@
     "electron-debug": "^0.1.1"
   },
   "devDependencies": {
+    "babel": "^5.8.5",
+    "babel-core": "^5.8.5",
+    "babel-loader": "^5.3.2",
     "conventional-changelog": "*",
     "david": "^6.1.6",
     "eclint": "^0.2.6",
@@ -20,9 +23,14 @@
     "espower-loader": "^0.11.0",
     "fixpack": "^2.2.0",
     "globstar": "^1.0.0",
+    "html-webpack-plugin": "^1.6.0",
     "mocha": "^2.2.5",
     "power-assert": "^0.11.0",
-    "touch": "^1.0.0"
+    "react-hot-loader": "^1.2.8",
+    "rimraf": "^2.4.2",
+    "touch": "^1.0.0",
+    "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -37,14 +45,19 @@
   "main": "",
   "repository": "sanemat/npm-modules",
   "scripts": {
+    "build": "npm run clean && webpack",
+    "build:dev": "npm run build -- --config webpack/webpack.config.dev.js",
+    "build:dist": "npm run build -- --config webpack/webpack.config.production.js",
+    "build:local": "npm run build",
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
+    "clean": "rimraf dist",
     "david": "david update",
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
     "eslint": "eslint .",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
-    "start": "electron dist",
+    "start": "npm run build:local && node lib/server.js",
     "test": "mocha --require ./enable-power-assert.js -- ./test.js",
     "verify": "npm run lint && npm run test"
   }
