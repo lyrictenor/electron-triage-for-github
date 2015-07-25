@@ -24,12 +24,13 @@
     "node": ">=0.10.0"
   },
   "files": [
-    "index.js"
+    "dist"
   ],
   "keywords": [
     ""
   ],
   "license": "MIT",
+  "main": "",
   "repository": "sanemat/npm-modules",
   "scripts": {
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
