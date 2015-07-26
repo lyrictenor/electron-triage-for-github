@@ -1,10 +1,10 @@
 'use strict';
 var assert = require('power-assert');
-var npmModules = require('./');
+var triageForGithub = require('./');
 
 it('should ', function () {
-  assert.strictEqual(npmModules('unicorns'), 'unicorns & rainbows');
+  assert.strictEqual(triageForGithub('unicorns'), 'unicorns & rainbows');
 });
 it('should not ', function () {
-  assert.strictEqual(npmModules('unicorns'), 'unicorns & wrong');
+  assert.strictEqual(triageForGithub('unicorns'), 'unicorns & wrong');
 });

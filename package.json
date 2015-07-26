@@ -1,5 +1,5 @@
 {
-  "name": "npm-modules",
+  "name": "triage-for-github",
   "description": "My spectacular module",
   "version": "0.1.0",
   "author": {
@@ -45,8 +45,8 @@
   "license": "MIT",
   "main": "main.js",
   "private": true,
-  "productName": "TraceNPMModules",
-  "repository": "lyrictenor/electron-npm-modules",
+  "productName": "TriageForGitHub",
+  "repository": "lyrictenor/electron-triage-for-github",
   "scripts": {
     "build": "npm run build:dist && rimraf output && cd dist && electron-packager ./ $npm_package_productName --out=../output --platform=darwin --arch=x64 --version=0.30.1 && cd ..",
     "build:dev": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.dev.js",
