@@ -4,7 +4,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import * as reducers from '../reducers';
 import { Router, Route } from 'react-router';
-import { history } from 'react-router/lib/BrowserHistory';
+import { history } from 'react-router/lib/HashHistory';
 
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
