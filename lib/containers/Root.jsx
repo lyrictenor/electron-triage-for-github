@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
-//import { bindActionCreators } from 'redux';
-import Home from '../components/Home.jsx';
+import React, { Component, PropTypes } from 'react';
 
 export default class Root extends Component {
   render () {
     return (
-      <Home />
+      <div>
+        {this.props.children}
+      </div>
     );
   }
 }
+
+// github.com/yannickcr/eslint-plugin-react/issues/7
+Root.propTypes = {
+  children: PropTypes.node.isRequired
+};
