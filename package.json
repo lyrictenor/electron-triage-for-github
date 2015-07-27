@@ -8,7 +8,7 @@
     "url": "sane.jp"
   },
   "dependencies": {
-    "mkdirp": "^0.5.1",
+    "@sanemat/electron-debug": "^0.2.0",
     "react": "^0.13.3",
     "react-redux": "^0.2.2",
     "react-router": "^1.0.0-beta3",
@@ -70,7 +70,7 @@
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
     "resource": "cpy package.json dist && npm run resource:main",
-    "resource:main": "cpy lib/main.js dist && mkdirp dist/utils && cpy \"lib/utils/*\" dist/utils && cd dist && npm install menubar && cd ..",
+    "resource:main": "cpy lib/main.js dist && cd dist && npm install menubar @sanemat/electron-debug && cd ..",
     "start": "npm run build:local && node lib/server.js",
     "test": "mocha --require ./enable-power-assert.js -- ./test/*test.js",
     "verify": "npm run lint && npm run build:local && npm run build:dev && npm run build:dist"
