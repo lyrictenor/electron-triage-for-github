@@ -1,4 +1,4 @@
-# Trace NPM Modules
+# Triage for GitHub
 
 [![Travis-CI Status][travis-image]][travis-url] [![Appveyor Status][appveyor-image]][appveyor-url] [![Daviddm Status][daviddm-image]][daviddm-url]
 
