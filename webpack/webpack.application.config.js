@@ -27,6 +27,15 @@ module.exports = {
     new webpack.ExternalsPlugin('remote')
   ],
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: [
+          /node_modules/
+        ],
+        loader: 'eslint'
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
