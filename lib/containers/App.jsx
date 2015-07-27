@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Root from './Root.jsx';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import * as reducers from '../reducers';
 import { Router, Route } from 'react-router';
 import { history } from 'react-router/lib/HashHistory';
 
+import Root from './Root.jsx';
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
 
