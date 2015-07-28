@@ -38,6 +38,7 @@
     "fixpack": "^2.2.0",
     "globstar": "^1.0.0",
     "html-webpack-plugin": "^1.6.0",
+    "json-loader": "^0.5.2",
     "mocha": "^2.2.5",
     "power-assert": "^0.11.0",
     "react-hot-loader": "^1.2.8",
