@@ -4,7 +4,7 @@ import Formsy from 'formsy-react';
 import FormInput from './ui/FormInput.jsx';
 import enableHtmlTag from '../utils/enableHtmlTag';
 
-export default class Settings extends Component {
+class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = { canSubmit: false };
@@ -52,7 +52,6 @@ export default class Settings extends Component {
           Get AccessToken
         </a>.
         <button
-          className={''}
           type='submit'
           {...enableHtmlTag(this.state.canSubmit)}
           >
@@ -62,3 +61,9 @@ export default class Settings extends Component {
     );
   }
 }
+
+//Settings.propTypes = {
+//  setting: PropTypes.object.isRequired
+//};
+
+export default Settings;

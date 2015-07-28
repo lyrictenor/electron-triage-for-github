@@ -10,11 +10,13 @@ import * as settingActionCreators from '../actions/settingActionCreators';
   setting: state.setting
 }))
 class Root extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render () {
-    const { router, setting, dispatch } = this.props;
+    const { dispatch } = this.props;
     const props = {
-      router,
-      setting,
       actions: bindActionCreators({ ...settingActionCreators }, dispatch)
     };
     return (
@@ -28,9 +30,7 @@ class Root extends Component {
 // github.com/yannickcr/eslint-plugin-react/issues/7
 Root.propTypes = {
   children: PropTypes.node.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  router: PropTypes.object.isRequired,
-  setting: PropTypes.object.isRequired
+  dispatch: PropTypes.func.isRequired
 };
 
 export default Root;
