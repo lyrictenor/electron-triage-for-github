@@ -21,3 +21,5 @@ class Root extends Component {
 Root.propTypes = {
   children: PropTypes.node.isRequired
 };
+
+export default Root;
