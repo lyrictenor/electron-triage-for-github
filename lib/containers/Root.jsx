@@ -1,28 +1,39 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';// eslint-disable-line no-unused-vars
+
+// @connect does not work ;( for passing store data, so use Connector
+//import { connect } from 'react-redux';// eslint-disable-line no-unused-vars
 // github.com/babel/babel-eslint/issues/72
 // Using decorator doesn't count as usage by eslint
+
+import { Connector } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as settingActionCreators from '../actions/settingActionCreators';
 
-@connect(state => ({
-  router: state.router,
-  setting: state.setting
-}))
 class Root extends Component {
   constructor(props) {
     super(props);
   }
 
-  render () {
-    const { dispatch } = this.props;
+  renderChild ({router, setting, dispatch}) {
     const props = {
+      router,
+      setting,
       actions: bindActionCreators({ ...settingActionCreators }, dispatch)
     };
+    const children = React.Children.map(this.props.children, (child) => {
+      return React.cloneElement(child, props);
+    });
     return (
       <div>
-        { React.cloneElement(this.props.children, props) }
+        {children}
       </div>
+    );
+  }
+  render () {
+    return (
+      <Connector select={state => ({ router: state.router, setting: state.setting })}>
+        { this.renderChild.bind(this) }
+      </Connector>
     );
   }
 }

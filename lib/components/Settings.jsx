@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Formsy from 'formsy-react';
 
 import FormInput from './ui/FormInput.jsx';
@@ -22,6 +22,7 @@ class Settings extends Component {
 
   render() {
     const submitText = (this.state.canSubmit) ? 'Save' : 'Invalid';
+    const { setting } = this.props;
     return (
       <Formsy.Form
         onValidSubmit={this.submit.bind(this)}
@@ -31,23 +32,23 @@ class Settings extends Component {
         >
         <FormInput
           name='apiendpoint'
-          placeholder={''}
+          placeholder={setting.defaultApiendpoint}
           validationError='Api Endpoint is required'
-          value={''}
+          value={setting.apiendpoint}
           required />
         <FormInput
           name='webendpoint'
-          placeholder={''}
+          placeholder={setting.defaultWebendpoint}
           validationError='Web Endpoint is required'
-          value={''}
+          value={setting.webendpoint}
           required />
         <FormInput
           name='token'
           type='password'
-          value={''}
+          value={setting.token}
           helpBlock='Blank OR Just 40 characters' />
         <a
-          href={''}
+          href={setting.tokenUrl}
           onClick={''} >
           Get AccessToken
         </a>.
@@ -62,8 +63,8 @@ class Settings extends Component {
   }
 }
 
-//Settings.propTypes = {
-//  setting: PropTypes.object.isRequired
-//};
+Settings.propTypes = {
+  setting: PropTypes.object.isRequired
+};
 
 export default Settings;
