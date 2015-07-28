@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Formsy from 'formsy-react';
 
 import FormInput from './ui/FormInput.jsx';
-import enableButton from '../utils/enableButton';
+import enableHtmlTag from '../utils/enableHtmlTag';
 
 export default class Settings extends Component {
   constructor(props) {
@@ -10,13 +10,23 @@ export default class Settings extends Component {
     this.state = { canSubmit: false };
   }
 
+  enableButton() {
+    this.setState({ canSubmit: true });
+  }
+  disableButton() {
+    this.setState({ canSubmit: false });
+  }
+  submit (model) {
+    model;
+  }
+
   render() {
     const submitText = (this.state.canSubmit) ? 'Save' : 'Invalid';
     return (
       <Formsy.Form
-        onValidSubmit={''}
-        onValid={''}
-        onInvalid={''}
+        onValidSubmit={this.submit.bind(this)}
+        onValid={this.enableButton.bind(this)}
+        onInvalid={this.disableButton.bind(this)}
         className='settings'
         >
         <FormInput
@@ -44,7 +54,7 @@ export default class Settings extends Component {
         <button
           className={''}
           type='submit'
-          {...enableButton(this.state.canSubmit)}
+          {...enableHtmlTag(this.state.canSubmit)}
           >
           {submitText}
         </button>
