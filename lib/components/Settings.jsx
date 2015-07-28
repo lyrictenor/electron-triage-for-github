@@ -1,9 +1,70 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import Formsy from 'formsy-react';
 
-export default class Settings extends Component {
+import FormInput from './ui/FormInput.jsx';
+import enableHtmlTag from '../utils/enableHtmlTag';
+
+class Settings extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { canSubmit: false };
+  }
+
+  enableButton() {
+    this.setState({ canSubmit: true });
+  }
+  disableButton() {
+    this.setState({ canSubmit: false });
+  }
+  submit (model) {
+    model;
+  }
+
   render() {
+    const submitText = (this.state.canSubmit) ? 'Save' : 'Invalid';
+    const { setting } = this.props;
     return (
-      <div>Settings</div>
+      <Formsy.Form
+        onValidSubmit={this.submit.bind(this)}
+        onValid={this.enableButton.bind(this)}
+        onInvalid={this.disableButton.bind(this)}
+        className='settings'
+        >
+        <FormInput
+          name='apiendpoint'
+          placeholder={setting.defaultApiendpoint}
+          validationError='Api Endpoint is required'
+          value={setting.apiendpoint}
+          required />
+        <FormInput
+          name='webendpoint'
+          placeholder={setting.defaultWebendpoint}
+          validationError='Web Endpoint is required'
+          value={setting.webendpoint}
+          required />
+        <FormInput
+          name='token'
+          type='password'
+          value={setting.token}
+          helpBlock='Blank OR Just 40 characters' />
+        <a
+          href={setting.tokenUrl}
+          onClick={''} >
+          Get AccessToken
+        </a>.
+        <button
+          type='submit'
+          {...enableHtmlTag(this.state.canSubmit)}
+          >
+          {submitText}
+        </button>
+      </Formsy.Form>
     );
   }
 }
+
+Settings.propTypes = {
+  setting: PropTypes.object.isRequired
+};
+
+export default Settings;
