@@ -17,7 +17,7 @@ class Settings extends Component {
     this.setState({ canSubmit: false });
   }
   submit (model) {
-    model;
+    this.props.actions.updateSettings(model);
   }
 
   render() {
@@ -66,7 +66,8 @@ class Settings extends Component {
 }
 
 Settings.propTypes = {
-  setting: PropTypes.object.isRequired
+  setting: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 export default Settings;
