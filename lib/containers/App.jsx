@@ -1,31 +1,14 @@
 import React, { Component } from 'react';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
 import { history } from 'react-router/lib/HashHistory';
-import thunk from 'redux-thunk';
-import { reduxRouteComponent, routerStateReducer } from 'redux-react-router';
-// github.com/gaearon/redux-devtools/blob/a297a3606ad8dee0111ca55548bfa6383d71e4f9/examples/counter/containers/App.js
-import { devTools, persistState } from 'redux-devtools';
+import { reduxRouteComponent } from 'redux-react-router';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
-import * as reducers from '../reducers';
 import Root from './Root.jsx';
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
-
-const finalCreateStore = compose(
-  applyMiddleware(thunk),
-  devTools(),
-  persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
-  createStore
-);
-
-const reducer = combineReducers({
-  router: routerStateReducer,
-  ...reducers
-});
-const store = finalCreateStore(reducer);
+import store from '../utils/store';
 
 let contents = [
   <Provider store={store}>
