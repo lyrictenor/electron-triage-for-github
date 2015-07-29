@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+name: triage_for_github
+version: 1
+table:
+  Configs:
+    column:
+      key: string
+      value: object
+    constraint:
+      nullable: [ value ]
+      primaryKey: [ key ]
