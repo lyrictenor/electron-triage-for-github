@@ -35,21 +35,23 @@ class Settings extends Component {
           placeholder={setting.defaultApiendpoint}
           validationError='Api Endpoint is required'
           value={setting.apiendpoint}
-          required />
+          required
+          />
         <FormInput
           name='webendpoint'
           placeholder={setting.defaultWebendpoint}
           validationError='Web Endpoint is required'
           value={setting.webendpoint}
-          required />
+          required
+          />
         <FormInput
           name='token'
           type='password'
           value={setting.token}
-          helpBlock='Blank OR Just 40 characters' />
+          />
         <a
           href={setting.tokenUrl}
-          onClick={''} >
+          >
           Get AccessToken
         </a>.
         <button
