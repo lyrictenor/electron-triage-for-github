@@ -17,7 +17,7 @@ class Settings extends Component {
     this.setState({ canSubmit: false });
   }
   submit (model) {
-    this.props.actions.updateSettings(model);
+    this.props.actions.saveSettings(model);
   }
 
   render() {
