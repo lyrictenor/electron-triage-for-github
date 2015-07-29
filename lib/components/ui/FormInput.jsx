@@ -6,7 +6,9 @@ let FormInput = React.createClass({
   propTypes: {
     inputClassName: PropTypes.object.isRequired,
     outerClassName: PropTypes.object.isRequired,
-    placeholder: PropTypes.string.isRequired
+    placeholder: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string
   },
   // Add the Formsy Mixin
   mixins: [Formsy.Mixin],
@@ -33,7 +35,8 @@ let FormInput = React.createClass({
     const inputClassName = cx(
       this.props.inputClassName,
       {
-        'required': this.showRequired()
+        'required': this.showRequired(),
+        'error': this.showError()
       }
     );
 
@@ -43,9 +46,14 @@ let FormInput = React.createClass({
 
     return (
       <div className={outerClassName}>
+        <label
+          htmlFor={this.props.name}>
+          {this.props.name}
+        </label>
         <input
+          type={this.props.type || 'text'}
+          name={this.props.name}
           className={inputClassName}
-          type='text'
           onChange={this.changeValue}
           value={this.getValue()}
           placeholder={this.props.placeholder}
