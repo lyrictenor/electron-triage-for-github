@@ -17,7 +17,7 @@ class Settings extends Component {
     this.setState({ canSubmit: false });
   }
   submit (model) {
-    model;
+    this.props.actions.updateSettings(model);
   }
 
   render() {
@@ -35,21 +35,23 @@ class Settings extends Component {
           placeholder={setting.defaultApiendpoint}
           validationError='Api Endpoint is required'
           value={setting.apiendpoint}
-          required />
+          required
+          />
         <FormInput
           name='webendpoint'
           placeholder={setting.defaultWebendpoint}
           validationError='Web Endpoint is required'
           value={setting.webendpoint}
-          required />
+          required
+          />
         <FormInput
           name='token'
           type='password'
           value={setting.token}
-          helpBlock='Blank OR Just 40 characters' />
+          />
         <a
           href={setting.tokenUrl}
-          onClick={''} >
+          >
           Get AccessToken
         </a>.
         <button
@@ -64,7 +66,8 @@ class Settings extends Component {
 }
 
 Settings.propTypes = {
-  setting: PropTypes.object.isRequired
+  setting: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 export default Settings;
