@@ -3,3 +3,5 @@ node_modules
 npm-debug.log
 dist
 output
+
+lib/schema/triageforgithub_db_gen.js
