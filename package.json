@@ -70,7 +70,7 @@
     "db": "npm run db:setup",
     "db:setup": "npm run db:resource && npm run db:schema",
     "db:resource": "cpy node_modules/lovefield/dist/lovefield.min.js dist",
-    "db:schema": "lovefield-spac --schema lib/schema/triage_for_github.yml --namespace triageforgithub.db --outputdir dist",
+    "db:schema": "lovefield-spac --schema lib/schema/triage_for_github.yml --namespace triage_for_github.db --outputdir dist",
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
     "electron": "npm run build:dev && cd dist && electron . && cd ..",
     "eslint": "eslint --ext .js,.jsx lib",
