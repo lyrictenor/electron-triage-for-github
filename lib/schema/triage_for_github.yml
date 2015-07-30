@@ -3,7 +3,7 @@
 name: triage_for_github
 version: 1
 table:
-  Configs:
+  Settings:
     column:
       key: string
       value: object
