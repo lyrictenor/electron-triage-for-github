@@ -25,7 +25,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(root, 'template', 'index.template.html')
-    })
+    }),
+    new webpack.IgnorePlugin(/vertx/)
   ],
   module: {
     preLoaders: [
