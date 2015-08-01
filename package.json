@@ -1,5 +1,6 @@
 {
   "name": "triage-for-github",
+  "databaseName": "triage_for_github",
   "description": "My spectacular module",
   "version": "0.1.0",
   "author": {
@@ -17,7 +18,8 @@
     "redux": "^1.0.0-rc",
     "redux-devtools": "^0.1.2",
     "redux-react-router": "^0.2.1",
-    "redux-thunk": "^0.1.0"
+    "redux-thunk": "^0.1.0",
+    "reset-storage": "^1.0.0"
   },
   "devDependencies": {
     "babel": "^5.8.20",
