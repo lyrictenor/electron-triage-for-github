@@ -9,6 +9,7 @@ import Root from './Root.jsx';
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
 import store from '../utils/store';
+import Debug from '../components/Debug.jsx';
 
 let contents = [
   <Provider store={store}>
@@ -18,6 +19,7 @@ let contents = [
           <Route path='/' component={Root}>
             <Route path='home' component={Home} />
             <Route path='settings' component={Settings} />
+            <Route path='debug' component={Debug} />
           </Route>
         </Route>
       </Router>

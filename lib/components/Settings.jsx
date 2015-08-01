@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Formsy from 'formsy-react';
+import { Link } from 'react-router';
 
 import FormInput from './ui/FormInput.jsx';
 import enableHtmlTag from '../utils/enableHtmlTag';
@@ -60,6 +61,8 @@ class Settings extends Component {
           >
           {submitText}
         </button>
+
+        <Link to={'/home'}>home</Link>, <Link to={'/debug'}>debug</Link>
       </Formsy.Form>
     );
   }
