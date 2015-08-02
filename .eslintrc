@@ -52,5 +52,8 @@
     "es6": true,
     "browser": true
   },
+  "globals": {
+    "lf": true
+  },
   "extends": "eslint:recommended"
 }
