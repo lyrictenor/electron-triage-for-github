@@ -76,7 +76,7 @@
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
     "ncu": "npm-check-updates -ua",
-    "resource": "cpy package.json dist && npm run resource:main",
+    "resource": "cpy package.json dist && cpy node_modules/lovefield/dist/lovefield.min.js dist && npm run resource:main",
     "resource:main": "cpy lib/main.js dist && cd dist && npm install menubar electron-debug && cd ..",
     "start": "npm run build:local && node lib/server.js",
     "test": "mocha --require ./enable-power-assert.js -- ./test/*test.js",
