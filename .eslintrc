@@ -53,7 +53,8 @@
     "browser": true
   },
   "globals": {
-    "lf": true
+    "lf": true,
+    "triage_for_github": true
   },
   "extends": "eslint:recommended"
 }
