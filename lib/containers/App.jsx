@@ -10,6 +10,7 @@ import createStore from '../store/createStore';
 import Debug from '../components/Debug.jsx';
 import { bindActionCreators } from 'redux';
 import * as settingActionCreators from '../actions/settingActionCreators';
+import urlTable from './urlTable';
 
 const store = createStore();
 
@@ -35,10 +36,10 @@ export default class App extends Component {
       <Provider store={store}>
         {() =>
           <Router history={history}>
-            <Route component={reduxRouteComponent(store)}>
-              <Route path='home' component={connect(mapStateToProps, mapDispatchToProps)(Home)} />
-              <Route path='settings' component={connect(mapStateToProps, mapDispatchToProps)(Settings)} />
-              <Route path='debug' component={connect(mapStateToProps, mapDispatchToProps)(Debug)} />
+            <Route component={reduxRouteComponent(store)} path='/'>
+              <Route path={urlTable['home']} component={connect(mapStateToProps, mapDispatchToProps)(Home)} />
+              <Route path={urlTable['settings']} component={connect(mapStateToProps, mapDispatchToProps)(Settings)} />
+              <Route path={urlTable['debug']} component={connect(mapStateToProps, mapDispatchToProps)(Debug)} />
             </Route>
           </Router>
         }

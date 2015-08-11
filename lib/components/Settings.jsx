@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 
 import FormInput from './ui/FormInput.jsx';
 import enableHtmlTag from '../utils/enableHtmlTag';
+import urls from '../utils/urls';
 
 class Settings extends Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class Settings extends Component {
           {submitText}
         </button>
 
-        <Link to={'/home'}>home</Link>, <Link to={'/debug'}>debug</Link>
+        <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
       </Formsy.Form>
     );
   }
