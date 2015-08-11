@@ -5,6 +5,11 @@ import { Link } from 'react-router';
 import FormInput from './ui/FormInput.jsx';
 import enableHtmlTag from '../utils/enableHtmlTag';
 
+import Crossing from 'crossing';
+import urlTable from '../containers/urlTable';
+const urls = new Crossing(new RegExp(':([A-Za-z0-9-_%]{1,})'));
+urls.load(urlTable);
+
 class Settings extends Component {
   constructor(props) {
     super(props);
@@ -62,7 +67,7 @@ class Settings extends Component {
           {submitText}
         </button>
 
-        <Link to={'/home'}>home</Link>, <Link to={'/debug'}>debug</Link>
+        <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
       </Formsy.Form>
     );
   }
