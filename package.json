@@ -47,6 +47,7 @@
     "power-assert": "^0.11.0",
     "react-hot-loader": "^1.2.8",
     "rimraf": "^2.4.2",
+    "silence-chromium": "^2.0.0",
     "touch": "^1.0.0",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
@@ -70,7 +71,7 @@
     "changelog": "touch changelog.md && conventional-changelog -i changelog.md --overwrite --preset angular",
     "clean": "rimraf dist",
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
-    "electron": "npm run build:dev && cd dist && electron . && cd ..",
+    "electron": "npm run build:dev && cd dist && electron . 2>&1 | silence-chromium ../debug.log && cd ..",
     "eslint": "eslint --ext .js,.jsx lib",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
