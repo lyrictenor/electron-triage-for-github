@@ -4,11 +4,7 @@ import { Link } from 'react-router';
 
 import FormInput from './ui/FormInput.jsx';
 import enableHtmlTag from '../utils/enableHtmlTag';
-
-import Crossing from 'crossing';
-import urlTable from '../containers/urlTable';
-const urls = new Crossing(new RegExp(':([A-Za-z0-9-_%]{1,})'));
-urls.load(urlTable);
+import urls from '../utils/urls';
 
 class Settings extends Component {
   constructor(props) {

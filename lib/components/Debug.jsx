@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import resetStorage from 'reset-storage';
 import { databaseName } from '../../package.json';
-
-import Crossing from 'crossing';
-import urlTable from '../containers/urlTable';
-const urls = new Crossing(new RegExp(':([A-Za-z0-9-_%]{1,})'));
-urls.load(urlTable);
+import urls from '../utils/urls';
 
 export default class Debug extends Component {
   handleResetStorage () {
