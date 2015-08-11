@@ -34,7 +34,7 @@
     "electron-prebuilt": "^0.30.4",
     "eslint": "^1.1.0",
     "eslint-loader": "^1.0.0",
-    "eslint-plugin-babel": "babel/eslint-plugin-babel",
+    "eslint-plugin-babel": "^2.0.0",
     "eslint-plugin-react": "^3.2.1",
     "espower-loader": "^0.11.0",
     "fixpack": "^2.2.0",
