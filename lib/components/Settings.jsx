@@ -18,7 +18,7 @@ class Settings extends Component {
     this.setState({ canSubmit: false });
   }
   submit (model) {
-    this.props.actions.saveSettings(model);
+    this.props.saveSettings(model);
   }
 
   render() {
@@ -70,7 +70,9 @@ class Settings extends Component {
 
 Settings.propTypes = {
   setting: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
+  saveSettings: PropTypes.func.isRequired,
+  doNothing: PropTypes.func.isRequired,
+  updateSettings: PropTypes.func.isRequired
 };
 
 export default Settings;

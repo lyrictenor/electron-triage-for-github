@@ -1,39 +1,27 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { Router, Route } from 'react-router';
 import { history } from 'react-router/lib/HashHistory';
 import { reduxRouteComponent } from 'redux-react-router';
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
-import Root from './Root.jsx';
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
-import store from '../utils/store';
+import createStore from '../store/createStore';
 import Debug from '../components/Debug.jsx';
+import { bindActionCreators } from 'redux';
+import * as settingActionCreators from '../actions/settingActionCreators';
 
-let contents = [
-  <Provider store={store}>
-    {() =>
-      <Router history={history}>
-        <Route component={reduxRouteComponent(store)}>
-          <Route path='/' component={Root}>
-            <Route path='home' component={Home} />
-            <Route path='settings' component={Settings} />
-            <Route path='debug' component={Debug} />
-          </Route>
-        </Route>
-      </Router>
-    }
-  </Provider>
-];
+const store = createStore();
 
-if (process.env.NODE_ENV === 'development') {
-  contents.push(
-    <DebugPanel top right bottom>
-      <DevTools store={store}
-                monitor={LogMonitor} />
-    </DebugPanel>
-  );
+function mapStateToProps (state) {
+  return {
+    router: state.router,
+    setting: state.setting
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({ ...settingActionCreators }, dispatch);
 }
 
 export default class App extends Component {
@@ -44,9 +32,17 @@ export default class App extends Component {
   // github.com/rackt/react-router/issues/1570
   render() {
     return (
-      <div>
-        {contents}
-      </div>
+      <Provider store={store}>
+        {() =>
+          <Router history={history}>
+            <Route component={reduxRouteComponent(store)}>
+              <Route path='home' component={connect(mapStateToProps, mapDispatchToProps)(Home)} />
+              <Route path='settings' component={connect(mapStateToProps, mapDispatchToProps)(Settings)} />
+              <Route path='debug' component={connect(mapStateToProps, mapDispatchToProps)(Debug)} />
+            </Route>
+          </Router>
+        }
+      </Provider>
     );
   }
 }
