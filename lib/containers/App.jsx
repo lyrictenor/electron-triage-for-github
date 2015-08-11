@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { Router, Route } from 'react-router';
 import { history } from 'react-router/lib/HashHistory';
 import { reduxRouteComponent } from 'redux-react-router';
 
-import Root from './Root.jsx';
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
-import store from '../utils/store';
+import createStore from '../store/createStore';
 import Debug from '../components/Debug.jsx';
+import { bindActionCreators } from 'redux';
+import * as settingActionCreators from '../actions/settingActionCreators';
+
+const store = createStore();
+
+function mapStateToProps (state) {
+  return {
+    router: state.router,
+    setting: state.setting
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({ ...settingActionCreators }, dispatch);
+}
 
 export default class App extends Component {
   constructor(props) {
@@ -22,11 +36,9 @@ export default class App extends Component {
         {() =>
           <Router history={history}>
             <Route component={reduxRouteComponent(store)}>
-              <Route path='/' component={Root}>
-                <Route path='home' component={Home} />
-                <Route path='settings' component={Settings} />
-                <Route path='debug' component={Debug} />
-              </Route>
+              <Route path='home' component={connect(mapStateToProps, mapDispatchToProps)(Home)} />
+              <Route path='settings' component={connect(mapStateToProps, mapDispatchToProps)(Settings)} />
+              <Route path='debug' component={connect(mapStateToProps, mapDispatchToProps)(Debug)} />
             </Route>
           </Router>
         }
