@@ -64,7 +64,7 @@
   "productName": "TriageForGitHub",
   "repository": "lyrictenor/electron-triage-for-github",
   "scripts": {
-    "build": "npm run build:dist && rimraf output && cd dist && electron-packager ./ $npm_package_productName --out=../output --platform=darwin --arch=x64 --version=0.30.4 && cd ..",
+    "build:app": "npm run build:dist && rimraf output && cd dist && electron-packager ./ $npm_package_productName --out=../output --platform=darwin --arch=x64 --version=0.30.4 && cd ..",
     "build:dev": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.dev.js",
     "build:dist": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.production.js",
     "build:local": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.js",
