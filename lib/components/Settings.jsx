@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 import FormInput from './ui/FormInput.jsx';
 import enableHtmlTag from '../utils/enableHtmlTag';
 import urls from '../utils/urls';
-import { decryptData, encryptData } from '../utils/cryptData';
 
 class Settings extends Component {
   constructor(props) {
@@ -20,14 +19,12 @@ class Settings extends Component {
     this.setState({ canSubmit: false });
   }
   submit (model) {
-    const setting = Object.assign({}, model, {token: encryptData(model.token)});
-    this.props.saveSettings(setting);
+    this.props.saveSettings(model);
   }
 
   render() {
     const submitText = (this.state.canSubmit) ? 'Save' : 'Invalid';
     const { setting } = this.props;
-    const decryptedToken = decryptData(setting.token);
     return (
       <Formsy.Form
         onValidSubmit={this.submit.bind(this)}
@@ -52,7 +49,7 @@ class Settings extends Component {
         <FormInput
           name='token'
           type='password'
-          value={decryptedToken}
+          value={setting.token}
           />
         <a
           href={setting.tokenUrl}
