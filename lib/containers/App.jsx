@@ -11,13 +11,20 @@ import Debug from '../components/Debug.jsx';
 import { bindActionCreators } from 'redux';
 import * as settingActionCreators from '../actions/settingActionCreators';
 import urlTable from './urlTable';
+import { decryptData } from '../utils/cryptData';
 
 const store = createStore();
 
 function mapStateToProps (state) {
   return {
     router: state.router,
-    setting: state.setting
+    setting: Object.assign(
+      {},
+      state.setting,
+      {
+        token: decryptData(state.setting.token)
+      }
+    )
   };
 }
 
