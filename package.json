@@ -84,6 +84,6 @@
     "resource:main": "cpy lib/main.js dist && cd dist && npm install menubar electron-debug && cd ..",
     "start": "npm run build:local && node lib/server.js",
     "test": "mocha --compilers js:espower-babel/guess -- ./test/*test.js",
-    "verify": "npm run lint && npm run build:local && npm run build:dev && npm run build:dist"
+    "verify": "npm run lint && npm run test && npm run build:local && npm run build:dev && npm run build:dist"
   }
 }
