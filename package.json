@@ -1,6 +1,5 @@
 {
   "name": "triage-for-github",
-  "databaseName": "triage_for_github",
   "description": "My spectacular module",
   "version": "0.1.0",
   "author": {
@@ -8,6 +7,7 @@
     "email": "o.gata.ken@gmail.com",
     "url": "sane.jp"
   },
+  "databaseName": "triage_for_github",
   "dependencies": {
     "classnames": "^2.1.3",
     "crossing": "^1.0.1",
@@ -54,6 +54,7 @@
     "rimraf": "^2.4.2",
     "silence-chromium": "^2.0.0",
     "touch": "^1.0.0",
+    "webfont-dl": "^0.1.2",
     "webpack": "^1.11.0",
     "webpack-dev-server": "^1.10.1"
   },
@@ -78,6 +79,7 @@
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
     "electron": "npm run build:dev && cd dist && electron . 2>&1 | silence-chromium ../debug.log && cd ..",
     "eslint": "eslint --ext .js,.jsx lib",
+    "fetch:font:roboto": "webfont-dl \"http://fonts.googleapis.com/css?family=Roboto:400,300,500:latin\" -o assets/roboto.css --woff1=omit --woff2=data --svg=omit --ttf=omit --eot=omit",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
