@@ -9,6 +9,7 @@ export default class Debug extends Component {
   handleResetStorage () {
     resetStorage(databaseName).then(() => {
       console.log(`Reset localStorage and indexedDB: ${databaseName}`);//eslint-disable-line no-console
+      window.location.reload();
     });
   }
   render() {
