@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var root = process.cwd();
 
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       }
     }),
+    new ExtractTextPlugin('app.css', { allChunks: true }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(root, 'template', 'index.template.html')
@@ -39,6 +41,10 @@ module.exports = {
       }
     ],
     loaders: [
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
       {
         test: /\.jsx?$/,
         loaders: ['react-hot', 'babel'],
