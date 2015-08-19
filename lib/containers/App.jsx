@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Provider, connect } from 'react-redux';
 import { Router, Route } from 'react-router';
-import { history } from 'react-router/lib/HashHistory';
 import { reduxRouteComponent } from 'redux-react-router';
 
 import Home from '../components/Home.jsx';
@@ -38,6 +37,8 @@ export default class App extends Component {
   // NOTE: [1.0.0-beta3] Nested Route with path="/" being matched, but this.props.children is undefined
   // github.com/rackt/react-router/issues/1570
   render() {
+    const { history } = this.props;
+
     return (
       <Provider store={store}>
         {() =>
@@ -53,3 +54,7 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  history: PropTypes.object.isRequired
+};
