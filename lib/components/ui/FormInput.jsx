@@ -7,7 +7,8 @@ let FormInput = React.createClass({
     placeholder: PropTypes.string,
     name: PropTypes.string.isRequired,
     type: PropTypes.string,
-    style: PropTypes.object
+    style: PropTypes.object,
+    fullWidth: PropTypes.boolean
   },
   // Add the Formsy Mixin
   mixins: [Formsy.Mixin],
@@ -22,12 +23,13 @@ let FormInput = React.createClass({
     // An error message is returned ONLY if the component is invalid
     // or the server has returned an error message
     const errorMessage = this.getErrorMessage();
-    const { placeholder, name, type, style } = this.props;
+    const { placeholder, name, type, style, fullWidth } = this.props;
 
     return (
       <TextField
         hintText={placeholder}
         type={type || 'text'}
+        fullWidth={fullWidth}
         defaultValue={this.getValue()}
         onChange={this.changeValue}
         errorText={errorMessage}

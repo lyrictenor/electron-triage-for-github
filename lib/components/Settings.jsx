@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Formsy from 'formsy-react';
 import { Link } from 'react-router';
+import { RaisedButton } from 'material-ui';
 
 import FormInput from './ui/FormInput.jsx';
-import enableHtmlTag from '../utils/enableHtmlTag';
 import urls from '../utils/urls';
 
 class Settings extends Component {
@@ -27,9 +27,9 @@ class Settings extends Component {
     const { setting } = this.props;
     return (
       <div>
-        <h4>
+        <h3>
           Settings
-        </h4>
+        </h3>
         <Formsy.Form
           onValidSubmit={this.submit.bind(this)}
           onValid={this.enableButton.bind(this)}
@@ -42,6 +42,7 @@ class Settings extends Component {
             validationError='Api Endpoint is required'
             value={setting.apiendpoint}
             style={{display: 'block'}}
+            fullWidth={true}
             required
             />
           <FormInput
@@ -50,6 +51,7 @@ class Settings extends Component {
             validationError='Web Endpoint is required'
             value={setting.webendpoint}
             style={{display: 'block'}}
+            fullWidth={true}
             required
             />
           <FormInput
@@ -57,21 +59,25 @@ class Settings extends Component {
             type='password'
             value={setting.token}
             style={{display: 'block'}}
+            fullWidth={true}
             />
-          <a
-            href={setting.tokenUrl}
-            >
-            Get AccessToken
-          </a>.
-          <button
-            type='submit'
-            {...enableHtmlTag(this.state.canSubmit)}
-            >
-            {submitText}
-          </button>
+          <div>
+            <a
+              href={setting.tokenUrl}
+              >
+              Get AccessToken
+            </a>.
+          </div>
 
-          <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
+          <RaisedButton
+            type={'submit'}
+            label={submitText}
+            primary={true}
+            disabled={!this.state.canSubmit}
+            />
         </Formsy.Form>
+        <hr />
+        <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
       </div>
     );
   }
