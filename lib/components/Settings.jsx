@@ -71,6 +71,15 @@ class Settings extends Component {
                 Get AccessToken
               </a>.
             </div>
+            <FormInput
+              name='interval'
+              placeholder={setting.defaultInterval}
+              validationError='Interval is required'
+              value={setting.interval}
+              style={{display: 'block'}}
+              fullWidth={true}
+              required
+              />
 
             <RaisedButton
               type={'submit'}
