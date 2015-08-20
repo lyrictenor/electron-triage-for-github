@@ -22,7 +22,9 @@ function mapStateToProps (state) {
       {},
       state.setting,
       {
-        token: decryptData(state.setting.token)
+        token: decryptData(state.setting.token),
+        interval: String(state.setting.interval),
+        defaultInterval: String(state.setting.defaultInterval)
       }
     )
   };
