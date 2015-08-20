@@ -74,6 +74,7 @@ class Settings extends Component {
             label={submitText}
             primary={true}
             disabled={!this.state.canSubmit}
+            style={{margin: '50px 0'}}
             />
         </Formsy.Form>
         <hr />
