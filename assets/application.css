@@ -1,1 +1,4 @@
 @import "roboto.css";
+html {
+  font-size: 62.5%;
+}

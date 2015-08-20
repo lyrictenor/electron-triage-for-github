@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Formsy from 'formsy-react';
 import { Link } from 'react-router';
+import { RaisedButton, Paper } from 'material-ui';
 
 import FormInput from './ui/FormInput.jsx';
-import enableHtmlTag from '../utils/enableHtmlTag';
 import urls from '../utils/urls';
 
 class Settings extends Component {
@@ -26,45 +26,63 @@ class Settings extends Component {
     const submitText = (this.state.canSubmit) ? 'Save' : 'Invalid';
     const { setting } = this.props;
     return (
-      <Formsy.Form
-        onValidSubmit={this.submit.bind(this)}
-        onValid={this.enableButton.bind(this)}
-        onInvalid={this.disableButton.bind(this)}
-        className='settings'
-        >
-        <FormInput
-          name='apiendpoint'
-          placeholder={setting.defaultApiendpoint}
-          validationError='Api Endpoint is required'
-          value={setting.apiendpoint}
-          required
-          />
-        <FormInput
-          name='webendpoint'
-          placeholder={setting.defaultWebendpoint}
-          validationError='Web Endpoint is required'
-          value={setting.webendpoint}
-          required
-          />
-        <FormInput
-          name='token'
-          type='password'
-          value={setting.token}
-          />
-        <a
-          href={setting.tokenUrl}
+      <div>
+        <h3>
+          Settings
+        </h3>
+        <Paper
+          zDepth={1}
           >
-          Get AccessToken
-        </a>.
-        <button
-          type='submit'
-          {...enableHtmlTag(this.state.canSubmit)}
-          >
-          {submitText}
-        </button>
+          <Formsy.Form
+            onValidSubmit={this.submit.bind(this)}
+            onValid={this.enableButton.bind(this)}
+            onInvalid={this.disableButton.bind(this)}
+            className='settings'
+            >
+            <FormInput
+              name='apiendpoint'
+              placeholder={setting.defaultApiendpoint}
+              validationError='Api Endpoint is required'
+              value={setting.apiendpoint}
+              style={{display: 'block'}}
+              fullWidth={true}
+              required
+              />
+            <FormInput
+              name='webendpoint'
+              placeholder={setting.defaultWebendpoint}
+              validationError='Web Endpoint is required'
+              value={setting.webendpoint}
+              style={{display: 'block'}}
+              fullWidth={true}
+              required
+              />
+            <FormInput
+              name='token'
+              type='password'
+              value={setting.token}
+              style={{display: 'block'}}
+              fullWidth={true}
+              />
+            <div>
+              <a
+                href={setting.tokenUrl}
+                >
+                Get AccessToken
+              </a>.
+            </div>
 
+            <RaisedButton
+              type={'submit'}
+              label={submitText}
+              primary={true}
+              disabled={!this.state.canSubmit}
+              style={{margin: '3rem 0 2rem'}}
+              />
+          </Formsy.Form>
+        </Paper>
         <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
-      </Formsy.Form>
+      </div>
     );
   }
 }
