@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 import Formsy from 'formsy-react';
-//import { TextField } from 'material-ui';
+import { TextField } from 'material-ui';
 
 let FormInput = React.createClass({
   propTypes: {
     placeholder: PropTypes.string,
     name: PropTypes.string.isRequired,
-    type: PropTypes.string
+    type: PropTypes.string,
+    style: PropTypes.object
   },
   // Add the Formsy Mixin
   mixins: [Formsy.Mixin],
@@ -21,22 +22,18 @@ let FormInput = React.createClass({
     // An error message is returned ONLY if the component is invalid
     // or the server has returned an error message
     const errorMessage = this.getErrorMessage();
+    const { placeholder, name, type, style } = this.props;
 
     return (
-      <div>
-        <label
-          htmlFor={this.props.name}>
-          {this.props.name}
-        </label>
-        <input
-          type={this.props.type || 'text'}
-          name={this.props.name}
-          onChange={this.changeValue}
-          value={this.getValue()}
-          placeholder={this.props.placeholder}
-          />
-        <span>{errorMessage}</span>
-      </div>
+      <TextField
+        hintText={placeholder}
+        type={type || 'text'}
+        defaultValue={this.getValue()}
+        onChange={this.changeValue}
+        errorText={errorMessage}
+        floatingLabelText={name}
+        style={style}
+        />
     );
   }
 });

@@ -41,6 +41,7 @@ class Settings extends Component {
             placeholder={setting.defaultApiendpoint}
             validationError='Api Endpoint is required'
             value={setting.apiendpoint}
+            style={{display: 'block'}}
             required
             />
           <FormInput
@@ -48,12 +49,14 @@ class Settings extends Component {
             placeholder={setting.defaultWebendpoint}
             validationError='Web Endpoint is required'
             value={setting.webendpoint}
+            style={{display: 'block'}}
             required
             />
           <FormInput
             name='token'
             type='password'
             value={setting.token}
+            style={{display: 'block'}}
             />
           <a
             href={setting.tokenUrl}
