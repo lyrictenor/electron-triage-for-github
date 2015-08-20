@@ -26,45 +26,50 @@ class Settings extends Component {
     const submitText = (this.state.canSubmit) ? 'Save' : 'Invalid';
     const { setting } = this.props;
     return (
-      <Formsy.Form
-        onValidSubmit={this.submit.bind(this)}
-        onValid={this.enableButton.bind(this)}
-        onInvalid={this.disableButton.bind(this)}
-        className='settings'
-        >
-        <FormInput
-          name='apiendpoint'
-          placeholder={setting.defaultApiendpoint}
-          validationError='Api Endpoint is required'
-          value={setting.apiendpoint}
-          required
-          />
-        <FormInput
-          name='webendpoint'
-          placeholder={setting.defaultWebendpoint}
-          validationError='Web Endpoint is required'
-          value={setting.webendpoint}
-          required
-          />
-        <FormInput
-          name='token'
-          type='password'
-          value={setting.token}
-          />
-        <a
-          href={setting.tokenUrl}
+      <div>
+        <h4>
+          Settings
+        </h4>
+        <Formsy.Form
+          onValidSubmit={this.submit.bind(this)}
+          onValid={this.enableButton.bind(this)}
+          onInvalid={this.disableButton.bind(this)}
+          className='settings'
           >
-          Get AccessToken
-        </a>.
-        <button
-          type='submit'
-          {...enableHtmlTag(this.state.canSubmit)}
-          >
-          {submitText}
-        </button>
+          <FormInput
+            name='apiendpoint'
+            placeholder={setting.defaultApiendpoint}
+            validationError='Api Endpoint is required'
+            value={setting.apiendpoint}
+            required
+            />
+          <FormInput
+            name='webendpoint'
+            placeholder={setting.defaultWebendpoint}
+            validationError='Web Endpoint is required'
+            value={setting.webendpoint}
+            required
+            />
+          <FormInput
+            name='token'
+            type='password'
+            value={setting.token}
+            />
+          <a
+            href={setting.tokenUrl}
+            >
+            Get AccessToken
+          </a>.
+          <button
+            type='submit'
+            {...enableHtmlTag(this.state.canSubmit)}
+            >
+            {submitText}
+          </button>
 
-        <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
-      </Formsy.Form>
+          <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
+        </Formsy.Form>
+      </div>
     );
   }
 }

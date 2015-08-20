@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react';
 import Formsy from 'formsy-react';
-import cx from 'classnames';
+//import { TextField } from 'material-ui';
 
 let FormInput = React.createClass({
   propTypes: {
-    inputClassName: PropTypes.object.isRequired,
-    outerClassName: PropTypes.object.isRequired,
     placeholder: PropTypes.string,
     name: PropTypes.string.isRequired,
     type: PropTypes.string
@@ -18,34 +16,14 @@ let FormInput = React.createClass({
   changeValue: function (event) {
     this.setValue(event.currentTarget.value);
   },
+
   render: function () {
-
-    // Set a specific className based on the validation
-    // state of this component. showRequired() is true
-    // when the value is empty and the required prop is
-    // passed to the input. showError() is true when the
-    // value typed is invalid
-    const outerClassName = cx(
-      this.props.outerClassName,
-      {
-        'required': this.showRequired(),
-        'error': this.showError()
-      }
-    );
-    const inputClassName = cx(
-      this.props.inputClassName,
-      {
-        'required': this.showRequired(),
-        'error': this.showError()
-      }
-    );
-
     // An error message is returned ONLY if the component is invalid
     // or the server has returned an error message
     const errorMessage = this.getErrorMessage();
 
     return (
-      <div className={outerClassName}>
+      <div>
         <label
           htmlFor={this.props.name}>
           {this.props.name}
@@ -53,7 +31,6 @@ let FormInput = React.createClass({
         <input
           type={this.props.type || 'text'}
           name={this.props.name}
-          className={inputClassName}
           onChange={this.changeValue}
           value={this.getValue()}
           placeholder={this.props.placeholder}
