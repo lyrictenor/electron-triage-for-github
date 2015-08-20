@@ -8,7 +8,7 @@ let FormInput = React.createClass({
     name: PropTypes.string.isRequired,
     type: PropTypes.string,
     style: PropTypes.object,
-    fullWidth: PropTypes.boolean
+    fullWidth: PropTypes.bool
   },
   // Add the Formsy Mixin
   mixins: [Formsy.Mixin],
