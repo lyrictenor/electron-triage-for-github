@@ -24,7 +24,7 @@ export default class Debug extends Component {
           <RaisedButton
             onClick={this.handleResetStorage}
             label={'reset storage'}
-            style={{margin: '2rem 0'}}
+            style={{margin: '32px 0'}}
             />
         </Paper>
         <Link to={urls.get('settings')}>settings</Link>, <Link to={urls.get('home')}>home</Link>
