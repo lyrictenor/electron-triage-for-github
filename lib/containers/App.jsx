@@ -31,7 +31,9 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ ...settingActionCreators }, dispatch);
+  return bindActionCreators({
+    ...settingActionCreators
+  }, dispatch);
 }
 
 @withMaterialUI
