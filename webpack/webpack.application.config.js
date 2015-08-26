@@ -18,6 +18,10 @@ module.exports = {
     path: path.join(root, 'dist'),
     publicPath: ''
   },
+  node: {
+    fs: 'empty',
+    child_process: 'empty'
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

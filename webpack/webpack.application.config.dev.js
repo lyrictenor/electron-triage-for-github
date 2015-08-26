@@ -28,7 +28,8 @@ module.exports = {
       filename: 'index.html',
       template: path.join(root, 'template', 'index.template.html')
     }),
-    new webpack.IgnorePlugin(/vertx/)
+    new webpack.IgnorePlugin(/vertx/),
+    new webpack.IgnorePlugin(/xmlhttprequest/)
   ],
   module: {
     preLoaders: [
