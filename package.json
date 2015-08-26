@@ -39,7 +39,7 @@
     "css-loader": "^0.16.0",
     "eclint": "^1.1.1",
     "electron-packager": "^5.0.2",
-    "electron-prebuilt": "^0.30.6",
+    "electron-prebuilt": "^0.31.0",
     "eslint": "^1.2.1",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-babel": "^2.1.1",
@@ -74,7 +74,7 @@
   "productName": "TriageForGitHub",
   "repository": "lyrictenor/electron-triage-for-github",
   "scripts": {
-    "build:app": "npm run build:dist && rimraf output && cd dist && electron-packager ./ $npm_package_productName --out=../output --platform=darwin --arch=x64 --version=0.30.6 && cd ..",
+    "build:app": "npm run build:dist && rimraf output && cd dist && electron-packager ./ $npm_package_productName --out=../output --platform=darwin --arch=x64 --version=0.31.0 && cd ..",
     "build:dev": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.dev.js",
     "build:dist": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.production.js",
     "build:local": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.js",
