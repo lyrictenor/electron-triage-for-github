@@ -54,6 +54,7 @@
     "npm-check-updates": "^2.2.0",
     "power-assert": "^1.0.0",
     "react-hot-loader": "^1.2.9",
+    "redux-devtools": "^1.1.2",
     "rimraf": "^2.4.2",
     "silence-chromium": "^2.0.0",
     "style-loader": "^0.12.3",
