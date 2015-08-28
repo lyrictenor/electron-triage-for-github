@@ -5,6 +5,7 @@ import { RaisedButton, Paper } from 'material-ui';
 
 import FormInput from './ui/FormInput.jsx';
 import urls from '../utils/urls';
+import onOpenExternal from '../utils/on-open-external';
 
 class Settings extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class Settings extends Component {
             <div>
               <a
                 href={setting.tokenUrl}
+                onClick={onOpenExternal.bind(this)}
                 >
                 Get AccessToken
               </a>.
