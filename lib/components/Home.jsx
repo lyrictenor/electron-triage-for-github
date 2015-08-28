@@ -15,7 +15,6 @@ class Home extends Component {
     loadData(this.props);
   }
   render() {
-    console.log(this.props);//eslint-disable-line no-console
     const { stories, ...props } = this.props;
     return (
       <div>
