@@ -52,6 +52,7 @@
     "fixpack": "^2.2.0",
     "globstar": "^1.0.0",
     "html-webpack-plugin": "^1.6.1",
+    "is-travis-ci-build-for-tag": "^1.1.1",
     "json-loader": "^0.5.2",
     "mocha": "^2.2.5",
     "npm-check-updates": "^2.2.0",

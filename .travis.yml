@@ -1,5 +1,21 @@
 # https://travis-ci.org/
-language: node_js
+language: "node_js"
 node_js:
-  - 'iojs'
+  - "iojs"
 script: "npm run verify"
+after_success:
+- "is-travis-ci-build-for-tag && npm run electron:build && npm run electron:pack"
+deploy:
+  provider: "releases"
+  api_key:
+    secure: "gEB0L7xB/uec3dLj9uhRIr5kUBr8zmXCjtI7FapzQpXUK3yi2vgUb3FY+tWtnbcSHziN+QOXuCG1QvtrzA7gxXWv/FV+vBKjIqvByAFeVKhNx/wUXRXdyIMhVU7D56Av33cD4JYsNEXKYzhvNaRUMp9rtwm/DjkTF8TNtlrGaLF32MlFKvveBeWBNc3Z5urWXZPk+BYpkTVOZSsWogslAg4YIbucxCW5BKs54uvEBZ24BuXw/IDojHMgnQkL/R/6WUlJ504NfCKDB8e9QIklTfiKJmsK069hlUbQzPvmXYMXNh4vnGSghc7W2wJThp+LbQOuIUEBi3svi+OpqUskeR19AkbOw95kv3iAfTkwoQOs2UpmO3K0w1Cv0kijr0tCNfhNT5fK9aLY7DCXN74FjNoUrX4LOnOqpK+10jJq+wiaI3g4nlA4Z6VIKB7KpjIjeG06PEpqFih9zJIb5zHyxrwnSws3EpZjO3X5LNDEUVpOiTLfrmoRHJj25cKOYBTQX1ZWy+1OlmxXGO7qc0RxyqVmZWkjL1Z5AzbHfemKnaL7X8rb0gWgT1WR0azqLcIzXXa09p9AfVB3Cv2ku4KtGcdpQiw7fwctmBvJfjBvVLfLNC2cTNvjHjsW9tyQfrCHhzPhrX6pKsPst61uI3E2eU6wDXRfpHpbBTr6mlTOJzs="
+  file:
+  - "output/TriageForGitHub-darwin-x64.zip"
+  - "output/TriageForGitHub-linux-x64.zip"
+  - "output/TriageForGitHub-linux-ia32.zip"
+  - "output/TriageForGitHub-win32-x64.zip"
+  - "output/TriageForGitHub-win32-ia32.zip"
+  on:
+    repo: lyrictenor/electron-triage-for-github
+    tags: true
+  skip_cleanup: true
