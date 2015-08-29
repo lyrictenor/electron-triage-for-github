@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 /*eslint-disable no-console */
+import yargs from 'yargs';
 import spawn from 'buffered-spawn';
 import path from 'path';
 import rimraf from 'rimraf';
@@ -14,6 +15,7 @@ const packagerOptions = {
   platform: 'all',
   arch: 'all'
 };
+const argv = yargs.default(packagerOptions).argv;
 
 console.log(`Pack electron ${process.env.npm_package_electronVersion}`);
 spawn('npm', ['run', 'build:dist'], { stdio: 'inherit' })
@@ -29,7 +31,14 @@ spawn('npm', ['run', 'build:dist'], { stdio: 'inherit' })
     });
   }).then(() => {
     return new Promise((resolve, reject) => {
-      packager(packagerOptions, (err, appPath) => {
+      packager({
+        dir: argv.dir,
+        name: argv.name,
+        version: argv.version,
+        out: argv.out,
+        platform: argv.platform,
+        arch: argv.arch
+      }, (err, appPath) => {
         if(err) {
           reject(err);
           return;

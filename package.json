@@ -63,7 +63,8 @@
     "touch": "^1.0.0",
     "webfont-dl": "^0.1.2",
     "webpack": "^1.12.0",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^1.10.1",
+    "yargs": "^3.22.2"
   },
   "electronVersion": "0.31.1",
   "engines": {
@@ -78,7 +79,7 @@
   "productName": "TriageForGitHub",
   "repository": "lyrictenor/electron-triage-for-github",
   "scripts": {
-    "build:app": "npm run build:dist && rimraf output && cd dist && electron-packager ./ $npm_package_productName --out=../output --platform=darwin --arch=x64 --version=0.31.1 && cd ..",
+    "build:app": "npm run electron:build -- --platform darwin --arch x64",
     "build:dev": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.dev.js",
     "build:dist": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.production.js",
     "build:local": "npm run clean && npm run resource && webpack --config webpack/webpack.application.config.js",
