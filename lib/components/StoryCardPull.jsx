@@ -4,8 +4,13 @@ import React, { Component, PropTypes } from 'react';
 class StoryCardPull extends Component {
   render() {
     const { story } = this.props;
+    const { repo, pull, issue, status } = story;
+    issue;
+    const statusState = (status.totalCount >= 1)
+      ? (<span>status:{status.state}</span>)
+      : (<span>status:-</span>);
     return (
-      <div>p {story.repo.fullName} {story.issue.title} {story.issue.state} {story.status.state}</div>
+      <div>p {repo.fullName}#{pull.number} title:{pull.title} body:{pull.bodyText} issue:{pull.state} {statusState}</div>
     );
   }
 }
