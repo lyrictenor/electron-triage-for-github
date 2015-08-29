@@ -7,7 +7,7 @@ class StoryCardIssue extends Component {
     const { story } = this.props;
     const { repo, issue } = story;
     return (
-      <div>i {repo.fullName}#{issue.number} title:{trimWidth(issue.title, {length: 50})} body:{trimWidth(issue.bodyText, {length: 100})} issue:{issue.state} c:{issue.comments}</div>
+      <div>i {repo.fullName}#{issue.number} title:<a href={issue.htmlUrl}>{trimWidth(issue.title, {length: 50})}</a> body:{trimWidth(issue.bodyText, {length: 100})} issue:{issue.state} c:{issue.comments}</div>
     );
   }
 }
