@@ -5,7 +5,7 @@ import { RaisedButton, Paper } from 'material-ui';
 
 import FormInput from './ui/FormInput.jsx';
 import urls from '../utils/urls';
-import electronOpenLinkInBrowser from '../utils/electron-open-link-in-browser';
+import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 
 class Settings extends Component {
   constructor(props) {
