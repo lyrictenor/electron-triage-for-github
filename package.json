@@ -30,6 +30,7 @@
     "rndm": "^1.1.0"
   },
   "devDependencies": {
+    "archiver": "^0.15.0",
     "babel": "^5.8.23",
     "babel-core": "^5.8.23",
     "babel-eslint": "^4.1.0",
@@ -88,6 +89,7 @@
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
     "electron": "npm run build:dev && cd dist && electron . 2>&1 | silence-chromium ../debug.log && cd ..",
     "electron:build": "babel-node bin/electron-build.js",
+    "electron:pack": "babel-node bin/electron-pack.js",
     "eslint": "eslint --ext .js,.jsx lib test bin",
     "fetch:font:roboto": "webfont-dl \"http://fonts.googleapis.com/css?family=Roboto:400,300,500:latin\" -o assets/roboto.css --woff1=omit --woff2=data --svg=omit --ttf=omit --eot=omit",
     "fixpack": "fixpack",
