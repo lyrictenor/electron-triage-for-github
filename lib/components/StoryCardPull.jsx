@@ -10,7 +10,7 @@ class StoryCardPull extends Component {
       ? (<span>status:{status.state}</span>)
       : (<span>status:-</span>);
     return (
-      <div>p {repo.fullName}#{pull.number} title:{pull.title} body:{pull.bodyText} issue:{pull.state} {statusState}</div>
+      <div>p {repo.fullName}#{pull.number} {pull.head.label} title:{pull.title} body:{pull.bodyText} issue:{pull.state} {statusState}</div>
     );
   }
 }
