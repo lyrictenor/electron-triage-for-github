@@ -37,7 +37,7 @@ module.exports = {
       filename: 'index.html',
       template: path.join(root, 'template', 'index.template.html')
     }),
-    new webpack.ExternalsPlugin('remote')
+    new webpack.ExternalsPlugin('remote', 'shell')
   ],
   module: {
     preLoaders: [
