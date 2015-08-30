@@ -6,18 +6,19 @@ import spawn from 'buffered-spawn';
 import path from 'path';
 import rimraf from 'rimraf';
 import packager from 'electron-packager';
+import { productName, electronVersion } from '../package.json';
 const outputPath = path.join(process.cwd(), 'output');
 const packagerOptions = {
   dir: path.join(process.cwd(), 'dist'),
-  name: process.env.npm_package_productName,
-  version: process.env.npm_package_electronVersion,
+  name: productName,
+  version: electronVersion,
   out: outputPath,
   platform: 'all',
   arch: 'all'
 };
 const argv = yargs.default(packagerOptions).argv;
 
-console.log(`Pack electron ${process.env.npm_package_electronVersion}`);
+console.log(`Pack electron ${electronVersion}`);
 spawn('npm', ['run', 'build:dist'], { stdio: 'inherit' })
   .then(() => {
     return new Promise((resolve, reject) => {

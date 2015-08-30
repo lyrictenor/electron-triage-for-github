@@ -1,14 +1,15 @@
+/* global __DATABASE_NAME__ */
+
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import resetStorage from 'reset-storage';
-import { databaseName } from '../../package.json';
 import urls from '../utils/urls';
 import { RaisedButton, Paper } from 'material-ui';
 
 export default class Debug extends Component {
   handleResetStorage () {
-    resetStorage(databaseName).then(() => {
-      console.log(`Reset localStorage and indexedDB: ${databaseName}`);//eslint-disable-line no-console
+    resetStorage(__DATABASE_NAME__).then(() => {
+      console.log(`Reset localStorage and indexedDB: ${__DATABASE_NAME__}`);//eslint-disable-line no-console
       window.location.reload();
     });
   }

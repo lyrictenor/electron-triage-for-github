@@ -5,8 +5,8 @@
 import fs from 'fs';
 import archiver from 'archiver';
 import path from 'path';
+import { productName } from '../package.json';
 
-const productName = process.env.npm_package_productName;
 const targets = ['darwin-x64', 'linux-ia32', 'linux-x64', 'win32-ia32', 'win32-x64'].map((target) => {
   return `${productName}-${target}`;
 });

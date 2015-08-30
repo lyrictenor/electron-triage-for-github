@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var root = process.cwd();
+var packageJson = require(path.join(root, 'package.json'));
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -24,7 +25,8 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       },
       __DEVELOPMENT__: true,
-      __DEVTOOLS__: true
+      __DEVTOOLS__: true,
+      __DATABASE_NAME__: JSON.stringify(packageJson.databaseName)
     }),
     new ExtractTextPlugin('app.css', { allChunks: true }),
     new HtmlWebpackPlugin({
