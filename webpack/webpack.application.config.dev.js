@@ -6,6 +6,7 @@ var root = process.cwd();
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
+  debug: true,
   entry: {
     application: path.join(root, 'lib', 'application.js')
   },

@@ -6,6 +6,7 @@ module.exports = {
   __filename: true,
   __dirname: true,
   devtool: 'cheap-module-eval-source-map',
+  debug: true,
   entry: {
     main: path.join(root, 'lib', 'main.js')
   },
