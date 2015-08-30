@@ -22,7 +22,8 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       },
       __DEVELOPMENT__: false,
-      __DEVTOOLS__: false
+      __DEVTOOLS__: false,
+      __DATABASE_NAME__: JSON.stringify(process.env.npm_package_databaseName)
     })
   ],
   module: {

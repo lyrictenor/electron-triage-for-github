@@ -23,7 +23,8 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       },
       __DEVELOPMENT__: true,
-      __DEVTOOLS__: true
+      __DEVTOOLS__: true,
+      __DATABASE_NAME__: JSON.stringify(process.env.npm_package_databaseName)
     }),
     new webpack.ExternalsPlugin('remote')
   ],
