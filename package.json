@@ -14,6 +14,7 @@
     "crypto-js": "^3.1.5",
     "electron-debug": "^0.2.0",
     "electron-open-link-in-browser": "^1.0.1",
+    "electron-template-menu": "^1.0.3",
     "formsy-react": "^0.14.1",
     "is-empty-object": "^1.1.0",
     "material-ui": "^0.11.0",
@@ -98,7 +99,7 @@
     "lint": "npm run eclint && npm run eslint",
     "ncu": "npm-check-updates -ua",
     "resource": "cpy package.json dist && npm run resource:main",
-    "resource:main": "cpy lib/main.js dist && cd dist && npm install electron-debug && cd ..",
+    "resource:main": "cpy lib/main.js dist && cd dist && npm install electron-debug electron-template-menu && cd ..",
     "start": "npm run build:local && node lib/server.js",
     "test": "mocha --compilers js:espower-babel/guess -- ./test/*test.js",
     "verify": "npm run lint && npm run test && npm run build:local && npm run build:dev && npm run build:dist"
