@@ -5,7 +5,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var root = process.cwd();
 
 module.exports = {
-  devtool: 'source-map',
   entry: {
     application: path.join(root, 'lib', 'application.js')
   },
@@ -16,7 +15,6 @@ module.exports = {
     publicPath: ''
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -31,7 +29,10 @@ module.exports = {
       template: path.join(root, 'template', 'index.template.html')
     }),
     new webpack.IgnorePlugin(/vertx/),
-    new webpack.IgnorePlugin(/xmlhttprequest/)
+    new webpack.IgnorePlugin(/xmlhttprequest/),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin()
   ],
   module: {
     loaders: [
