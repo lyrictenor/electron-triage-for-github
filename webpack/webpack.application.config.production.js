@@ -5,7 +5,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var root = process.cwd();
 
 module.exports = {
-  devtool: 'source-map',
   entry: {
     application: path.join(root, 'lib', 'application.js')
   },
