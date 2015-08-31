@@ -1,3 +1,9 @@
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.1...v0.1.2) (2015-08-31)
+
+* Update token rule
+
+
 <a name="0.1.1"></a>
 ## [0.1.1](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.0...v0.1.1) (2015-08-30)
 
