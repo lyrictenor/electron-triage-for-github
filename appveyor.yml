@@ -5,7 +5,7 @@ clone_depth: 20
 
 # install
 install:
-- ps: Install-Product node 3
+- ps: Install-Product node 2
 - node --version
 - npm --version
 - npm install
