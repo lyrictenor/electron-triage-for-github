@@ -1,3 +1,13 @@
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.2...v0.1.3) (2015-09-01)
+
+
+### Features
+
+* **story:** add merge button ([b434913](https://github.com/lyrictenor/electron-triage-for-github/commit/b434913))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.1...v0.1.2) (2015-08-31)
 
