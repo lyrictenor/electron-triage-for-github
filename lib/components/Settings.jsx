@@ -19,7 +19,7 @@ class Settings extends Component {
   disableButton() {
     this.setState({ canSubmit: false });
   }
-  submit (model) {
+  submit(model) {
     this.props.saveSettings(model);
   }
 
@@ -38,29 +38,29 @@ class Settings extends Component {
             onValidSubmit={this.submit.bind(this)}
             onValid={this.enableButton.bind(this)}
             onInvalid={this.disableButton.bind(this)}
-            className='settings'
+            className={'settings'}
             >
             <FormInput
-              name='apiendpoint'
+              name={'apiendpoint'}
               placeholder={setting.defaultApiendpoint}
-              validationError='Api Endpoint is required'
+              validationError={'Api Endpoint is required'}
               value={setting.apiendpoint}
               style={{display: 'block'}}
               fullWidth={true}
               required
               />
             <FormInput
-              name='webendpoint'
+              name={'webendpoint'}
               placeholder={setting.defaultWebendpoint}
-              validationError='Web Endpoint is required'
+              validationError={'Web Endpoint is required'}
               value={setting.webendpoint}
               style={{display: 'block'}}
               fullWidth={true}
               required
               />
             <FormInput
-              name='token'
-              type='password'
+              name={'token'}
+              type={'password'}
               value={setting.token}
               style={{display: 'block'}}
               fullWidth={true}
@@ -74,9 +74,9 @@ class Settings extends Component {
               </a>.
             </div>
             <FormInput
-              name='interval'
+              name={'interval'}
               placeholder={setting.defaultInterval}
-              validationError='Interval is required'
+              validationError={'Interval is required'}
               value={setting.interval}
               style={{display: 'block'}}
               fullWidth={true}
@@ -102,7 +102,7 @@ Settings.propTypes = {
   setting: PropTypes.object.isRequired,
   saveSettings: PropTypes.func.isRequired,
   doNothing: PropTypes.func.isRequired,
-  updateSettings: PropTypes.func.isRequired
+  updateSettings: PropTypes.func.isRequired,
 };
 
 export default Settings;

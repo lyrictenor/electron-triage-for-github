@@ -16,7 +16,7 @@ import withMaterialUI from '../decorators/withMaterialUI';
 
 const store = createStore();
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     router: state.router,
     setting: Object.assign(
@@ -25,15 +25,15 @@ function mapStateToProps (state) {
       {
         token: decryptData(state.setting.token),
         interval: String(state.setting.interval),
-        defaultInterval: String(state.setting.defaultInterval)
+        defaultInterval: String(state.setting.defaultInterval),
       }
-    )
+    ),
   };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    ...settingActionCreators
+    ...settingActionCreators,
   }, dispatch);
 }
 
@@ -44,17 +44,19 @@ export default class App extends Component {
   render() {
     const { history } = this.props;
     const elements = [
+      (
       <Provider store={store}>
         {() =>
           <Router history={history}>
-            <Route component={reduxRouteComponent(store)} path='/'>
-              <Route path={urlTable['home']} component={connect(mapStateToProps, mapDispatchToProps)(Home)} />
-              <Route path={urlTable['settings']} component={connect(mapStateToProps, mapDispatchToProps)(Settings)} />
-              <Route path={urlTable['debug']} component={connect(mapStateToProps, mapDispatchToProps)(Debug)} />
+            <Route component={reduxRouteComponent(store)} path="/">
+              <Route path={urlTable.home} component={connect(mapStateToProps, mapDispatchToProps)(Home)} />
+              <Route path={urlTable.settings} component={connect(mapStateToProps, mapDispatchToProps)(Settings)} />
+              <Route path={urlTable.debug} component={connect(mapStateToProps, mapDispatchToProps)(Debug)} />
             </Route>
           </Router>
         }
       </Provider>
+      ),
     ];
     if (__DEVTOOLS__) {
       const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
@@ -72,5 +74,5 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
 };

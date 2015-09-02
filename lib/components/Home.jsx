@@ -36,12 +36,12 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  stories: PropTypes.array.isRequired
+  stories: PropTypes.array.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    stories: state.story
+    stories: state.story,
   };
 }
 

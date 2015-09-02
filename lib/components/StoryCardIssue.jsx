@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-//import { Paper } from 'material-ui';
+// import { Paper } from 'material-ui';
 import trimWidth from '../utils/trim-width';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
@@ -25,12 +25,12 @@ class StoryCardIssue extends Component {
           |c:{issue.comments}
         </div>
         <div>
-          <RaisedButton label='close' disabled={issue.state !== 'open'} />
-          <RaisedButton label='reopen' disabled={issue.state === 'open'} />
-          <RaisedButton label='merge' disabled={true} />
-          <RaisedButton label='revert' disabled={true} />
-          <RaisedButton label='delete' disabled={true} />
-          <RaisedButton label='restore' disabled={true} />
+          <RaisedButton label={"close"} disabled={issue.state !== 'open'} />
+          <RaisedButton label={"reopen"} disabled={issue.state === 'open'} />
+          <RaisedButton label={"merge"} disabled={true} />
+          <RaisedButton label={"revert"} disabled={true} />
+          <RaisedButton label={"delete"} disabled={true} />
+          <RaisedButton label={"restore"} disabled={true} />
         </div>
       </div>
     );
@@ -38,7 +38,7 @@ class StoryCardIssue extends Component {
 }
 
 StoryCardIssue.propTypes = {
-  story: PropTypes.object.isRequired
+  story: PropTypes.object.isRequired,
 };
 
 export default StoryCardIssue;
