@@ -2,24 +2,24 @@ import React, { PropTypes } from 'react';
 import Formsy from 'formsy-react';
 import { TextField } from 'material-ui';
 
-let FormInput = React.createClass({
+const FormInput = React.createClass({
   propTypes: {
     placeholder: PropTypes.string,
     name: PropTypes.string.isRequired,
     type: PropTypes.string,
     style: PropTypes.object,
-    fullWidth: PropTypes.bool
+    fullWidth: PropTypes.bool,
   },
   // Add the Formsy Mixin
   mixins: [Formsy.Mixin],
 
   // setValue() will set the value of the component, which in
   // turn will validate it and the rest of the form
-  changeValue: function (event) {
+  changeValue: function changeValue(event) {
     this.setValue(event.currentTarget.value);
   },
 
-  render: function () {
+  render: function render() {
     // An error message is returned ONLY if the component is invalid
     // or the server has returned an error message
     const errorMessage = this.getErrorMessage();
@@ -37,6 +37,6 @@ let FormInput = React.createClass({
         style={style}
         />
     );
-  }
+  },
 });
 export default FormInput;

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-//import { Paper } from 'material-ui';
+// import { Paper } from 'material-ui';
 import StoryCardPull from './StoryCardPull.jsx';
 import StoryCardIssue from './StoryCardIssue.jsx';
 import {
@@ -45,7 +45,7 @@ class StoryList extends Component {
   }
 }
 StoryList.propTypes = {
-  stories: PropTypes.array.isRequired
+  stories: PropTypes.array.isRequired,
 };
 
 

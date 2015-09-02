@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/*eslint-disable no-console */
+/* eslint-disable no-console */
 
 import fs from 'fs';
 import archiver from 'archiver';
@@ -11,17 +11,7 @@ const targets = ['darwin-x64', 'linux-ia32', 'linux-x64', 'win32-ia32', 'win32-x
   return `${productName}-${target}`;
 });
 
-Promise.all(targets.map((target) => {
-  return pack(target);
-})).then((value) => {
-  console.log(value);
-  console.log('Pack complete.');
-}).catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
-
-function pack (target) {
+function pack(target) {
   return new Promise((resolve, reject) => {
     const outputPath = path.join('output', `${target}.zip`);
     const output = fs.createWriteStream(outputPath);
@@ -41,9 +31,19 @@ function pack (target) {
         src: [path.join('**', '*')],
         cwd: path.join('output', target),
         dest: productName,
-        expand: true
-      }
+        expand: true,
+      },
     ]);
     archive.finalize();
   });
 }
+
+Promise.all(targets.map((target) => {
+  return pack(target);
+})).then((value) => {
+  console.log(value);
+  console.log('Pack complete.');
+}).catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

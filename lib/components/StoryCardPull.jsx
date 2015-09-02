@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-//import { Paper } from 'material-ui';
+// import { Paper } from 'material-ui';
 import trimWidth from '../utils/trim-width';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
@@ -33,12 +33,12 @@ class StoryCardPull extends Component {
           |{statusState}
         </div>
         <div>
-          <RaisedButton label='close' disabled={pull.state !== 'open'} />
-          <RaisedButton label='reopen' disabled={pull.state === 'open'} />
-          <RaisedButton label='merge' disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
-          <RaisedButton label='revert' disabled={true} />
-          <RaisedButton label='delete' disabled={true} />
-          <RaisedButton label='restore' disabled={true} />
+          <RaisedButton label={"close"} disabled={pull.state !== 'open'} />
+          <RaisedButton label={"reopen"} disabled={pull.state === 'open'} />
+          <RaisedButton label={"merge"} disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
+          <RaisedButton label={"revert"} disabled={true} />
+          <RaisedButton label={"delete"} disabled={true} />
+          <RaisedButton label={"restore"} disabled={true} />
         </div>
       </div>
     );
@@ -46,7 +46,7 @@ class StoryCardPull extends Component {
 }
 
 StoryCardPull.propTypes = {
-  story: PropTypes.object.isRequired
+  story: PropTypes.object.isRequired,
 };
 
 export default StoryCardPull;

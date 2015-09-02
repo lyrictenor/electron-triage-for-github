@@ -7,9 +7,9 @@ import urls from '../utils/urls';
 import { RaisedButton, Paper } from 'material-ui';
 
 export default class Debug extends Component {
-  handleResetStorage () {
+  handleResetStorage() {
     resetStorage(__DATABASE_NAME__).then(() => {
-      console.log(`Reset localStorage and indexedDB: ${__DATABASE_NAME__}`);//eslint-disable-line no-console
+      console.log(`Reset localStorage and indexedDB: ${__DATABASE_NAME__}`);// eslint-disable-line no-console
       window.location.reload();
     });
   }
