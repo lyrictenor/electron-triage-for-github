@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-/*eslint-disable no-console */
+/* eslint-disable no-console */
 import yargs from 'yargs';
 import spawn from 'buffered-spawn';
 import path from 'path';
@@ -14,7 +14,7 @@ const packagerOptions = {
   version: electronVersion,
   out: outputPath,
   platform: 'all',
-  arch: 'all'
+  arch: 'all',
 };
 const argv = yargs.default(packagerOptions).argv;
 
@@ -38,9 +38,9 @@ spawn('npm', ['run', 'build:dist'], { stdio: 'inherit' })
         version: argv.version,
         out: argv.out,
         platform: argv.platform,
-        arch: argv.arch
+        arch: argv.arch,
       }, (err, appPath) => {
-        if(err) {
+        if (err) {
           reject(err);
           return;
         }
