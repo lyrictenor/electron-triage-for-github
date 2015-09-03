@@ -7,7 +7,7 @@ import { RaisedButton } from 'material-ui';
 class StoryCardPull extends Component {
   render() {
     const { story } = this.props;
-    const { repo, pull, issue, status } = story;
+    const { repo, pull, issue, status, branch } = story;
     issue;
     const statusState = (status.totalCount >= 1)
       ? (<span>status:{status.state}</span>)
@@ -37,8 +37,7 @@ class StoryCardPull extends Component {
           <RaisedButton label={"reopen"} disabled={pull.state === 'open'} />
           <RaisedButton label={"merge"} disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
           <RaisedButton label={"revert"} disabled={true} />
-          <RaisedButton label={"delete"} disabled={true} />
-          <RaisedButton label={"restore"} disabled={true} />
+          <RaisedButton label={"delete branch"} disabled={!branch} />
         </div>
       </div>
     );

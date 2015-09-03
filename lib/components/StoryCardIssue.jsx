@@ -29,8 +29,7 @@ class StoryCardIssue extends Component {
           <RaisedButton label={"reopen"} disabled={issue.state === 'open'} />
           <RaisedButton label={"merge"} disabled={true} />
           <RaisedButton label={"revert"} disabled={true} />
-          <RaisedButton label={"delete"} disabled={true} />
-          <RaisedButton label={"restore"} disabled={true} />
+          <RaisedButton label={"delete branch"} disabled={true} />
         </div>
       </div>
     );
