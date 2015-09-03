@@ -25,11 +25,12 @@ class StoryCardIssue extends Component {
           |c:{issue.comments}
         </div>
         <div>
-          <RaisedButton label={"close"} disabled={issue.state !== 'open'} />
-          <RaisedButton label={"reopen"} disabled={issue.state === 'open'} />
-          <RaisedButton label={"merge"} disabled={true} />
-          <RaisedButton label={"revert"} disabled={true} />
-          <RaisedButton label={"delete branch"} disabled={true} />
+          <RaisedButton label="reload" />
+          <RaisedButton label="close" disabled={issue.state !== 'open'} />
+          <RaisedButton label="reopen" disabled={issue.state === 'open'} />
+          <RaisedButton label="merge" disabled={true} />
+          <RaisedButton label="revert" disabled={true} />
+          <RaisedButton label="delete branch" disabled={true} />
         </div>
       </div>
     );

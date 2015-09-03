@@ -33,11 +33,12 @@ class StoryCardPull extends Component {
           |{statusState}
         </div>
         <div>
-          <RaisedButton label={"close"} disabled={pull.state !== 'open'} />
-          <RaisedButton label={"reopen"} disabled={pull.state === 'open'} />
-          <RaisedButton label={"merge"} disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
-          <RaisedButton label={"revert"} disabled={true} />
-          <RaisedButton label={"delete branch"} disabled={!branch} />
+          <RaisedButton label="reload" />
+          <RaisedButton label="close" disabled={pull.state !== 'open'} />
+          <RaisedButton label="reopen" disabled={pull.state === 'open'} />
+          <RaisedButton label="merge" disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
+          <RaisedButton label="revert" disabled={true} />
+          <RaisedButton label="delete branch" disabled={!branch} />
         </div>
       </div>
     );
