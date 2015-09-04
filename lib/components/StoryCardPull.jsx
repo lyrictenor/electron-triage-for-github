@@ -19,12 +19,7 @@ class StoryCardPull extends Component {
           |{repo.fullName}#{pull.number}
           |{pull.head.label}
           |title:
-          <a
-            href={pull.htmlUrl}
-            onClick={electronOpenLinkInBrowser.bind(this)}
-            >
-            {trimWidth(pull.title, {length: 50})}
-          </a>
+            {pull.title}
           |body:{trimWidth(pull.bodyText, {length: 100})}
           |issue:{pull.state}
           |c:{pull.comments}
@@ -38,6 +33,10 @@ class StoryCardPull extends Component {
         </div>
         <div>
           <RaisedButton label="reload" />
+          <RaisedButton
+            label="jump"
+            onClick={electronOpenLinkInBrowser.bind(this, pull.htmlUrl)}
+            />
           <RaisedButton label="close" disabled={pull.state !== 'open'} />
           <RaisedButton label="reopen" disabled={pull.state === 'open'} />
           <RaisedButton label="merge" disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />

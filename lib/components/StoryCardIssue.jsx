@@ -14,12 +14,7 @@ class StoryCardIssue extends Component {
           i
           |{repo.fullName}#{issue.number}
           |title:
-          <a
-            href={issue.htmlUrl}
-            onClick={electronOpenLinkInBrowser.bind(this)}
-            >
-            {trimWidth(issue.title, {length: 50})}
-          </a>
+            {issue.title}
           |body:{trimWidth(issue.bodyText, {length: 100})}
           |issue:{issue.state}
           |c:{issue.comments}
@@ -29,6 +24,10 @@ class StoryCardIssue extends Component {
         </div>
         <div>
           <RaisedButton label="reload" />
+          <RaisedButton
+            label="jump"
+            onClick={electronOpenLinkInBrowser.bind(this, issue.htmlUrl)}
+            />
           <RaisedButton label="close" disabled={issue.state !== 'open'} />
           <RaisedButton label="reopen" disabled={issue.state === 'open'} />
           <RaisedButton label="merge" disabled={true} />
