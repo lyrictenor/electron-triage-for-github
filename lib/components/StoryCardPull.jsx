@@ -31,6 +31,10 @@ class StoryCardPull extends Component {
           |rc:{pull.reviewComments}
           |+{pull.additions}-{pull.deletions}
           |{statusState}
+          |updatedAt:{pull.updatedAt.toString()}
+          |createdAt:{pull.createdAt.toString()}
+          |mergedAt:{pull.mergedAt && pull.mergedAt.toString()}
+          |closedAt:{pull.closedAt && pull.closedAt.toString()}
         </div>
         <div>
           <RaisedButton label="reload" />
