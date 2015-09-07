@@ -14,22 +14,27 @@ class StoryCardIssue extends Component {
           i
           |{repo.fullName}#{issue.number}
           |title:
-          <a
-            href={issue.htmlUrl}
-            onClick={electronOpenLinkInBrowser.bind(this)}
-            >
-            {trimWidth(issue.title, {length: 50})}
-          </a>
+            {issue.title}
           |body:{trimWidth(issue.bodyText, {length: 100})}
           |issue:{issue.state}
           |c:{issue.comments}
         </div>
         <div>
-          <RaisedButton label={"close"} disabled={issue.state !== 'open'} />
-          <RaisedButton label={"reopen"} disabled={issue.state === 'open'} />
-          <RaisedButton label={"merge"} disabled={true} />
-          <RaisedButton label={"revert"} disabled={true} />
-          <RaisedButton label={"delete branch"} disabled={true} />
+          |updatedAt:{issue.updatedAt.toString()}
+          |createdAt:{issue.createdAt.toString()}
+          |closedAt:{issue.closedAt && issue.closedAt.toString()}
+        </div>
+        <div>
+          <RaisedButton label="reload" />
+          <RaisedButton
+            label="jump"
+            onClick={electronOpenLinkInBrowser.bind(this, issue.htmlUrl)}
+            />
+          <RaisedButton label="close" disabled={issue.state !== 'open'} />
+          <RaisedButton label="reopen" disabled={issue.state === 'open'} />
+          <RaisedButton label="merge" disabled={true} />
+          <RaisedButton label="revert" disabled={true} />
+          <RaisedButton label="delete branch" disabled={true} />
         </div>
       </div>
     );

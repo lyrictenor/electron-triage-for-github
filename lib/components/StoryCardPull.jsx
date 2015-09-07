@@ -19,12 +19,7 @@ class StoryCardPull extends Component {
           |{repo.fullName}#{pull.number}
           |{pull.head.label}
           |title:
-          <a
-            href={pull.htmlUrl}
-            onClick={electronOpenLinkInBrowser.bind(this)}
-            >
-            {trimWidth(pull.title, {length: 50})}
-          </a>
+            {pull.title}
           |body:{trimWidth(pull.bodyText, {length: 100})}
           |issue:{pull.state}
           |c:{pull.comments}
@@ -33,11 +28,22 @@ class StoryCardPull extends Component {
           |{statusState}
         </div>
         <div>
-          <RaisedButton label={"close"} disabled={pull.state !== 'open'} />
-          <RaisedButton label={"reopen"} disabled={pull.state === 'open'} />
-          <RaisedButton label={"merge"} disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
-          <RaisedButton label={"revert"} disabled={true} />
-          <RaisedButton label={"delete branch"} disabled={!branch} />
+          |updatedAt:{pull.updatedAt.toString()}
+          |createdAt:{pull.createdAt.toString()}
+          |mergedAt:{pull.mergedAt && pull.mergedAt.toString()}
+          |closedAt:{pull.closedAt && pull.closedAt.toString()}
+        </div>
+        <div>
+          <RaisedButton label="reload" />
+          <RaisedButton
+            label="jump"
+            onClick={electronOpenLinkInBrowser.bind(this, pull.htmlUrl)}
+            />
+          <RaisedButton label="close" disabled={pull.state !== 'open'} />
+          <RaisedButton label="reopen" disabled={pull.state === 'open'} />
+          <RaisedButton label="merge" disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
+          <RaisedButton label="revert" disabled={true} />
+          <RaisedButton label="delete branch" disabled={!branch} />
         </div>
       </div>
     );
