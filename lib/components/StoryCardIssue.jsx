@@ -18,6 +18,8 @@ class StoryCardIssue extends Component {
           |body:{trimWidth(issue.bodyText, {length: 100})}
           |issue:{issue.state}
           |c:{issue.comments}
+        </div>
+        <div>
           |updatedAt:{issue.updatedAt.toString()}
           |createdAt:{issue.createdAt.toString()}
           |closedAt:{issue.closedAt && issue.closedAt.toString()}

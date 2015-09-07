@@ -26,6 +26,8 @@ class StoryCardPull extends Component {
           |rc:{pull.reviewComments}
           |+{pull.additions}-{pull.deletions}
           |{statusState}
+        </div>
+        <div>
           |updatedAt:{pull.updatedAt.toString()}
           |createdAt:{pull.createdAt.toString()}
           |mergedAt:{pull.mergedAt && pull.mergedAt.toString()}
