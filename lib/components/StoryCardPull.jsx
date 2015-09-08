@@ -6,7 +6,7 @@ import { RaisedButton } from 'material-ui';
 
 class StoryCardPull extends Component {
   render() {
-    const { story } = this.props;
+    const { story, reloadStory } = this.props;
     const { repo, pull, issue, status, branch } = story;
     issue;
     const statusState = (status.totalCount >= 1)
@@ -34,7 +34,10 @@ class StoryCardPull extends Component {
           |closedAt:{pull.closedAt && pull.closedAt.toString()}
         </div>
         <div>
-          <RaisedButton label="reload" />
+          <RaisedButton
+            label="reload"
+            onClick={reloadStory.bind(this, {keys: [story.id]})}
+            />
           <RaisedButton
             label="jump"
             onClick={electronOpenLinkInBrowser.bind(this, pull.htmlUrl)}
@@ -52,6 +55,7 @@ class StoryCardPull extends Component {
 
 StoryCardPull.propTypes = {
   story: PropTypes.object.isRequired,
+  reloadStory: PropTypes.func.isRequired,
 };
 
 export default StoryCardPull;

@@ -2,7 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import urls from '../utils/urls';
-import { fetchStories } from '../actions/storyActionCreators';
+import {
+  fetchStories,
+  reloadStory
+} from '../actions/storyActionCreators';
 import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
 
@@ -47,5 +50,8 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { fetchStories }
+  {
+    fetchStories,
+    reloadStory,
+  }
 )(Home);
