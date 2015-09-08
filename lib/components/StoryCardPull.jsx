@@ -36,7 +36,7 @@ class StoryCardPull extends Component {
         <div>
           <RaisedButton
             label="reload"
-            onClick={reloadStory.bind(this, {keys: [story.id]})}
+            onClick={reloadStory.bind(this, story.id)}
             />
           <RaisedButton
             label="jump"
