@@ -8,7 +8,11 @@ class StoryCardPull extends Component {
   render() {
     const { story, reloadStory } = this.props;
     const { repo, pull, issue, status, branch } = story;
-    issue;
+    const identifier = {
+      owner: repo.owner.login,
+      repo: repo.name,
+      number: issue.number,
+    };
     const statusState = (status.totalCount >= 1)
       ? (<span>status:{status.state}</span>)
       : (<span>status:-</span>);
@@ -36,7 +40,7 @@ class StoryCardPull extends Component {
         <div>
           <RaisedButton
             label="reload"
-            onClick={reloadStory.bind(this, story.id)}
+            onClick={reloadStory.bind(this, identifier)}
             />
           <RaisedButton
             label="jump"

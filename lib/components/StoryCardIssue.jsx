@@ -8,6 +8,11 @@ class StoryCardIssue extends Component {
   render() {
     const { story, reloadStory } = this.props;
     const { repo, issue } = story;
+    const identifier = {
+      owner: repo.owner.login,
+      repo: repo.name,
+      number: issue.number,
+    };
     return (
       <div>
         <div>
@@ -27,7 +32,7 @@ class StoryCardIssue extends Component {
         <div>
           <RaisedButton
             label="reload"
-            onClick={reloadStory.bind(this, story.id)}
+            onClick={reloadStory.bind(this, identifier)}
             />
           <RaisedButton
             label="jump"
