@@ -43,8 +43,8 @@ export default class App extends Component {
   // github.com/rackt/react-router/issues/1570
   render() {
     const { history } = this.props;
-    const elements = [
-      (
+    const elements = [];
+    elements.push(
       <Provider store={store}>
         {() =>
           <Router history={history}>
@@ -56,8 +56,7 @@ export default class App extends Component {
           </Router>
         }
       </Provider>
-      ),
-    ];
+    );
     if (__DEVTOOLS__) {
       const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
       elements.push(
