@@ -46,7 +46,7 @@ class Settings extends Component {
               validationError={'Api Endpoint is required'}
               value={setting.apiendpoint}
               style={{display: 'block'}}
-              fullWidth={true}
+              fullWidth
               required
               />
             <FormInput
@@ -55,7 +55,7 @@ class Settings extends Component {
               validationError={'Web Endpoint is required'}
               value={setting.webendpoint}
               style={{display: 'block'}}
-              fullWidth={true}
+              fullWidth
               required
               />
             <FormInput
@@ -63,7 +63,7 @@ class Settings extends Component {
               type={'password'}
               value={setting.token}
               style={{display: 'block'}}
-              fullWidth={true}
+              fullWidth
               />
             <div>
               <a
@@ -79,14 +79,14 @@ class Settings extends Component {
               validationError={'Interval is required'}
               value={setting.interval}
               style={{display: 'block'}}
-              fullWidth={true}
+              fullWidth
               required
               />
 
             <RaisedButton
               type={'submit'}
               label={submitText}
-              primary={true}
+              primary
               disabled={!this.state.canSubmit}
               style={{margin: '48px 0 32px'}}
               />
