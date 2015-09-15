@@ -69,7 +69,7 @@
     "webpack-dev-server": "^1.10.1",
     "yargs": "^3.23.0"
   },
-  "electronVersion": "0.31.1",
+  "electronVersion": "0.32.3",
   "engines": {
     "node": ">=0.10.0"
   },
