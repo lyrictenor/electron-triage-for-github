@@ -1,3 +1,16 @@
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.3...v0.1.4) (2015-09-15)
+
+* Reload issue
+* Update electron to v0.32.3
+
+
+### Features
+
+* **fetch:** repos branches ([c806b80](https://github.com/lyrictenor/electron-triage-for-github/commit/c806b80))
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.2...v0.1.3) (2015-09-01)
 
