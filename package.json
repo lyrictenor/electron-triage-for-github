@@ -99,7 +99,7 @@
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
-    "ncu": "npm-check-updates -ua",
+    "ncu": "ncu -u",
     "resource": "cpy package.json dist && npm run resource:main",
     "resource:main": "cpy lib/main.js dist && cd dist && npm install electron-debug electron-template-menu && cd ..",
     "start": "npm run build:local && node lib/server.js",
