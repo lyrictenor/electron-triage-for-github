@@ -6,9 +6,13 @@ import { RaisedButton } from 'material-ui';
 
 class StoryCardPull extends Component {
   render() {
-    const { story } = this.props;
+    const { story, reloadStory } = this.props;
     const { repo, pull, issue, status, branch } = story;
-    issue;
+    const identifier = {
+      owner: repo.owner.login,
+      repo: repo.name,
+      number: issue.number,
+    };
     const statusState = (status.totalCount >= 1)
       ? (<span>status:{status.state}</span>)
       : (<span>status:-</span>);
@@ -34,7 +38,10 @@ class StoryCardPull extends Component {
           |closedAt:{pull.closedAt && pull.closedAt.toString()}
         </div>
         <div>
-          <RaisedButton label="reload" />
+          <RaisedButton
+            label="reload"
+            onClick={reloadStory.bind(this, identifier)}
+            />
           <RaisedButton
             label="jump"
             onClick={electronOpenLinkInBrowser.bind(this, pull.htmlUrl)}
@@ -42,7 +49,7 @@ class StoryCardPull extends Component {
           <RaisedButton label="close" disabled={pull.state !== 'open'} />
           <RaisedButton label="reopen" disabled={pull.state === 'open'} />
           <RaisedButton label="merge" disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
-          <RaisedButton label="revert" disabled={true} />
+          <RaisedButton label="revert" disabled />
           <RaisedButton label="delete branch" disabled={!branch} />
         </div>
       </div>
@@ -52,6 +59,7 @@ class StoryCardPull extends Component {
 
 StoryCardPull.propTypes = {
   story: PropTypes.object.isRequired,
+  reloadStory: PropTypes.func.isRequired,
 };
 
 export default StoryCardPull;
