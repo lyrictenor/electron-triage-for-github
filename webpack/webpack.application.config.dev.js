@@ -53,7 +53,7 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['babel'],
         exclude: [/node_modules/]
       },
       {
