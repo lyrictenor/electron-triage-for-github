@@ -1,20 +1,58 @@
-/* global __DEVTOOLS__ */
+/* global __DEVELOPMENT__, __DEVTOOLS__ */
 import React, { Component, PropTypes } from 'react';
 import { Provider, connect } from 'react-redux';
 import { Router, Route } from 'react-router';
-import { reduxRouteComponent } from 'redux-react-router';
+import { reduxRouteComponent, routerStateReducer } from 'redux-react-router';
 
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
-import createStore from '../store/createStore';
 import Debug from '../components/Debug.jsx';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import * as reducers from '../reducers';
+
 import * as settingActionCreators from '../actions/settingActionCreators';
 import urlTable from './urlTable';
 import { decryptData } from '../utils/cryptData';
 import withMaterialUI from '../decorators/withMaterialUI';
 
-const store = createStore();
+let finalCreateStore;
+if (__DEVELOPMENT__  && __DEVTOOLS__) {
+  const { devTools, persistState } = require('redux-devtools');
+  finalCreateStore = compose(
+    applyMiddleware(thunk),
+    devTools(),
+    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+  )(createStore);
+} else {
+  finalCreateStore = compose(
+    applyMiddleware(thunk)
+  )(createStore);
+}
+
+const reducer = combineReducers({
+  router: routerStateReducer,
+  ...reducers,
+});
+
+function buildStore(initialState) {
+  const store = finalCreateStore(reducer, initialState);
+
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers', () => {
+      const nextReducers = { default: require('../reducers')};
+      store.replaceReducer(combineReducers({
+        router: routerStateReducer,
+        ...nextReducers,
+      }));
+    });
+  }
+
+  return store;
+}
+
+const store = buildStore();
 
 function mapStateToProps(state) {
   return {
