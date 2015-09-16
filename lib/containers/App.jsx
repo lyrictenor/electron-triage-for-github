@@ -2,12 +2,21 @@
 import React, { Component, PropTypes } from 'react';
 import { Provider, connect } from 'react-redux';
 import { Router, Route } from 'react-router';
-import { reduxRouteComponent, routerStateReducer } from 'redux-react-router';
+import {
+  reduxRouteComponent,
+  routerStateReducer
+} from 'redux-react-router';
 
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
 import Debug from '../components/Debug.jsx';
-import { bindActionCreators, createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import {
+  bindActionCreators,
+  createStore,
+  combineReducers,
+  applyMiddleware,
+  compose
+} from 'redux';
 import thunk from 'redux-thunk';
 import * as reducers from '../reducers';
 
