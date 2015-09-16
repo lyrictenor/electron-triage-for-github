@@ -1,11 +1,11 @@
 # https://travis-ci.org/
 language: "node_js"
 node_js:
-  - "iojs-2"
   - "iojs-3"
+  - "4"
 matrix:
   allow_failures:
-    - node_js: "iojs-3"
+    - node_js: "4"
 script: "npm run verify"
 after_success:
 - "is-travis-ci-build-for-tag && npm run electron:build && npm run electron:pack"
@@ -22,5 +22,5 @@ deploy:
   on:
     repo: "lyrictenor/electron-triage-for-github"
     tags: true
-    node: "iojs-2"
+    node: "iojs-3"
   skip_cleanup: true
