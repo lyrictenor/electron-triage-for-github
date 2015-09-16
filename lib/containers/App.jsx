@@ -44,24 +44,7 @@ const reducer = combineReducers({
   ...reducers,
 });
 
-function buildStore(initialState) {
-  const store = finalCreateStore(reducer, initialState);
-
-  if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      const nextReducers = { default: require('../reducers')};
-      store.replaceReducer(combineReducers({
-        router: routerStateReducer,
-        ...nextReducers,
-      }));
-    });
-  }
-
-  return store;
-}
-
-const store = buildStore();
+const store = finalCreateStore(reducer);
 
 function mapStateToProps(state) {
   return {

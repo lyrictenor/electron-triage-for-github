@@ -10,8 +10,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: {
     application: [
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
+      'webpack-hot-middleware/client',
       path.join(root, 'lib', 'application.js')
     ]
   },
@@ -59,7 +58,7 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['babel'],
         exclude: /node_modules/
       },
       {
