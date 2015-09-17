@@ -6,7 +6,11 @@ import { RaisedButton } from 'material-ui';
 
 class StoryCardIssue extends Component {
   render() {
-    const { story, reloadStory } = this.props;
+    const {
+      story,
+      reloadStory,
+      closeStory,
+      } = this.props;
     const { repo, issue } = story;
     const identifier = {
       owner: repo.owner.login,
@@ -38,7 +42,11 @@ class StoryCardIssue extends Component {
             label="jump"
             onClick={electronOpenLinkInBrowser.bind(this, issue.htmlUrl)}
             />
-          <RaisedButton label="close" disabled={issue.state !== 'open'} />
+          <RaisedButton
+            label="close"
+            onClick={closeStory.bind(this, identifier)}
+            disabled={issue.state !== 'open'}
+            />
           <RaisedButton label="reopen" disabled={issue.state === 'open'} />
           <RaisedButton label="merge" disabled />
           <RaisedButton label="revert" disabled />
@@ -52,6 +60,7 @@ class StoryCardIssue extends Component {
 StoryCardIssue.propTypes = {
   story: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
+  closeStory: PropTypes.func.isRequired,
 };
 
 export default StoryCardIssue;
