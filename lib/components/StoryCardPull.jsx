@@ -62,7 +62,10 @@ class StoryCardPull extends Component {
             />
           <RaisedButton label="merge" disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
           <RaisedButton label="revert" disabled />
-          <RaisedButton label="delete branch" disabled={!branch} />
+          <RaisedButton
+            label="delete branch"
+            disabled={!branch || pull.state === 'open'}
+            />
         </div>
       </div>
     );
