@@ -9,7 +9,7 @@ class StoryCardIssue extends Component {
     const {
       story,
       reloadStory,
-      closeStory,
+      toggleStoryState,
       } = this.props;
     const { repo, issue } = story;
     const identifier = {
@@ -44,7 +44,7 @@ class StoryCardIssue extends Component {
             />
           <RaisedButton
             label="close"
-            onClick={closeStory.bind(this, identifier)}
+            onClick={toggleStoryState.bind(this, identifier)}
             disabled={issue.state !== 'open'}
             />
           <RaisedButton label="reopen" disabled={issue.state === 'open'} />
@@ -60,7 +60,7 @@ class StoryCardIssue extends Component {
 StoryCardIssue.propTypes = {
   story: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
-  closeStory: PropTypes.func.isRequired,
+  toggleStoryState: PropTypes.func.isRequired,
 };
 
 export default StoryCardIssue;

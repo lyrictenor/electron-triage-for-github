@@ -5,7 +5,7 @@ import urls from '../utils/urls';
 import {
   fetchStories,
   reloadStory,
-  closeStory
+  toggleStoryState
 } from '../actions/storyActionCreators';
 import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
@@ -54,6 +54,6 @@ export default connect(
   {
     fetchStories,
     reloadStory,
-    closeStory,
+    toggleStoryState,
   }
 )(Home);
