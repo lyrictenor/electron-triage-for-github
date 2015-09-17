@@ -47,7 +47,11 @@ class StoryCardIssue extends Component {
             onClick={toggleStoryState.bind(this, identifier)}
             disabled={issue.state !== 'open'}
             />
-          <RaisedButton label="reopen" disabled={issue.state === 'open'} />
+          <RaisedButton
+            label="reopen"
+            onClick={toggleStoryState.bind(this, identifier)}
+            disabled={issue.state === 'open'}
+            />
           <RaisedButton label="merge" disabled />
           <RaisedButton label="revert" disabled />
           <RaisedButton label="delete branch" disabled />
