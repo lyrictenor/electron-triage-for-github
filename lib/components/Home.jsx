@@ -4,7 +4,8 @@ import { Link } from 'react-router';
 import urls from '../utils/urls';
 import {
   fetchStories,
-  reloadStory
+  reloadStory,
+  closeStory
 } from '../actions/storyActionCreators';
 import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
@@ -53,5 +54,6 @@ export default connect(
   {
     fetchStories,
     reloadStory,
+    closeStory,
   }
 )(Home);
