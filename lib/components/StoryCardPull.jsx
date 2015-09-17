@@ -10,6 +10,7 @@ class StoryCardPull extends Component {
       story,
       reloadStory,
       toggleStoryState,
+      deleteStoryBranch,
       } = this.props;
     const { repo, pull, issue, status, branch } = story;
     const identifier = {
@@ -62,7 +63,11 @@ class StoryCardPull extends Component {
             />
           <RaisedButton label="merge" disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
           <RaisedButton label="revert" disabled />
-          <RaisedButton label="delete branch" disabled={!branch} />
+          <RaisedButton
+            label="delete branch"
+            onClick={deleteStoryBranch.bind(this, identifier)}
+            disabled={!branch || pull.state === 'open'}
+            />
         </div>
       </div>
     );
@@ -73,6 +78,7 @@ StoryCardPull.propTypes = {
   story: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
   toggleStoryState: PropTypes.func.isRequired,
+  deleteStoryBranch: PropTypes.func.isRequired,
 };
 
 export default StoryCardPull;
