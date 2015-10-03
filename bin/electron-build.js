@@ -17,9 +17,10 @@ const packagerOptions = {
   arch: 'all',
 };
 const argv = yargs.default(packagerOptions).argv;
+const env = Object.assign({}, process.env, { NODE_ENV: 'production' });
 
 console.log(`Pack electron ${electronVersion}`);
-spawn('npm', ['run', 'build:dist'], { stdio: 'inherit' })
+spawn('npm', ['run', 'build:dist'], { stdio: 'inherit', env: env })
   .then(() => {
     return new Promise((resolve, reject) => {
       rimraf(outputPath, (error) => {
