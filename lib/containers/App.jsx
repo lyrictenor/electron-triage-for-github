@@ -18,6 +18,7 @@ import {
   compose,
 } from 'redux';
 import thunk from 'redux-thunk';
+import { batchedUpdatesMiddleware } from 'redux-batched-updates';
 import * as reducers from '../reducers';
 
 import * as settingActionCreators from '../actions/settingActionCreators';
@@ -26,7 +27,7 @@ import { decryptData } from '../utils/cryptData';
 import withMaterialUI from '../decorators/withMaterialUI';
 
 let finalCreateStore;
-const middleware = [thunk];
+const middleware = [thunk, batchedUpdatesMiddleware];
 if (__DEVELOPMENT__ && __DEVTOOLS__) {
   const { devTools, persistState } = require('redux-devtools');
   finalCreateStore = compose(
