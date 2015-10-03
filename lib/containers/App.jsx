@@ -26,7 +26,7 @@ import { decryptData } from '../utils/cryptData';
 import withMaterialUI from '../decorators/withMaterialUI';
 
 let finalCreateStore;
-if (__DEVELOPMENT__  && __DEVTOOLS__) {
+if (__DEVELOPMENT__ && __DEVTOOLS__) {
   const { devTools, persistState } = require('redux-devtools');
   finalCreateStore = compose(
     applyMiddleware(thunk),
