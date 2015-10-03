@@ -26,16 +26,17 @@ import { decryptData } from '../utils/cryptData';
 import withMaterialUI from '../decorators/withMaterialUI';
 
 let finalCreateStore;
+const middleware = [thunk];
 if (__DEVELOPMENT__ && __DEVTOOLS__) {
   const { devTools, persistState } = require('redux-devtools');
   finalCreateStore = compose(
-    applyMiddleware(thunk),
+    applyMiddleware(...middleware),
     devTools(),
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
   )(createStore);
 } else {
   finalCreateStore = compose(
-    applyMiddleware(thunk)
+    applyMiddleware(...middleware)
   )(createStore);
 }
 
