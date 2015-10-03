@@ -4,7 +4,7 @@ import { Provider, connect } from 'react-redux';
 import { Router, Route } from 'react-router';
 import {
   reduxRouteComponent,
-  routerStateReducer
+  routerStateReducer,
 } from 'redux-react-router';
 
 import Home from '../components/Home.jsx';
@@ -15,7 +15,7 @@ import {
   createStore,
   combineReducers,
   applyMiddleware,
-  compose
+  compose,
 } from 'redux';
 import thunk from 'redux-thunk';
 import * as reducers from '../reducers';
