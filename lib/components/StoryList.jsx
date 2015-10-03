@@ -4,7 +4,7 @@ import StoryCardPull from './StoryCardPull.jsx';
 import StoryCardIssue from './StoryCardIssue.jsx';
 import {
   TYPE_ISSUE,
-  TYPE_PULL
+  TYPE_PULL,
 } from '../craftperson/story';
 
 class StoryList extends Component {

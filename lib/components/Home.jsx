@@ -6,7 +6,7 @@ import {
   fetchStories,
   reloadStory,
   toggleStoryState,
-  deleteStoryBranch
+  deleteStoryBranch,
 } from '../actions/storyActionCreators';
 import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
