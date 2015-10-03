@@ -5,7 +5,7 @@ clone_depth: 20
 
 environment:
   matrix:
-  - nodejs_version: 3
+  - nodejs_version: 4
 
 # install
 install:
