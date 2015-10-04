@@ -1,3 +1,15 @@
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.5...v0.1.6) (2015-10-04)
+
+* Update dependencies
+
+### Features
+
+* **story:** implement close story ([3c4b498](https://github.com/lyrictenor/electron-triage-for-github/commit/3c4b498))
+* **story:** reopen issue ([f846946](https://github.com/lyrictenor/electron-triage-for-github/commit/f846946))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.4...v0.1.5) (2015-09-17)
 
