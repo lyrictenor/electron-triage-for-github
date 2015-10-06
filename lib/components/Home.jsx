@@ -7,6 +7,7 @@ import {
   reloadStory,
   toggleStoryState,
   deleteStoryBranch,
+  mergeStoryPullRequest,
 } from '../actions/storyActionCreators';
 import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
@@ -57,5 +58,6 @@ export default connect(
     reloadStory,
     toggleStoryState,
     deleteStoryBranch,
+    mergeStoryPullRequest,
   }
 )(Home);
