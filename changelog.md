@@ -1,3 +1,13 @@
+<a name="0.1.8"></a>
+## [0.1.8](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.7...v0.1.8) (2015-10-06)
+
+
+### Features
+
+* **merge:** merge implementation ([f029c33](https://github.com/lyrictenor/electron-triage-for-github/commit/f029c33))
+
+
+
 <a name="0.1.7"></a>
 ## [0.1.7](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.6...v0.1.7) (2015-10-06)
 
