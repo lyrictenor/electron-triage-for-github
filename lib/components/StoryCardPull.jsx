@@ -11,6 +11,7 @@ class StoryCardPull extends Component {
       reloadStory,
       toggleStoryState,
       deleteStoryBranch,
+      mergeStoryPullRequest,
       } = this.props;
     const { repo, pull, issue, status, branch } = story;
     const identifier = {
@@ -61,7 +62,11 @@ class StoryCardPull extends Component {
             onClick={toggleStoryState.bind(this, identifier)}
             disabled={pull.state === 'open'}
             />
-          <RaisedButton label="merge" disabled={pull.state !== 'open' || pull.merged || !pull.mergeable} />
+          <RaisedButton
+            label="merge"
+            onClick={mergeStoryPullRequest.bind(this, identifier)}
+            disabled={pull.state !== 'open' || pull.merged || !pull.mergeable}
+            />
           <RaisedButton label="revert" disabled />
           <RaisedButton
             label="delete branch"
@@ -79,6 +84,7 @@ StoryCardPull.propTypes = {
   reloadStory: PropTypes.func.isRequired,
   toggleStoryState: PropTypes.func.isRequired,
   deleteStoryBranch: PropTypes.func.isRequired,
+  mergeStoryPullRequest: PropTypes.func.isRequired,
 };
 
 export default StoryCardPull;
