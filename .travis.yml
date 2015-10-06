@@ -18,5 +18,5 @@ deploy:
   on:
     repo: "lyrictenor/electron-triage-for-github"
     tags: true
-    node: "iojs-3"
+    node: "4"
   skip_cleanup: true
