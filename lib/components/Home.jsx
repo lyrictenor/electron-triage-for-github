@@ -17,7 +17,7 @@ function loadData(props) {
 }
 
 class Home extends Component {
-  componentWillMount() {
+  componentDidMount() {
     loadData(this.props);
   }
   render() {

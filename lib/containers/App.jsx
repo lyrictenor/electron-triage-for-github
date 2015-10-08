@@ -19,6 +19,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { batchedUpdatesMiddleware } from 'redux-batched-updates';
+
 import * as reducers from '../reducers';
 
 import * as settingActionCreators from '../actions/settingActionCreators';
