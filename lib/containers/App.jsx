@@ -6,10 +6,12 @@ import {
   reduxRouteComponent,
   routerStateReducer,
 } from 'redux-react-router';
+import { reducer as formReducer } from 'redux-form';
 
 import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
 import Debug from '../components/Debug.jsx';
+import SettingPage from '../components/SettingPage.jsx';
 import {
   createStore,
   combineReducers,
@@ -40,6 +42,7 @@ if (__DEVELOPMENT__ && __DEVTOOLS__) {
 
 const reducer = combineReducers({
   router: routerStateReducer,
+  form: formReducer,
   ...reducers,
 });
 
@@ -48,6 +51,7 @@ const store = finalCreateStore(reducer);
 function mapStateToProps(state) {
   return {
     router: state.router,
+    form: state.form,
   };
 }
 
@@ -77,6 +81,10 @@ class App extends Component {
               <Route
                 path={urlTable.debug}
                 component={connect(mapStateToProps)(Debug)}
+                />
+              <Route
+                path={urlTable.settingPage}
+                component={connect(mapStateToProps)(SettingPage)}
                 />
             </Route>
           </Router>
