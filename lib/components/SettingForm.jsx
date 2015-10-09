@@ -1,40 +1,61 @@
 import React, { Component, PropTypes } from 'react';
-import { connectReduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { reduxForm } from 'redux-form';
 // import validateContact from './validateContact';
+import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
+import { filterOutputSettings } from '../utils/settingData';
 
-function validateContact(data) {
+function validateContact(data) {// eslint-disable-line no-unused-vars
   const errors = {};
-  if (!data.name) {
-    errors.name = 'Required';
-  }
-  if (data.address && data.address.length > 50) {
-    errors.address = 'Must be fewer than 50 characters';
-  }
-  if (!data.phone) {
-    errors.phone = 'Required';
-  } else if (!/\d{3}-\d{3}-\d{4}/.test(data.phone)) {
-    errors.phone = 'Phone must match the form "999-999-9999"';
-  }
+  // if (!data.name) {
+  //  errors.name = 'Required';
+  // }
+  // if (data.address && data.address.length > 50) {
+  //  errors.address = 'Must be fewer than 50 characters';
+  // }
+  // if (!data.phone) {
+  //  errors.phone = 'Required';
+  // } else if (!/\d{3}-\d{3}-\d{4}/.test(data.phone)) {
+  //  errors.phone = 'Phone must match the form "999-999-9999"';
+  // }
   return errors;
 }
 
 export class SettingForm extends Component {
 
   render() {
-    const { fields: {name, address, phone}, handleSubmit } = this.props;
+    const {
+      fields: { apiendpoint, webendpoint, token, interval },
+      handleSubmit,
+      setting,
+    } = this.props;
+
     return (
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input type="text" {...name}/>     // will pass value, onBlur and onChange
-        {name.error && name.touched && <div>{name.error}</div>}
+        <label>ApiEndpoint</label>
+        <input type="text" {...apiendpoint}/>
+        {apiendpoint.error && apiendpoint.touched && <div>{apiendpoint.error}</div>}
 
-        <label>Address</label>
-        <input type="text" {...address}/>  // will pass value, onBlur and onChange
-        {address.error && address.touched && <div>{address.error}</div>}
+        <label>WebEndpoint</label>
+        <input type="text" {...webendpoint}/>
+        {webendpoint.error && webendpoint.touched && <div>{webendpoint.error}</div>}
 
-        <label>Phone</label>
-        <input type="text" {...phone}/>    // will pass value, onBlur and onChange
-        {phone.error && phone.touched && <div>{phone.error}</div>}
+        <label>Token</label>
+        <input type="text" {...token}/>
+        {token.error && token.touched && <div>{token.error}</div>}
+
+        <div>
+          <a
+            href={setting.tokenUrl}
+            onClick={electronOpenLinkInBrowser.bind(this)}
+            >
+            Get AccessToken
+          </a>.
+        </div>
+
+        <label>Interval</label>
+        <input type="text" {...interval}/>
+        {interval.error && interval.touched && <div>{interval.error}</div>}
 
         <button onClick={handleSubmit}>Submit</button>
       </form>
@@ -45,15 +66,20 @@ export class SettingForm extends Component {
 SettingForm.propTypes = {
   fields: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  setting: PropTypes.object.isRequired,
 };
 
-// apply connectReduxForm() and include synchronous validation
-SettingForm = connectReduxForm({
-  form: 'setting',                      // the name of your form and the key to
-                                        // where your form's state will be mounted
-  fields: ['name', 'address', 'phone'], // a list of all your fields in your form
+SettingForm = reduxForm({
+  form: 'setting',
+  fields: ['apiendpoint', 'webendpoint', 'token', 'interval'],
   validate: validateContact,            // a synchronous validation function
 })(SettingForm);
 
-// export the wrapped component
-export default SettingForm;
+function mapStateToProps(state) {
+  return {
+    form: state.form,
+    setting: filterOutputSettings(state.setting),
+  };
+}
+
+export default connect(mapStateToProps)(SettingForm);
