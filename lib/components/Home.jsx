@@ -12,13 +12,12 @@ import {
 import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
 
-function loadData(props) {
-  props.fetchStories();
-}
-
-class Home extends Component {
+export class Home extends Component {
   componentWillMount() {
-    loadData(this.props);
+    this.loadData();
+  }
+  loadData() {
+    this.props.fetchStories();
   }
   render() {
     const { stories, ...props } = this.props;
@@ -43,6 +42,7 @@ class Home extends Component {
 
 Home.propTypes = {
   stories: PropTypes.array.isRequired,
+  fetchStories: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

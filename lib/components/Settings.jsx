@@ -1,16 +1,27 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Formsy from 'formsy-react';
 import { Link } from 'react-router';
 import { RaisedButton, Paper } from 'material-ui';
-
+import {
+  saveSettings,
+  initSettings,
+} from '../actions/settingActionCreators';
 import FormInput from './ui/FormInput.jsx';
 import urls from '../utils/urls';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
+import { decryptData } from '../utils/cryptData';
 
-class Settings extends Component {
+export class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = { canSubmit: false };
+  }
+  componentWillMount() {
+    this.loadData();
+  }
+  loadData() {
+    this.props.initSettings();
   }
 
   enableButton() {
@@ -101,8 +112,27 @@ class Settings extends Component {
 Settings.propTypes = {
   setting: PropTypes.object.isRequired,
   saveSettings: PropTypes.func.isRequired,
-  doNothing: PropTypes.func.isRequired,
-  updateSettings: PropTypes.func.isRequired,
+  initSettings: PropTypes.func.isRequired,
 };
 
-export default Settings;
+function mapStateToProps(state) {
+  return {
+    setting: Object.assign(
+      {},
+      state.setting,
+      {
+        token: decryptData(state.setting.token),
+        interval: String(state.setting.interval),
+        defaultInterval: String(state.setting.defaultInterval),
+      }
+    ),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  {
+    saveSettings,
+    initSettings,
+  }
+)(Settings);

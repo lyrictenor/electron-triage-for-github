@@ -11,7 +11,6 @@ import Home from '../components/Home.jsx';
 import Settings from '../components/Settings.jsx';
 import Debug from '../components/Debug.jsx';
 import {
-  bindActionCreators,
   createStore,
   combineReducers,
   applyMiddleware,
@@ -21,9 +20,7 @@ import thunk from 'redux-thunk';
 import { batchedUpdatesMiddleware } from 'redux-batched-updates';
 import * as reducers from '../reducers';
 
-import * as settingActionCreators from '../actions/settingActionCreators';
 import urlTable from './urlTable';
-import { decryptData } from '../utils/cryptData';
 import withMaterialUI from '../decorators/withMaterialUI';
 
 let finalCreateStore;
@@ -51,22 +48,7 @@ const store = finalCreateStore(reducer);
 function mapStateToProps(state) {
   return {
     router: state.router,
-    setting: Object.assign(
-      {},
-      state.setting,
-      {
-        token: decryptData(state.setting.token),
-        interval: String(state.setting.interval),
-        defaultInterval: String(state.setting.defaultInterval),
-      }
-    ),
   };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    ...settingActionCreators,
-  }, dispatch);
 }
 
 @withMaterialUI
@@ -80,10 +62,22 @@ class App extends Component {
       <Provider store={store}>
         {() =>
           <Router history={history}>
-            <Route component={reduxRouteComponent(store)} path="/">
-              <Route path={urlTable.home} component={connect(mapStateToProps, mapDispatchToProps)(Home)} />
-              <Route path={urlTable.settings} component={connect(mapStateToProps, mapDispatchToProps)(Settings)} />
-              <Route path={urlTable.debug} component={connect(mapStateToProps, mapDispatchToProps)(Debug)} />
+            <Route
+              component={reduxRouteComponent(store)}
+              path="/"
+              >
+              <Route
+                path={urlTable.home}
+                component={connect(mapStateToProps)(Home)}
+                />
+              <Route
+                path={urlTable.settings}
+                component={connect(mapStateToProps)(Settings)}
+                />
+              <Route
+                path={urlTable.debug}
+                component={connect(mapStateToProps)(Debug)}
+                />
             </Route>
           </Router>
         }
