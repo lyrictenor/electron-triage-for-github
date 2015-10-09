@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import { RaisedButton, Paper } from 'material-ui';
 import {
   saveSettings,
+  initSettings,
 } from '../actions/settingActionCreators';
 import FormInput from './ui/FormInput.jsx';
 import urls from '../utils/urls';
@@ -15,6 +16,12 @@ export class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = { canSubmit: false };
+  }
+  componentWillMount() {
+    this.loadData();
+  }
+  loadData() {
+    this.props.initSettings();
   }
 
   enableButton() {
@@ -105,6 +112,7 @@ export class Settings extends Component {
 Settings.propTypes = {
   setting: PropTypes.object.isRequired,
   saveSettings: PropTypes.func.isRequired,
+  initSettings: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -125,5 +133,6 @@ export default connect(
   mapStateToProps,
   {
     saveSettings,
+    initSettings,
   }
 )(Settings);
