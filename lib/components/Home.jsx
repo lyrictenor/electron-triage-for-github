@@ -12,7 +12,7 @@ import {
 import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
 
-class Home extends Component {
+export class Home extends Component {
   componentWillMount() {
     this.loadData();
   }
