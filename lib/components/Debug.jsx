@@ -1,15 +1,15 @@
-/* global __DATABASE_NAME__ */
-
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import resetStorage from 'reset-storage';
 import urls from '../utils/urls';
 import { RaisedButton, Paper } from 'material-ui';
+import { databaseName } from '../../package.json';
+const actualDatabaseName = `IDBWrapper-${databaseName}`;
 
 export default class Debug extends Component {
   handleResetStorage() {
-    resetStorage(__DATABASE_NAME__).then(() => {
-      console.log(`Reset localStorage and indexedDB: ${__DATABASE_NAME__}`);// eslint-disable-line no-console
+    resetStorage(actualDatabaseName).then(() => {
+      console.log(`Reset localStorage and indexedDB: ${actualDatabaseName}`);// eslint-disable-line no-console
       window.location.reload();
     });
   }

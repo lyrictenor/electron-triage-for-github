@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var root = process.cwd();
-var packageJson = require(path.join(root, 'package.json'));
 
 module.exports = {
   __filename: true,
@@ -24,8 +23,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify('development')
       },
       __DEVELOPMENT__: true,
-      __DEVTOOLS__: true,
-      __DATABASE_NAME__: JSON.stringify(packageJson.databaseName)
+      __DEVTOOLS__: true
     }),
     new webpack.ExternalsPlugin('remote')
   ],

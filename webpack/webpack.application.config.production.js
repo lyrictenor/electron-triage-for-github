@@ -3,7 +3,6 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var root = process.cwd();
-var packageJson = require(path.join(root, 'package.json'));
 
 module.exports = {
   entry: {
@@ -22,8 +21,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       },
       __DEVELOPMENT__: false,
-      __DEVTOOLS__: false,
-      __DATABASE_NAME__: JSON.stringify(packageJson.databaseName)
+      __DEVTOOLS__: false
     }),
     new ExtractTextPlugin('app.css', { allChunks: true }),
     new HtmlWebpackPlugin({
