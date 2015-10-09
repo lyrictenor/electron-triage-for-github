@@ -1,3 +1,17 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.8...v0.2.0) (2015-10-09)
+
+* Use indexeddb instead of localstorage
+
+### Features
+
+* **setting:** use indexeddb instead of localstorage ([8446d8a](https://github.com/lyrictenor/electron-triage-for-github/commit/8446d8a))
+* **setting:** use promise ([c50c968](https://github.com/lyrictenor/electron-triage-for-github/commit/c50c968))
+* **settings:** use promise ([c5c1c9e](https://github.com/lyrictenor/electron-triage-for-github/commit/c5c1c9e))
+* **settings:** use storage data always ([83d5251](https://github.com/lyrictenor/electron-triage-for-github/commit/83d5251))
+
+
+
 <a name="0.1.8"></a>
 ## [0.1.8](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.7...v0.1.8) (2015-10-06)
 
