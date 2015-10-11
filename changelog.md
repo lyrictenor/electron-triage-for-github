@@ -1,3 +1,17 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.2.0...v0.3.0) (2015-10-11)
+
+* Use redux-form instead of formsy-react
+
+### Features
+
+* **setting:** implement with redux form ([c905c1e](https://github.com/lyrictenor/electron-triage-for-github/commit/c905c1e))
+* **setting:** update api endpoint ([3685bf8](https://github.com/lyrictenor/electron-triage-for-github/commit/3685bf8))
+* **setting:** update views ([3a42aef](https://github.com/lyrictenor/electron-triage-for-github/commit/3a42aef))
+* **setting:** view update web endpoint ([c7c12c1](https://github.com/lyrictenor/electron-triage-for-github/commit/c7c12c1))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.1.8...v0.2.0) (2015-10-09)
 
