@@ -14,9 +14,9 @@ function validateContact(data) {
   if (!data.apiendpoint) {
     errors.apiendpoint = 'Api Endpoint is required';
   }
-  // if (!data.name) {
-  //  errors.name = 'Required';
-  // }
+  if (!data.webendpoint) {
+    errors.webendpoint = 'Web Endpoint is required';
+  }
   // if (data.address && data.address.length > 50) {
   //  errors.address = 'Must be fewer than 50 characters';
   // }
@@ -50,13 +50,16 @@ export class SettingForm extends Component {
           {...apiendpoint}
           />
 
-        <label>ApiEndpoint</label>
-        <input type="text" {...apiendpoint}/>
-        {apiendpoint.error && apiendpoint.touched && <div>{apiendpoint.error}</div>}
-
-        <label>WebEndpoint</label>
-        <input type="text" {...webendpoint}/>
-        {webendpoint.error && webendpoint.touched && <div>{webendpoint.error}</div>}
+        <TextField
+          hintText={setting.defaultWebendpoint}
+          type={'text'}
+          fullWidth
+          floatingLabelText={'Web Endpoint'}
+          required
+          style={{display: 'block'}}
+          errorText={webendpoint.error}
+          {...webendpoint}
+          />
 
         <label>Token</label>
         <input type="text" {...token}/>
