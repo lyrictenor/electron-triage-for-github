@@ -9,7 +9,6 @@ import {
 import { reducer as formReducer } from 'redux-form';
 
 import Home from '../components/Home.jsx';
-import Settings from '../components/Settings.jsx';
 import Debug from '../components/Debug.jsx';
 import SettingPage from '../components/SettingPage.jsx';
 import {
@@ -73,10 +72,6 @@ class App extends Component {
               <Route
                 path={urlTable.home}
                 component={connect(mapStateToProps)(Home)}
-                />
-              <Route
-                path={urlTable.settingsOld}
-                component={connect(mapStateToProps)(Settings)}
                 />
               <Route
                 path={urlTable.debug}
