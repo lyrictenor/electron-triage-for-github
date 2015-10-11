@@ -4,9 +4,16 @@ import { reduxForm } from 'redux-form';
 // import validateContact from './validateContact';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { filterOutputSettings } from '../utils/settingData';
+import {
+  RaisedButton,
+  TextField,
+} from 'material-ui';
 
-function validateContact(data) {// eslint-disable-line no-unused-vars
+function validateContact(data) {
   const errors = {};
+  if (!data.apiendpoint) {
+    errors.apiendpoint = 'Api Endpoint is required';
+  }
   // if (!data.name) {
   //  errors.name = 'Required';
   // }
@@ -32,6 +39,17 @@ export class SettingForm extends Component {
 
     return (
       <form onSubmit={handleSubmit}>
+        <TextField
+          hintText={setting.defaultApiendpoint}
+          type={'text'}
+          fullWidth
+          floatingLabelText={'Api Endpoint'}
+          required
+          style={{display: 'block'}}
+          errorText={apiendpoint.error}
+          {...apiendpoint}
+          />
+
         <label>ApiEndpoint</label>
         <input type="text" {...apiendpoint}/>
         {apiendpoint.error && apiendpoint.touched && <div>{apiendpoint.error}</div>}
@@ -57,7 +75,12 @@ export class SettingForm extends Component {
         <input type="text" {...interval}/>
         {interval.error && interval.touched && <div>{interval.error}</div>}
 
-        <button onClick={handleSubmit}>Submit</button>
+        <RaisedButton
+          type={'submit'}
+          label={'Save'}
+          primary
+          style={{margin: '48px 0 32px'}}
+          />
       </form>
     );
   }
