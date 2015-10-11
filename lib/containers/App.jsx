@@ -54,8 +54,7 @@ function mapStateToProps(state) {
   };
 }
 
-@withMaterialUI
-class App extends Component {
+export class App extends Component {
   // NOTE: [1.0.0-beta3] Nested Route with path="/" being matched, but this.props.children is undefined
   // github.com/rackt/react-router/issues/1570
   render() {
@@ -104,5 +103,7 @@ class App extends Component {
 App.propTypes = {
   history: PropTypes.object.isRequired,
 };
+
+App = withMaterialUI(App);
 
 export default App;
