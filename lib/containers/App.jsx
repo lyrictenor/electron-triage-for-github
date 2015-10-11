@@ -75,7 +75,7 @@ class App extends Component {
                 component={connect(mapStateToProps)(Home)}
                 />
               <Route
-                path={urlTable.settings}
+                path={urlTable.settingsOld}
                 component={connect(mapStateToProps)(Settings)}
                 />
               <Route
@@ -83,7 +83,7 @@ class App extends Component {
                 component={connect(mapStateToProps)(Debug)}
                 />
               <Route
-                path={urlTable.settingPage}
+                path={urlTable.settings}
                 component={connect(mapStateToProps)(SettingPage)}
                 />
             </Route>
