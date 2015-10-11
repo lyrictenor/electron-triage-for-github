@@ -9,7 +9,7 @@ import {
   TextField,
 } from 'material-ui';
 
-function validateContact(data) {
+function validateSetting(data) {
   const errors = {};
   if (!data.apiendpoint) {
     errors.apiendpoint = 'Api Endpoint is required';
@@ -17,14 +17,11 @@ function validateContact(data) {
   if (!data.webendpoint) {
     errors.webendpoint = 'Web Endpoint is required';
   }
-  // if (data.address && data.address.length > 50) {
-  //  errors.address = 'Must be fewer than 50 characters';
-  // }
-  // if (!data.phone) {
-  //  errors.phone = 'Required';
-  // } else if (!/\d{3}-\d{3}-\d{4}/.test(data.phone)) {
-  //  errors.phone = 'Phone must match the form "999-999-9999"';
-  // }
+  if (!data.interval && data.interval !== 0) {// NOTE: This does not work yet
+    errors.interval = 'Interval is required';
+  } else if (!/\d*/.test(data.interval)) {// NOTE: This does not work yet
+    errors.interval = 'Interval requires zero or positive integer';
+  }
   return errors;
 }
 
@@ -61,9 +58,14 @@ export class SettingForm extends Component {
           {...webendpoint}
           />
 
-        <label>Token</label>
-        <input type="text" {...token}/>
-        {token.error && token.touched && <div>{token.error}</div>}
+        <TextField
+          type={'password'}
+          fullWidth
+          floatingLabelText={'Token'}
+          style={{display: 'block'}}
+          errorText={token.error}
+          {...token}
+          />
 
         <div>
           <a
@@ -74,9 +76,16 @@ export class SettingForm extends Component {
           </a>.
         </div>
 
-        <label>Interval</label>
-        <input type="text" {...interval}/>
-        {interval.error && interval.touched && <div>{interval.error}</div>}
+        <TextField
+          hintText={setting.defaultInterval}
+          type={'text'}
+          fullWidth
+          floatingLabelText={'Interval'}
+          required
+          style={{display: 'block'}}
+          errorText={interval.error}
+          {...interval}
+          />
 
         <RaisedButton
           type={'submit'}
@@ -98,7 +107,7 @@ SettingForm.propTypes = {
 SettingForm = reduxForm({
   form: 'setting',
   fields: ['apiendpoint', 'webendpoint', 'token', 'interval'],
-  validate: validateContact,            // a synchronous validation function
+  validate: validateSetting,            // a synchronous validation function
 })(SettingForm);
 
 function mapStateToProps(state) {
