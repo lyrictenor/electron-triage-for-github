@@ -5,10 +5,10 @@ import urls from '../utils/urls';
 import {
   RaisedButton,
   Paper,
-  AppBar,
 } from 'material-ui';
 import { databaseName } from '../../package.json';
 const actualDatabaseName = `IDBWrapper-${databaseName}`;
+import Header from './Header.jsx';
 
 export default class Debug extends Component {
   handleResetStorage() {
@@ -20,7 +20,7 @@ export default class Debug extends Component {
   render() {
     return (
       <div>
-        <AppBar
+        <Header
           title={'Debug'}
           />
         <Paper
