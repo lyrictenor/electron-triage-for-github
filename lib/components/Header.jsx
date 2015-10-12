@@ -3,6 +3,7 @@ import {
   AppBar,
   LeftNav,
 } from 'material-ui';
+import urls from '../utils/urls';
 
 export default class Header extends Component {
   handleToggleNav(event) {
@@ -14,9 +15,9 @@ export default class Header extends Component {
     const { title } = this.props;
     // FIXME: selectedIndex
     const menuItems = [
-      { route: 'home', text: 'Home' },
-      { route: 'settings', text: 'Settings' },
-      { route: 'debug', text: 'Debug' },
+      { route: urls.get('home'), text: 'Home' },
+      { route: urls.get('settings'), text: 'Settings' },
+      { route: urls.get('debug'), text: 'Debug' },
     ];
 
     return (
