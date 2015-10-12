@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import resetStorage from 'reset-storage';
 import urls from '../utils/urls';
-import { RaisedButton, Paper } from 'material-ui';
+import {
+  RaisedButton,
+  Paper,
+  AppBar,
+} from 'material-ui';
 import { databaseName } from '../../package.json';
 const actualDatabaseName = `IDBWrapper-${databaseName}`;
 
@@ -16,9 +20,9 @@ export default class Debug extends Component {
   render() {
     return (
       <div>
-        <h3>
-          Debug
-        </h3>
+        <AppBar
+          title={'Debug'}
+          />
         <Paper
           zDepth={1}
           >
