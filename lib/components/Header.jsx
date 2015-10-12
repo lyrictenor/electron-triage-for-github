@@ -9,6 +9,7 @@ export default class Header extends Component {
     event.preventDefault();
     this.refs.leftNav.toggle();
   }
+
   render() {
     const { title } = this.props;
     // FIXME: selectedIndex
@@ -17,6 +18,7 @@ export default class Header extends Component {
       { route: 'settings', text: 'Settings' },
       { route: 'debug', text: 'Debug' },
     ];
+
     return (
       <div>
         <AppBar
@@ -32,6 +34,7 @@ export default class Header extends Component {
     );
   }
 }
+
 Header.propTypes = {
   title: PropTypes.string.isRequired,
 };
