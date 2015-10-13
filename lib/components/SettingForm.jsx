@@ -38,7 +38,7 @@ export class SettingForm extends Component {
       <form
         onSubmit={handleSubmit}
         style={{
-          margin: '0 1.4rem',
+          margin: '1rem 1.4rem',
         }}
         >
         <TextField
@@ -105,7 +105,7 @@ export class SettingForm extends Component {
           label={'Save'}
           primary
           style={{
-            margin: '2rem 0',
+            margin: '2rem 0 0',
           }}
           />
       </form>

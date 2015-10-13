@@ -4,7 +4,10 @@ import resetStorage from 'reset-storage';
 import urls from '../utils/urls';
 import {
   RaisedButton,
-  Paper,
+  Card,
+  CardTitle,
+  CardText,
+  CardActions,
 } from 'material-ui';
 import { databaseName } from '../../package.json';
 const actualDatabaseName = `IDBWrapper-${databaseName}`;
@@ -23,16 +26,39 @@ export default class Debug extends Component {
         <Header
           title={'Debug'}
           />
-        <Paper
-          zDepth={1}
-          >
-          <RaisedButton
-            onClick={this.handleResetStorage}
-            label={'reset storage'}
-            style={{margin: '32px 0'}}
+        <Card>
+          <CardTitle
+            title="Reset Storage"
+            style={{
+              margin: '0 0.4rem',
+            }}
             />
-        </Paper>
-        <Link to={urls.get('settings')}>settings</Link>, <Link to={urls.get('home')}>home</Link>
+          <CardText
+            style={{
+              margin: '0 0.4rem',
+            }}
+            >
+            Reset IndexedDb <i>{actualDatabaseName}</i>.
+            Reset localStorage.
+          </CardText>
+          <CardActions
+            style={{
+              margin: '0 0.4rem',
+            }}
+            >
+            <RaisedButton
+              onClick={this.handleResetStorage}
+              label={'reset storage'}
+              />
+          </CardActions>
+        </Card>
+        <div
+          style={{
+            margin: '2rem 1.4rem',
+          }}
+          >
+          <Link to={urls.get('settings')}>settings</Link>, <Link to={urls.get('home')}>home</Link>
+        </div>
       </div>
     );
   }

@@ -32,7 +32,7 @@ export class SettingPage extends Component {
         <SettingForm onSubmit={this.handleSubmit.bind(this)}/>
         <div
           style={{
-            margin: '0 1.4rem',
+            margin: '2rem 1.4rem',
           }}
           >
           <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
