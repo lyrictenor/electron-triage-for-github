@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import SettingForm from './SettingForm.jsx';
-import { Paper } from 'material-ui';
+// import { Paper } from 'material-ui';
 import { Link } from 'react-router';
 import urls from '../utils/urls';
 import {
   saveSettings,
   initSettings,
 } from '../actions/settingActionCreators';
+import Header from './Header.jsx';
 
 export class SettingPage extends Component {
   componentWillMount() {
@@ -25,15 +26,17 @@ export class SettingPage extends Component {
   render() {
     return (
       <div>
-        <h3>
-          Settings
-        </h3>
-        <Paper
-          zDepth={1}
+        <Header
+          title={'Settings'}
+          />
+        <SettingForm onSubmit={this.handleSubmit.bind(this)}/>
+        <div
+          style={{
+            margin: '2rem 1.4rem',
+          }}
           >
-          <SettingForm onSubmit={this.handleSubmit.bind(this)}/>
-        </Paper>
-        <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
+          <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
+        </div>
       </div>
     );
   }
