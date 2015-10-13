@@ -8,6 +8,7 @@ import {
   saveSettings,
   initSettings,
 } from '../actions/settingActionCreators';
+import Header from './Header.jsx';
 
 export class SettingPage extends Component {
   componentWillMount() {
@@ -25,9 +26,9 @@ export class SettingPage extends Component {
   render() {
     return (
       <div>
-        <h3>
-          Settings
-        </h3>
+        <Header
+          title={'Settings'}
+          />
         <Paper
           zDepth={1}
           >

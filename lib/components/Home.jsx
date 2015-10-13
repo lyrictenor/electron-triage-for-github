@@ -11,6 +11,7 @@ import {
 } from '../actions/storyActionCreators';
 import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
+import Header from './Header.jsx';
 
 export class Home extends Component {
   componentWillMount() {
@@ -23,9 +24,9 @@ export class Home extends Component {
     const { stories, ...props } = this.props;
     return (
       <div>
-        <h3>
-          Stories
-        </h3>
+        <Header
+          title={'Stories'}
+          />
         <Paper
           zDepth={1}
           >
