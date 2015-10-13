@@ -6,6 +6,7 @@ import {
 } from 'material-ui';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
+import ActionInfoOutline from 'material-ui/lib/svg-icons/action/info-outline';
 
 class StoryCardIssue extends Component {
   render() {
@@ -26,10 +27,9 @@ class StoryCardIssue extends Component {
         initiallyExpanded={false}
         >
         <CardText>
-          i
-          |{repo.fullName}#{issue.number}
-          |title:
-          {issue.title}
+          <ActionInfoOutline />
+          {issue.title}<br />
+          {repo.fullName}#{issue.number}<br />
           |issue:{issue.state}
           |c:{issue.comments}
         </CardText>

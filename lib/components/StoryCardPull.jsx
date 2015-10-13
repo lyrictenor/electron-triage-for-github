@@ -4,6 +4,7 @@ import {
   CardText,
   CardActions,
 } from 'material-ui';
+import ActionTrendingUp from 'material-ui/lib/svg-icons/action/trending-up';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
 
@@ -31,11 +32,9 @@ class StoryCardPull extends Component {
         initiallyExpanded={false}
         >
         <CardText>
-          p
-          |{repo.fullName}#{pull.number}
-          |{pull.head.label}
-          |title:
-          {pull.title}
+          <ActionTrendingUp />
+          {pull.title}<br />
+          {repo.fullName}#{pull.number} {pull.head.label}<br />
           |issue:{pull.state}
           |c:{pull.comments}
           |rc:{pull.reviewComments}
