@@ -35,14 +35,21 @@ export class SettingForm extends Component {
     } = this.props;
 
     return (
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          margin: '0 1.4rem',
+        }}
+        >
         <TextField
           hintText={setting.defaultApiendpoint}
           type={'text'}
-          fullWidth
           floatingLabelText={'Api Endpoint'}
           required
-          style={{display: 'block'}}
+          style={{
+            minWidth: '20rem',
+            display: 'block',
+          }}
           errorText={apiendpoint.error}
           {...apiendpoint}
           />
@@ -50,19 +57,23 @@ export class SettingForm extends Component {
         <TextField
           hintText={setting.defaultWebendpoint}
           type={'text'}
-          fullWidth
           floatingLabelText={'Web Endpoint'}
           required
-          style={{display: 'block'}}
+          style={{
+            minWidth: '20rem',
+            display: 'block',
+          }}
           errorText={webendpoint.error}
           {...webendpoint}
           />
 
         <TextField
           type={'password'}
-          fullWidth
-          floatingLabelText={'Token'}
-          style={{display: 'block'}}
+          floatingLabelText={'Personal token'}
+          style={{
+            minWidth: '20rem',
+            display: 'block',
+          }}
           errorText={token.error}
           {...token}
           />
@@ -79,10 +90,12 @@ export class SettingForm extends Component {
         <TextField
           hintText={setting.defaultInterval}
           type={'text'}
-          fullWidth
-          floatingLabelText={'Interval'}
+          floatingLabelText={'Autopilot interval (wip)'}
           required
-          style={{display: 'block'}}
+          style={{
+            minWidth: '20rem',
+            display: 'block',
+          }}
           errorText={interval.error}
           {...interval}
           />
