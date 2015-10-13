@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import StoryCardPull from './StoryCardPull.jsx';
 import StoryCardIssue from './StoryCardIssue.jsx';
+import StoryCardEmpty from './StoryCardEmpty.jsx';
 import {
   TYPE_ISSUE,
   TYPE_PULL,
@@ -37,7 +38,7 @@ class StoryList extends Component {
       {storyCards.length > 0 ?
         {storyCards}
         :
-        <h4>There is no story.</h4>
+        <StoryCardEmpty />
       }
       </div>
     );
