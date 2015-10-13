@@ -104,7 +104,9 @@ export class SettingForm extends Component {
           type={'submit'}
           label={'Save'}
           primary
-          style={{margin: '48px 0 32px'}}
+          style={{
+            margin: '2rem 0',
+          }}
           />
       </form>
     );
