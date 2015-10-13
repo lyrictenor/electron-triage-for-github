@@ -1,5 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-// import { Paper } from 'material-ui';
+import {
+  Card,
+  CardText,
+  CardActions,
+} from 'material-ui';
 import trimWidth from '../utils/trim-width';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
@@ -18,22 +22,22 @@ class StoryCardIssue extends Component {
       number: issue.number,
     };
     return (
-      <div>
-        <div>
+      <Card>
+        <CardText>
           i
           |{repo.fullName}#{issue.number}
           |title:
-            {issue.title}
+          {issue.title}
           |body:{trimWidth(issue.bodyText, {length: 100})}
           |issue:{issue.state}
           |c:{issue.comments}
-        </div>
-        <div>
+        </CardText>
+        <CardText>
           |updatedAt:{issue.updatedAt.toString()}
           |createdAt:{issue.createdAt.toString()}
           |closedAt:{issue.closedAt && issue.closedAt.toString()}
-        </div>
-        <div>
+        </CardText>
+        <CardActions>
           <RaisedButton
             label="reload"
             onClick={reloadStory.bind(this, identifier)}
@@ -55,8 +59,8 @@ class StoryCardIssue extends Component {
           <RaisedButton label="merge" disabled />
           <RaisedButton label="revert" disabled />
           <RaisedButton label="delete branch" disabled />
-        </div>
-      </div>
+        </CardActions>
+      </Card>
     );
   }
 }

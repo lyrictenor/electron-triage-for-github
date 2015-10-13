@@ -1,5 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-// import { Paper } from 'material-ui';
+import {
+  Card,
+  CardText,
+  CardActions,
+} from 'material-ui';
 import trimWidth from '../utils/trim-width';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
@@ -23,27 +27,27 @@ class StoryCardPull extends Component {
       ? (<span>status:{status.state}</span>)
       : (<span>status:-</span>);
     return (
-      <div>
-        <div>
+      <Card>
+        <CardText>
           p
           |{repo.fullName}#{pull.number}
           |{pull.head.label}
           |title:
-            {pull.title}
+          {pull.title}
           |body:{trimWidth(pull.bodyText, {length: 100})}
           |issue:{pull.state}
           |c:{pull.comments}
           |rc:{pull.reviewComments}
           |+{pull.additions}-{pull.deletions}
           |{statusState}
-        </div>
-        <div>
+        </CardText>
+        <CardText>
           |updatedAt:{pull.updatedAt.toString()}
           |createdAt:{pull.createdAt.toString()}
           |mergedAt:{pull.mergedAt && pull.mergedAt.toString()}
           |closedAt:{pull.closedAt && pull.closedAt.toString()}
-        </div>
-        <div>
+        </CardText>
+        <CardActions>
           <RaisedButton
             label="reload"
             onClick={reloadStory.bind(this, identifier)}
@@ -73,8 +77,8 @@ class StoryCardPull extends Component {
             onClick={deleteStoryBranch.bind(this, identifier)}
             disabled={!branch || pull.state === 'open'}
             />
-        </div>
-      </div>
+        </CardActions>
+      </Card>
     );
   }
 }
