@@ -4,7 +4,6 @@ import {
   CardText,
   CardActions,
 } from 'material-ui';
-import trimWidth from '../utils/trim-width';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
 
@@ -21,23 +20,28 @@ class StoryCardIssue extends Component {
       repo: repo.name,
       number: issue.number,
     };
+    const expandable = issue.bodyText ? true : false;
     return (
-      <Card>
+      <Card
+        initiallyExpanded={false}
+        >
         <CardText>
           i
           |{repo.fullName}#{issue.number}
           |title:
           {issue.title}
-          |body:{trimWidth(issue.bodyText, {length: 100})}
           |issue:{issue.state}
           |c:{issue.comments}
         </CardText>
         <CardText>
-          |updatedAt:{issue.updatedAt.toString()}
-          |createdAt:{issue.createdAt.toString()}
-          |closedAt:{issue.closedAt && issue.closedAt.toString()}
+          updatedAt:{issue.updatedAt.toString()}<br />
+          createdAt:{issue.createdAt.toString()}<br />
+          closedAt:{issue.closedAt && issue.closedAt.toString()}
         </CardText>
-        <CardActions>
+        <CardActions
+          actAsExpander={expandable}
+          showExpandableButton={expandable}
+          >
           <RaisedButton
             label="reload"
             onClick={reloadStory.bind(this, identifier)}
@@ -60,6 +64,11 @@ class StoryCardIssue extends Component {
           <RaisedButton label="revert" disabled />
           <RaisedButton label="delete branch" disabled />
         </CardActions>
+        <CardText
+          expandable
+          >
+          {issue.bodyText}
+        </CardText>
       </Card>
     );
   }
