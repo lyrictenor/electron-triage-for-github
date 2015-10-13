@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
-// import validateContact from './validateContact';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { filterOutputSettings } from '../utils/settingData';
 import {
@@ -122,7 +121,7 @@ SettingForm.propTypes = {
 SettingForm = reduxForm({
   form: 'setting',
   fields: ['apiendpoint', 'webendpoint', 'token', 'interval'],
-  validate: validateSetting,            // a synchronous validation function
+  validate: validateSetting,
 })(SettingForm);
 
 function mapStateToProps(state) {
