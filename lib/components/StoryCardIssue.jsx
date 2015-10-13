@@ -22,12 +22,22 @@ class StoryCardIssue extends Component {
       number: issue.number,
     };
     const expandable = issue.bodyText ? true : false;
+    let iconColor;
+    if (issue.state === 'open') {
+      iconColor = '#6cc644';
+    } else if (issue.state === 'closed') {
+      iconColor = '#bd2c00';
+    } else {
+      iconColor = '#bd2c00';
+    }
     return (
       <Card
         initiallyExpanded={false}
         >
         <CardText>
-          <ActionInfoOutline />
+          <ActionInfoOutline
+            color={iconColor}
+            />
           {issue.title}<br />
           {repo.fullName}#{issue.number}<br />
           |issue:{issue.state}
