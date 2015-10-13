@@ -4,7 +4,14 @@ import {
   CardText,
   CardActions,
 } from 'material-ui';
+
 import ActionTrendingUp from 'material-ui/lib/svg-icons/action/trending-up';
+import ActionDone from 'material-ui/lib/svg-icons/action/done';
+import ActionSchedule from 'material-ui/lib/svg-icons/action/schedule';
+import ErrorOutline from 'material-ui/lib/svg-icons/alert/error-outline';
+import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import ActionHelpOutline from 'material-ui/lib/svg-icons/action/help-outline';
+
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
 
@@ -23,33 +30,74 @@ class StoryCardPull extends Component {
       repo: repo.name,
       number: issue.number,
     };
-    const statusState = (status.totalCount >= 1)
-      ? (<span>status:{status.state}</span>)
-      : (<span>status:-</span>);
-    const expandable = pull.bodyText ? true : false;
+    let ciState;
+    if (status.totalCount >= 1) {
+      ciState = status.state;
+    } else {
+      ciState = 'unknown';
+    }
+    let iconColor;
+    if (pull.state === 'open') {
+      iconColor = '#6cc644';
+    } else if (pull.state === 'closed' && pull.merged) {
+      iconColor = '#6e5494';
+    } else if (pull.state === 'closed') {
+      iconColor = '#bd2c00';
+    } else {
+      iconColor = '#bd2c00';
+    }
+
+    let ciStateIcon;
+    if (ciState === 'success') {
+      ciStateIcon = (
+        <ActionDone
+          color={'#6cc644'}
+          />
+      );
+    } else if (ciState === 'pending') {
+      ciStateIcon = (
+        <ActionSchedule
+          color={'#cea61b'}
+          />
+      );
+    } else if (ciState === 'error') {
+      ciStateIcon = (
+        <ErrorOutline
+          color={'#767676'}
+          />
+      );
+    } else if (ciState === 'failure') {
+      ciStateIcon = (
+        <NavigationClose
+          color={'#bd2c00'}
+          />
+      );
+    } else {
+      ciStateIcon = (
+        <ActionHelpOutline
+          color={'#767676'}
+          />
+      );
+    }
+
     return (
       <Card
         initiallyExpanded={false}
         >
         <CardText>
-          <ActionTrendingUp />
-          {pull.title}<br />
+          <ActionTrendingUp
+            color={iconColor}
+            />
+          {pull.title} {ciStateIcon}<br />
           {repo.fullName}#{pull.number} {pull.head.label}<br />
-          |issue:{pull.state}
           |c:{pull.comments}
           |rc:{pull.reviewComments}
-          |+{pull.additions}-{pull.deletions}
-          |{statusState}
-        </CardText>
-        <CardText>
+          |+{pull.additions}-{pull.deletions}<br />
           updatedAt:{pull.updatedAt.toString()}<br />
-          createdAt:{pull.createdAt.toString()}<br />
-          mergedAt:{pull.mergedAt && pull.mergedAt.toString()}<br />
-          closedAt:{pull.closedAt && pull.closedAt.toString()}
         </CardText>
         <CardActions
-          actAsExpander={expandable}
-          showExpandableButton={expandable}
+          actAsExpander
+          showExpandableButton
           >
           <RaisedButton
             label="reload"
@@ -84,7 +132,20 @@ class StoryCardPull extends Component {
         <CardText
           expandable
           >
+          body:<br />
           {pull.bodyText}
+        </CardText>
+        <CardText
+          expandable
+          >
+          htmlUrl: {pull.htmlUrl}<br />
+          issueState: {pull.state}<br />
+          ciState: {ciState}<br />
+          merged: {pull.merged ? 'true' : 'false'}<br />
+          updatedAt: {pull.updatedAt.toString()}<br />
+          createdAt: {pull.createdAt.toString()}<br />
+          mergedAt: {pull.mergedAt && pull.mergedAt.toString()}<br />
+          closedAt: {pull.closedAt && pull.closedAt.toString()}
         </CardText>
       </Card>
     );

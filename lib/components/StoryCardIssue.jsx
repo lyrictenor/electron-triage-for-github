@@ -21,7 +21,6 @@ class StoryCardIssue extends Component {
       repo: repo.name,
       number: issue.number,
     };
-    const expandable = issue.bodyText ? true : false;
     let iconColor;
     if (issue.state === 'open') {
       iconColor = '#6cc644';
@@ -40,17 +39,12 @@ class StoryCardIssue extends Component {
             />
           {issue.title}<br />
           {repo.fullName}#{issue.number}<br />
-          |issue:{issue.state}
-          |c:{issue.comments}
-        </CardText>
-        <CardText>
-          updatedAt:{issue.updatedAt.toString()}<br />
-          createdAt:{issue.createdAt.toString()}<br />
-          closedAt:{issue.closedAt && issue.closedAt.toString()}
+          |c:{issue.comments}<br />
+          updatedAt:{issue.updatedAt.toString()}
         </CardText>
         <CardActions
-          actAsExpander={expandable}
-          showExpandableButton={expandable}
+          actAsExpander
+          showExpandableButton
           >
           <RaisedButton
             label="reload"
@@ -77,7 +71,17 @@ class StoryCardIssue extends Component {
         <CardText
           expandable
           >
+          body:<br />
           {issue.bodyText}
+        </CardText>
+        <CardText
+          expandable
+          >
+          htmlUrl: {issue.htmlUrl}<br />
+          issueState: {issue.state}<br />
+          updatedAt: {issue.updatedAt.toString()}<br />
+          createdAt: {issue.createdAt.toString()}<br />
+          closedAt: {issue.closedAt && issue.closedAt.toString()}
         </CardText>
       </Card>
     );
