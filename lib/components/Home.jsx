@@ -35,7 +35,13 @@ export class Home extends Component {
             {...props}
             />
         </Paper>
-        <Link to={urls.get('settings')}>settings</Link>
+        <div
+          style={{
+            margin: '2rem 1.4rem',
+          }}
+          >
+          <Link to={urls.get('settings')}>settings</Link>
+        </div>
       </div>
     );
   }
