@@ -5,7 +5,10 @@ import {
   CardActions,
   CardHeader,
   Avatar,
+  Styles,
 } from 'material-ui';
+const { Colors } = Styles;
+import CommunicationComment from 'material-ui/lib/svg-icons/communication/comment';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
 
@@ -30,6 +33,12 @@ class StoryCardIssue extends Component {
     } else {
       iconColor = '#bd2c00';
     }
+    let commentColor;
+    if (issue.comments > 0) {
+      commentColor = 'inherit';
+    } else {
+      commentColor = Colors.grey300;
+    }
     return (
       <Card
         initiallyExpanded={false}
@@ -40,7 +49,10 @@ class StoryCardIssue extends Component {
           avatar={<Avatar backgroundColor={iconColor}>I</Avatar>}
           />
         <CardText>
-          |c:{issue.comments}<br />
+          <CommunicationComment
+            color={commentColor}
+            />
+          <span style={{color: commentColor}}>{issue.comments}</span>
           updatedAt:{issue.updatedAt.toString()}
         </CardText>
         <CardActions
@@ -80,6 +92,7 @@ class StoryCardIssue extends Component {
           >
           htmlUrl: {issue.htmlUrl}<br />
           issueState: {issue.state}<br />
+          comments: {issue.comments}<br />
           updatedAt: {issue.updatedAt.toString()}<br />
           createdAt: {issue.createdAt.toString()}<br />
           closedAt: {issue.closedAt && issue.closedAt.toString()}

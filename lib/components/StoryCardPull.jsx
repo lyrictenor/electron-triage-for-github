@@ -5,13 +5,15 @@ import {
   CardActions,
   CardHeader,
   Avatar,
+  Styles,
 } from 'material-ui';
-
+const { Colors } = Styles;
 import ActionDone from 'material-ui/lib/svg-icons/action/done';
 import ActionSchedule from 'material-ui/lib/svg-icons/action/schedule';
 import ErrorOutline from 'material-ui/lib/svg-icons/alert/error-outline';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import ActionHelpOutline from 'material-ui/lib/svg-icons/action/help-outline';
+import CommunicationComment from 'material-ui/lib/svg-icons/communication/comment';
 
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
@@ -80,6 +82,12 @@ class StoryCardPull extends Component {
           />
       );
     }
+    let commentColor;
+    if (pull.comments > 0) {
+      commentColor = 'inherit';
+    } else {
+      commentColor = Colors.grey300;
+    }
 
     return (
       <Card
@@ -93,7 +101,10 @@ class StoryCardPull extends Component {
         <CardText>
           {pull.head.label}
           {ciStateIcon}<br />
-          |c:{pull.comments}
+          <CommunicationComment
+            color={commentColor}
+            />
+          <span style={{color: commentColor}}>{pull.comments}</span>
           |rc:{pull.reviewComments}
           |+{pull.additions}-{pull.deletions}<br />
           updatedAt:{pull.updatedAt.toString()}<br />
@@ -145,6 +156,7 @@ class StoryCardPull extends Component {
           issueState: {pull.state}<br />
           ciState: {ciState}<br />
           merged: {pull.merged ? 'true' : 'false'}<br />
+          comments: {pull.comments}<br />
           updatedAt: {pull.updatedAt.toString()}<br />
           createdAt: {pull.createdAt.toString()}<br />
           mergedAt: {pull.mergedAt && pull.mergedAt.toString()}<br />
