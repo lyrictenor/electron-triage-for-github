@@ -6,11 +6,11 @@ import {
   CardHeader,
   Avatar,
   Styles,
+  RaisedButton,
 } from 'material-ui';
 const { Colors } = Styles;
 import CommunicationForum from 'material-ui/lib/svg-icons/communication/forum';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
-import { RaisedButton } from 'material-ui';
 import moment from 'moment';
 
 class StoryCardIssue extends Component {

@@ -6,6 +6,7 @@ import {
   CardHeader,
   Avatar,
   Styles,
+  RaisedButton,
 } from 'material-ui';
 const { Colors } = Styles;
 import ActionDone from 'material-ui/lib/svg-icons/action/done';
@@ -19,7 +20,6 @@ import ContentAdd from 'material-ui/lib/svg-icons/content/add';
 import ContentRemove from 'material-ui/lib/svg-icons/content/remove';
 
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
-import { RaisedButton } from 'material-ui';
 import moment from 'moment';
 
 class StoryCardPull extends Component {
