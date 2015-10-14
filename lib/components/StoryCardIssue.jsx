@@ -8,7 +8,7 @@ import {
   Styles,
 } from 'material-ui';
 const { Colors } = Styles;
-import CommunicationComment from 'material-ui/lib/svg-icons/communication/comment';
+import CommunicationForum from 'material-ui/lib/svg-icons/communication/forum';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
 
@@ -49,7 +49,7 @@ class StoryCardIssue extends Component {
           avatar={<Avatar backgroundColor={iconColor}>I</Avatar>}
           />
         <CardText>
-          <CommunicationComment
+          <CommunicationForum
             color={commentColor}
             />
           <span style={{color: commentColor}}>{issue.comments}</span>

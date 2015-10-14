@@ -14,6 +14,7 @@ import ErrorOutline from 'material-ui/lib/svg-icons/alert/error-outline';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import ActionHelpOutline from 'material-ui/lib/svg-icons/action/help-outline';
 import CommunicationComment from 'material-ui/lib/svg-icons/communication/comment';
+import CommunicationForum from 'material-ui/lib/svg-icons/communication/forum';
 
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
@@ -88,6 +89,12 @@ class StoryCardPull extends Component {
     } else {
       commentColor = Colors.grey300;
     }
+    let reviewCommentColor;
+    if (pull.reviewComments > 0) {
+      reviewCommentColor = 'inherit';
+    } else {
+      reviewCommentColor = Colors.grey300;
+    }
 
     return (
       <Card
@@ -101,11 +108,15 @@ class StoryCardPull extends Component {
         <CardText>
           {pull.head.label}
           {ciStateIcon}<br />
-          <CommunicationComment
+          <CommunicationForum
             color={commentColor}
             />
           <span style={{color: commentColor}}>{pull.comments}</span>
-          |rc:{pull.reviewComments}
+
+          <CommunicationComment
+            color={reviewCommentColor}
+            />
+          <span style={{color: reviewCommentColor}}>{pull.reviewComments}</span>
           |+{pull.additions}-{pull.deletions}<br />
           updatedAt:{pull.updatedAt.toString()}<br />
         </CardText>
@@ -157,6 +168,7 @@ class StoryCardPull extends Component {
           ciState: {ciState}<br />
           merged: {pull.merged ? 'true' : 'false'}<br />
           comments: {pull.comments}<br />
+          reviewComments: {pull.reviewComments}<br />
           updatedAt: {pull.updatedAt.toString()}<br />
           createdAt: {pull.createdAt.toString()}<br />
           mergedAt: {pull.mergedAt && pull.mergedAt.toString()}<br />
