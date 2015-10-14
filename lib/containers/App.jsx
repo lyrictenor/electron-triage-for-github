@@ -87,9 +87,14 @@ export class App extends Component {
     );
     if (__DEVTOOLS__) {
       const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
+      const visible = true;
       elements.push(
         <DebugPanel top right bottom key="debugPanel">
-          <DevTools store={store} monitor={LogMonitor}/>
+          <DevTools
+            store={store}
+            monitor={LogMonitor}
+            visibleOnLoad={visible}
+            />
         </DebugPanel>
       );
     }

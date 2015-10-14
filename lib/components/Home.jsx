@@ -9,7 +9,6 @@ import {
   deleteStoryBranch,
   mergeStoryPullRequest,
 } from '../actions/storyActionCreators';
-import { Paper } from 'material-ui';
 import StoryList from './StoryList.jsx';
 import Header from './Header.jsx';
 
@@ -27,14 +26,10 @@ export class Home extends Component {
         <Header
           title={'Stories'}
           />
-        <Paper
-          zDepth={1}
-          >
-          <StoryList
-            stories={stories}
-            {...props}
-            />
-        </Paper>
+        <StoryList
+          stories={stories}
+          {...props}
+          />
         <div
           style={{
             margin: '2rem 1.4rem',

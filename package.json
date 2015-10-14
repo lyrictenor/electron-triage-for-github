@@ -20,6 +20,7 @@
     "level-sublevel": "^6.5.2",
     "levelup": "^1.2.1",
     "material-ui": "^0.12.1",
+    "moment": "^2.10.6",
     "octokat": "^0.4.11",
     "react": "^0.13.3",
     "react-redux": "^3.0.1",

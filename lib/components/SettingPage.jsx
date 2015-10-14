@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import SettingForm from './SettingForm.jsx';
-// import { Paper } from 'material-ui';
 import { Link } from 'react-router';
 import urls from '../utils/urls';
 import {

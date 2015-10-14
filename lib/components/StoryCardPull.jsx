@@ -1,8 +1,26 @@
 import React, { Component, PropTypes } from 'react';
-// import { Paper } from 'material-ui';
-import trimWidth from '../utils/trim-width';
+import {
+  Card,
+  CardText,
+  CardActions,
+  CardHeader,
+  Avatar,
+  Styles,
+  RaisedButton,
+} from 'material-ui';
+const { Colors } = Styles;
+import ActionDone from 'material-ui/lib/svg-icons/action/done';
+import ActionSchedule from 'material-ui/lib/svg-icons/action/schedule';
+import ErrorOutline from 'material-ui/lib/svg-icons/alert/error-outline';
+import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
+import ErrorWarning from 'material-ui/lib/svg-icons/alert/warning';
+import CommunicationComment from 'material-ui/lib/svg-icons/communication/comment';
+import CommunicationForum from 'material-ui/lib/svg-icons/communication/forum';
+import ContentAdd from 'material-ui/lib/svg-icons/content/add';
+import ContentRemove from 'material-ui/lib/svg-icons/content/remove';
+
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
-import { RaisedButton } from 'material-ui';
+import moment from 'moment';
 
 class StoryCardPull extends Component {
   render() {
@@ -19,31 +37,106 @@ class StoryCardPull extends Component {
       repo: repo.name,
       number: issue.number,
     };
-    const statusState = (status.totalCount >= 1)
-      ? (<span>status:{status.state}</span>)
-      : (<span>status:-</span>);
+    let ciState;
+    if (status.totalCount >= 1) {
+      ciState = status.state;
+    } else {
+      ciState = 'unknown';
+    }
+    let iconColor;
+    if (pull.state === 'open') {
+      iconColor = '#6cc644';
+    } else if (pull.state === 'closed' && pull.merged) {
+      iconColor = '#6e5494';
+    } else if (pull.state === 'closed') {
+      iconColor = '#bd2c00';
+    } else {
+      iconColor = '#bd2c00';
+    }
+
+    let ciStateIcon;
+    if (ciState === 'success') {
+      ciStateIcon = (
+        <ActionDone
+          color={'#6cc644'}
+          />
+      );
+    } else if (ciState === 'pending') {
+      ciStateIcon = (
+        <ActionSchedule
+          color={'#cea61b'}
+          />
+      );
+    } else if (ciState === 'error') {
+      ciStateIcon = (
+        <ErrorOutline
+          color={'#767676'}
+          />
+      );
+    } else if (ciState === 'failure') {
+      ciStateIcon = (
+        <NavigationClose
+          color={'#bd2c00'}
+          />
+      );
+    } else {
+      ciStateIcon = (
+        <ErrorWarning
+          color={Colors.grey300}
+          />
+      );
+    }
+    let commentColor;
+    if (pull.comments > 0) {
+      commentColor = 'inherit';
+    } else {
+      commentColor = Colors.grey300;
+    }
+    let reviewCommentColor;
+    if (pull.reviewComments > 0) {
+      reviewCommentColor = 'inherit';
+    } else {
+      reviewCommentColor = Colors.grey300;
+    }
+    const additionsColor = '#55a532';
+    const deletionsColor = '#bd2c00';
+
     return (
-      <div>
-        <div>
-          p
-          |{repo.fullName}#{pull.number}
-          |{pull.head.label}
-          |title:
-            {pull.title}
-          |body:{trimWidth(pull.bodyText, {length: 100})}
-          |issue:{pull.state}
-          |c:{pull.comments}
-          |rc:{pull.reviewComments}
-          |+{pull.additions}-{pull.deletions}
-          |{statusState}
-        </div>
-        <div>
-          |updatedAt:{pull.updatedAt.toString()}
-          |createdAt:{pull.createdAt.toString()}
-          |mergedAt:{pull.mergedAt && pull.mergedAt.toString()}
-          |closedAt:{pull.closedAt && pull.closedAt.toString()}
-        </div>
-        <div>
+      <Card
+        initiallyExpanded={false}
+        >
+        <CardHeader
+          title={`${pull.title}`}
+          subtitle={`${repo.fullName}#${pull.number}`}
+          avatar={<Avatar backgroundColor={iconColor}>P</Avatar>}
+          />
+        <CardText>
+          {pull.head.label} {ciStateIcon}<br />
+          {pull.updatedAt && moment(pull.updatedAt).format()}<br />
+          <CommunicationForum
+            color={commentColor}
+            />
+          <span style={{color: commentColor}}>{pull.comments}</span>
+
+          <CommunicationComment
+            color={reviewCommentColor}
+            />
+          <span style={{color: reviewCommentColor}}>{pull.reviewComments}</span>
+
+          <ContentAdd
+            color={additionsColor}
+            />
+          <span style={{color: additionsColor}}>{pull.additions}</span>
+
+          <ContentRemove
+            color={deletionsColor}
+            />
+          <span style={{color: deletionsColor}}>{pull.deletions}</span>
+        </CardText>
+        <CardActions
+          actAsExpander
+          showExpandableButton
+          >
           <RaisedButton
             label="reload"
             onClick={reloadStory.bind(this, identifier)}
@@ -73,8 +166,30 @@ class StoryCardPull extends Component {
             onClick={deleteStoryBranch.bind(this, identifier)}
             disabled={!branch || pull.state === 'open'}
             />
-        </div>
-      </div>
+        </CardActions>
+        <CardText
+          expandable
+          >
+          body:<br />
+          {pull.bodyText}
+        </CardText>
+        <CardText
+          expandable
+          >
+          htmlUrl: {pull.htmlUrl}<br />
+          issueState: {pull.state}<br />
+          ciState: {ciState}<br />
+          merged: {pull.merged ? 'true' : 'false'}<br />
+          comments: {pull.comments}<br />
+          reviewComments: {pull.reviewComments}<br />
+          additions: {pull.additions}<br />
+          deletions: {pull.deletions}<br />
+          updatedAt: {pull.updatedAt && moment(pull.updatedAt).format()}<br />
+          createdAt: {pull.createdAt && moment(pull.createdAt).format()}<br />
+          mergedAt: {pull.mergedAt && moment(pull.mergedAt).format()}<br />
+          closedAt: {pull.closedAt && moment(pull.closedAt).format()}
+        </CardText>
+      </Card>
     );
   }
 }
