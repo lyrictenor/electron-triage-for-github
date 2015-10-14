@@ -28,7 +28,7 @@ export default class Debug extends Component {
           />
         <Card>
           <CardTitle
-            title="Reset Storage"
+            title="Reset storage"
             style={{
               margin: '0 0.4rem',
             }}
@@ -38,7 +38,7 @@ export default class Debug extends Component {
               margin: '0 0.4rem',
             }}
             >
-            Reset IndexedDb <i>{actualDatabaseName}</i>.
+            Reset indexedDb <i>{actualDatabaseName}</i>.
             Reset localStorage.
           </CardText>
           <CardActions

@@ -28,15 +28,15 @@ class StoryCardIssue extends Component {
     };
     let iconColor;
     if (issue.state === 'open') {
-      iconColor = '#6cc644';
+      iconColor = Colors.lightGreen400;
     } else if (issue.state === 'closed') {
-      iconColor = '#bd2c00';
+      iconColor = Colors.red400;
     } else {
-      iconColor = '#bd2c00';
+      iconColor = Colors.red400;
     }
     let commentColor;
     if (issue.comments > 0) {
-      commentColor = 'inherit';
+      commentColor = Colors.grey700;
     } else {
       commentColor = Colors.grey300;
     }

@@ -45,38 +45,38 @@ class StoryCardPull extends Component {
     }
     let iconColor;
     if (pull.state === 'open') {
-      iconColor = '#6cc644';
+      iconColor = Colors.lightGreen400;
     } else if (pull.state === 'closed' && pull.merged) {
-      iconColor = '#6e5494';
+      iconColor = Colors.deepPurple400;
     } else if (pull.state === 'closed') {
-      iconColor = '#bd2c00';
+      iconColor = Colors.red400;
     } else {
-      iconColor = '#bd2c00';
+      iconColor = Colors.red400;
     }
 
     let ciStateIcon;
     if (ciState === 'success') {
       ciStateIcon = (
         <ActionDone
-          color={'#6cc644'}
+          color={Colors.lightGreen700}
           />
       );
     } else if (ciState === 'pending') {
       ciStateIcon = (
         <ActionSchedule
-          color={'#cea61b'}
+          color={Colors.yellow700}
           />
       );
     } else if (ciState === 'error') {
       ciStateIcon = (
         <ErrorOutline
-          color={'#767676'}
+          color={Colors.grey700}
           />
       );
     } else if (ciState === 'failure') {
       ciStateIcon = (
         <NavigationClose
-          color={'#bd2c00'}
+          color={Colors.red700}
           />
       );
     } else {
@@ -88,18 +88,18 @@ class StoryCardPull extends Component {
     }
     let commentColor;
     if (pull.comments > 0) {
-      commentColor = 'inherit';
+      commentColor = Colors.grey700;
     } else {
       commentColor = Colors.grey300;
     }
     let reviewCommentColor;
     if (pull.reviewComments > 0) {
-      reviewCommentColor = 'inherit';
+      reviewCommentColor = Colors.grey700;
     } else {
       reviewCommentColor = Colors.grey300;
     }
-    const additionsColor = '#55a532';
-    const deletionsColor = '#bd2c00';
+    const additionsColor = Colors.lightGreen700;
+    const deletionsColor = Colors.red700;
 
     return (
       <Card
