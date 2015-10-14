@@ -11,6 +11,7 @@ const { Colors } = Styles;
 import CommunicationForum from 'material-ui/lib/svg-icons/communication/forum';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
+import moment from 'moment';
 
 class StoryCardIssue extends Component {
   render() {
@@ -49,7 +50,7 @@ class StoryCardIssue extends Component {
           avatar={<Avatar backgroundColor={iconColor}>I</Avatar>}
           />
         <CardText>
-          updatedAt:{issue.updatedAt.toString()}<br />
+          {issue.updatedAt && moment(issue.updatedAt).format()}<br />
           <CommunicationForum
             color={commentColor}
             />
@@ -93,9 +94,9 @@ class StoryCardIssue extends Component {
           htmlUrl: {issue.htmlUrl}<br />
           issueState: {issue.state}<br />
           comments: {issue.comments}<br />
-          updatedAt: {issue.updatedAt.toString()}<br />
-          createdAt: {issue.createdAt.toString()}<br />
-          closedAt: {issue.closedAt && issue.closedAt.toString()}
+          updatedAt: {issue.updatedAt && moment(issue.updatedAt).format()}<br />
+          createdAt: {issue.createdAt && moment(issue.createdAt).format()}<br />
+          closedAt: {issue.closedAt && moment(issue.closedAt).format()}
         </CardText>
       </Card>
     );

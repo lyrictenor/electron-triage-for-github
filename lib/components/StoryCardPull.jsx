@@ -20,6 +20,7 @@ import ContentRemove from 'material-ui/lib/svg-icons/content/remove';
 
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
+import moment from 'moment';
 
 class StoryCardPull extends Component {
   render() {
@@ -111,7 +112,7 @@ class StoryCardPull extends Component {
           />
         <CardText>
           {pull.head.label} {ciStateIcon}<br />
-          updatedAt:{pull.updatedAt.toString()}<br />
+          {pull.updatedAt && moment(pull.updatedAt).format()}<br />
           <CommunicationForum
             color={commentColor}
             />
@@ -183,10 +184,10 @@ class StoryCardPull extends Component {
           reviewComments: {pull.reviewComments}<br />
           additions: {pull.additions}<br />
           deletions: {pull.deletions}<br />
-          updatedAt: {pull.updatedAt.toString()}<br />
-          createdAt: {pull.createdAt.toString()}<br />
-          mergedAt: {pull.mergedAt && pull.mergedAt.toString()}<br />
-          closedAt: {pull.closedAt && pull.closedAt.toString()}
+          updatedAt: {pull.updatedAt && moment(pull.updatedAt).format()}<br />
+          createdAt: {pull.createdAt && moment(pull.createdAt).format()}<br />
+          mergedAt: {pull.mergedAt && moment(pull.mergedAt).format()}<br />
+          closedAt: {pull.closedAt && moment(pull.closedAt).format()}
         </CardText>
       </Card>
     );
