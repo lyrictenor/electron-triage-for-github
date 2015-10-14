@@ -12,7 +12,7 @@ import ActionDone from 'material-ui/lib/svg-icons/action/done';
 import ActionSchedule from 'material-ui/lib/svg-icons/action/schedule';
 import ErrorOutline from 'material-ui/lib/svg-icons/alert/error-outline';
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
-import ActionHelpOutline from 'material-ui/lib/svg-icons/action/help-outline';
+import ErrorWarning from 'material-ui/lib/svg-icons/alert/warning';
 import CommunicationComment from 'material-ui/lib/svg-icons/communication/comment';
 import CommunicationForum from 'material-ui/lib/svg-icons/communication/forum';
 
@@ -78,8 +78,8 @@ class StoryCardPull extends Component {
       );
     } else {
       ciStateIcon = (
-        <ActionHelpOutline
-          color={'#767676'}
+        <ErrorWarning
+          color={Colors.grey300}
           />
       );
     }
