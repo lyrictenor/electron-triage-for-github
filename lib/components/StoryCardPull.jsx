@@ -3,9 +3,10 @@ import {
   Card,
   CardText,
   CardActions,
+  CardHeader,
+  Avatar,
 } from 'material-ui';
 
-import ActionTrendingUp from 'material-ui/lib/svg-icons/action/trending-up';
 import ActionDone from 'material-ui/lib/svg-icons/action/done';
 import ActionSchedule from 'material-ui/lib/svg-icons/action/schedule';
 import ErrorOutline from 'material-ui/lib/svg-icons/alert/error-outline';
@@ -84,12 +85,14 @@ class StoryCardPull extends Component {
       <Card
         initiallyExpanded={false}
         >
+        <CardHeader
+          title={`${pull.title}`}
+          subtitle={`${repo.fullName}#${pull.number}`}
+          avatar={<Avatar backgroundColor={iconColor}>P</Avatar>}
+          />
         <CardText>
-          <ActionTrendingUp
-            color={iconColor}
-            />
-          {pull.title} {ciStateIcon}<br />
-          {repo.fullName}#{pull.number} {pull.head.label}<br />
+          {pull.head.label}
+          {ciStateIcon}<br />
           |c:{pull.comments}
           |rc:{pull.reviewComments}
           |+{pull.additions}-{pull.deletions}<br />

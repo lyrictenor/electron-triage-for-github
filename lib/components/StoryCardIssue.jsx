@@ -3,10 +3,11 @@ import {
   Card,
   CardText,
   CardActions,
+  CardHeader,
+  Avatar,
 } from 'material-ui';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
-import ActionInfoOutline from 'material-ui/lib/svg-icons/action/info-outline';
 
 class StoryCardIssue extends Component {
   render() {
@@ -33,12 +34,12 @@ class StoryCardIssue extends Component {
       <Card
         initiallyExpanded={false}
         >
+        <CardHeader
+          title={issue.title}
+          subtitle={`${repo.fullName}#${issue.number}`}
+          avatar={<Avatar backgroundColor={iconColor}>I</Avatar>}
+          />
         <CardText>
-          <ActionInfoOutline
-            color={iconColor}
-            />
-          {issue.title}<br />
-          {repo.fullName}#{issue.number}<br />
           |c:{issue.comments}<br />
           updatedAt:{issue.updatedAt.toString()}
         </CardText>
