@@ -15,6 +15,8 @@ import NavigationClose from 'material-ui/lib/svg-icons/navigation/close';
 import ErrorWarning from 'material-ui/lib/svg-icons/alert/warning';
 import CommunicationComment from 'material-ui/lib/svg-icons/communication/comment';
 import CommunicationForum from 'material-ui/lib/svg-icons/communication/forum';
+import ContentAdd from 'material-ui/lib/svg-icons/content/add';
+import ContentRemove from 'material-ui/lib/svg-icons/content/remove';
 
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import { RaisedButton } from 'material-ui';
@@ -95,6 +97,8 @@ class StoryCardPull extends Component {
     } else {
       reviewCommentColor = Colors.grey300;
     }
+    const additionsColor = '#55a532';
+    const deletionsColor = '#bd2c00';
 
     return (
       <Card
@@ -117,7 +121,16 @@ class StoryCardPull extends Component {
             color={reviewCommentColor}
             />
           <span style={{color: reviewCommentColor}}>{pull.reviewComments}</span>
-          |+{pull.additions}-{pull.deletions}<br />
+
+          <ContentAdd
+            color={additionsColor}
+            />
+          <span style={{color: additionsColor}}>{pull.additions}</span>
+
+          <ContentRemove
+            color={deletionsColor}
+            />
+          <span style={{color: deletionsColor}}>{pull.deletions}</span>
         </CardText>
         <CardActions
           actAsExpander
@@ -168,6 +181,8 @@ class StoryCardPull extends Component {
           merged: {pull.merged ? 'true' : 'false'}<br />
           comments: {pull.comments}<br />
           reviewComments: {pull.reviewComments}<br />
+          additions: {pull.additions}<br />
+          deletions: {pull.deletions}<br />
           updatedAt: {pull.updatedAt.toString()}<br />
           createdAt: {pull.createdAt.toString()}<br />
           mergedAt: {pull.mergedAt && pull.mergedAt.toString()}<br />
