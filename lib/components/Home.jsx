@@ -9,6 +9,10 @@ import {
   deleteStoryBranch,
   mergeStoryPullRequest,
 } from '../actions/storyActionCreators';
+import {
+  IconButton,
+} from 'material-ui';
+import NavigationRefresh from 'material-ui/lib/svg-icons/navigation/refresh';
 import StoryList from './StoryList.jsx';
 import Header from './Header.jsx';
 
@@ -26,6 +30,21 @@ export class Home extends Component {
         <Header
           title={'Stories'}
           />
+        <div
+          style={{
+            margin: '0.6rem 1.4rem',
+          }}
+          >
+          Last updated: 2015-10-14 12:23:34
+          <IconButton
+            tooltip="refresh"
+            tooltipPosition="bottom-right"
+            touch
+            onClick={this.props.fetchStories}
+            >
+            <NavigationRefresh />
+          </IconButton>
+        </div>
         <StoryList
           stories={stories}
           {...props}
