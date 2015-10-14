@@ -49,11 +49,11 @@ class StoryCardIssue extends Component {
           avatar={<Avatar backgroundColor={iconColor}>I</Avatar>}
           />
         <CardText>
+          updatedAt:{issue.updatedAt.toString()}<br />
           <CommunicationForum
             color={commentColor}
             />
           <span style={{color: commentColor}}>{issue.comments}</span>
-          updatedAt:{issue.updatedAt.toString()}
         </CardText>
         <CardActions
           actAsExpander

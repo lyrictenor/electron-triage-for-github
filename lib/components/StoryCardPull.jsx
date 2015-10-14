@@ -106,8 +106,8 @@ class StoryCardPull extends Component {
           avatar={<Avatar backgroundColor={iconColor}>P</Avatar>}
           />
         <CardText>
-          {pull.head.label}
-          {ciStateIcon}<br />
+          {pull.head.label} {ciStateIcon}<br />
+          updatedAt:{pull.updatedAt.toString()}<br />
           <CommunicationForum
             color={commentColor}
             />
@@ -118,7 +118,6 @@ class StoryCardPull extends Component {
             />
           <span style={{color: reviewCommentColor}}>{pull.reviewComments}</span>
           |+{pull.additions}-{pull.deletions}<br />
-          updatedAt:{pull.updatedAt.toString()}<br />
         </CardText>
         <CardActions
           actAsExpander
