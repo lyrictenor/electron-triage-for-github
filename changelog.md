@@ -1,3 +1,9 @@
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.3.1...v0.3.2) (2015-10-14)
+
+* Use material-ui
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.3.0...v0.3.1) (2015-10-11)
 
