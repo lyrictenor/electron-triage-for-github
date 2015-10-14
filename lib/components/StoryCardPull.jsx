@@ -134,7 +134,6 @@ class StoryCardPull extends Component {
           <span style={{color: deletionsColor}}>{pull.deletions}</span>
         </CardText>
         <CardActions
-          actAsExpander
           showExpandableButton
           >
           <RaisedButton

@@ -57,7 +57,6 @@ class StoryCardIssue extends Component {
           <span style={{color: commentColor}}>{issue.comments}</span>
         </CardText>
         <CardActions
-          actAsExpander
           showExpandableButton
           >
           <RaisedButton
