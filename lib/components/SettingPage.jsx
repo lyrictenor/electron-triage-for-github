@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import urls from '../utils/urls';
 import {
   saveSettings,
-  initApplication,
+  initSettings,
 } from '../actions/settingActionCreators';
 import Header from './Header.jsx';
 
@@ -15,7 +15,7 @@ export class SettingPage extends Component {
   }
 
   loadData() {
-    this.props.initApplication();
+    this.props.initSettings();
   }
 
   handleSubmit(data) {
@@ -43,7 +43,7 @@ export class SettingPage extends Component {
 
 SettingPage.propTypes = {
   saveSettings: PropTypes.func.isRequired,
-  initApplication: PropTypes.func.isRequired,
+  initSettings: PropTypes.func.isRequired,
 };
 
 function mapStateToProps() {
@@ -54,6 +54,6 @@ export default connect(
   mapStateToProps,
   {
     saveSettings,
-    initApplication,
+    initSettings,
   }
 )(SettingPage);  // adds dispatch prop

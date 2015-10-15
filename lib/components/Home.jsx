@@ -17,7 +17,7 @@ import StoryList from './StoryList.jsx';
 import Header from './Header.jsx';
 
 export class Home extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.loadData();
   }
   loadData() {
