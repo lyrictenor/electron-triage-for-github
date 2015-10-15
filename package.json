@@ -19,6 +19,7 @@
     "level-js": "^2.2.2",
     "level-sublevel": "^6.5.2",
     "levelup": "^1.2.1",
+    "lodash": "^3.10.1",
     "material-ui": "^0.12.1",
     "moment": "^2.10.6",
     "octokat": "^0.4.11",

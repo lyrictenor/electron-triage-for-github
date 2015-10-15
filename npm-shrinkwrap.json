@@ -1,6 +1,6 @@
 {
   "name": "triage-for-github",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "dependencies": {
     "classnames": {
       "version": "2.1.5",
@@ -306,6 +306,11 @@
           "resolved": "https://registry.npmjs.org/xtend/-/xtend-4.0.0.tgz"
         }
       }
+    },
+    "lodash": {
+      "version": "3.10.1",
+      "from": "lodash@*",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz"
     },
     "material-ui": {
       "version": "0.12.3",
