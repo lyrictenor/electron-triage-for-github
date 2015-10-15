@@ -1,3 +1,20 @@
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.3.2...v0.4.0) (2015-10-15)
+
+* Split settings into configs and appGlobal
+* Remove setting reducer
+* Breaking change: change indexeddb structure
+
+
+### Features
+
+* **appGlobal:** use appGlobal instead of setting ([1503f78](https://github.com/lyrictenor/electron-triage-for-github/commit/1503f78))
+* **config:** use config instead of setting ([ce986a9](https://github.com/lyrictenor/electron-triage-for-github/commit/ce986a9))
+* **configs:** add configs ([822d687](https://github.com/lyrictenor/electron-triage-for-github/commit/822d687))
+* **configs:** treat dateish string as date ([669566d](https://github.com/lyrictenor/electron-triage-for-github/commit/669566d))
+
+
+
 <a name="0.3.2"></a>
 ## [0.3.2](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.3.1...v0.3.2) (2015-10-14)
 
