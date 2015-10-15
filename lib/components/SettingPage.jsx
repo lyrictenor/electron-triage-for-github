@@ -6,6 +6,7 @@ import urls from '../utils/urls';
 import {
   saveSettings,
   initSettings,
+  initApplication,
 } from '../actions/settingActionCreators';
 import Header from './Header.jsx';
 
@@ -15,7 +16,7 @@ export class SettingPage extends Component {
   }
 
   loadData() {
-    this.props.initSettings();
+    this.props.initApplication();
   }
 
   handleSubmit(data) {
@@ -44,6 +45,7 @@ export class SettingPage extends Component {
 SettingPage.propTypes = {
   initSettings: PropTypes.func.isRequired,
   saveSettings: PropTypes.func.isRequired,
+  initApplication: PropTypes.func.isRequired,
 };
 
 function mapStateToProps() {
@@ -55,5 +57,6 @@ export default connect(
   {
     initSettings,
     saveSettings,
+    initApplication,
   }
 )(SettingPage);  // adds dispatch prop

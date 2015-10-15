@@ -2,19 +2,19 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
-import { filterOutputSettings } from '../utils/settingData';
 import {
   RaisedButton,
   TextField,
 } from 'material-ui';
+import buildGithubTokenUrl from '../utils/buildGithubTokenUrl';
 
 function validateSetting(data) {
   const errors = {};
-  if (!data.apiendpoint) {
-    errors.apiendpoint = 'Api Endpoint is required';
+  if (!data.apiEndpoint) {
+    errors.apiEndpoint = 'Api Endpoint is required';
   }
-  if (!data.webendpoint) {
-    errors.webendpoint = 'Web Endpoint is required';
+  if (!data.webEndpoint) {
+    errors.webEndpoint = 'Web Endpoint is required';
   }
   if (!data.interval && data.interval !== 0) {// NOTE: This does not work yet
     errors.interval = 'Interval is required';
@@ -28,9 +28,9 @@ export class SettingForm extends Component {
 
   render() {
     const {
-      fields: { apiendpoint, webendpoint, token, interval },
+      fields: { apiEndpoint, webEndpoint, token, interval },
       handleSubmit,
-      setting,
+      appGlobal,
     } = this.props;
 
     return (
@@ -41,7 +41,7 @@ export class SettingForm extends Component {
         }}
         >
         <TextField
-          hintText={setting.defaultApiendpoint}
+          hintText={appGlobal.get('defaultApiEndpoint')}
           type={'text'}
           floatingLabelText={'Api Endpoint'}
           required
@@ -49,12 +49,12 @@ export class SettingForm extends Component {
             minWidth: '20rem',
             display: 'block',
           }}
-          errorText={apiendpoint.error}
-          {...apiendpoint}
+          errorText={apiEndpoint.error}
+          {...apiEndpoint}
           />
 
         <TextField
-          hintText={setting.defaultWebendpoint}
+          hintText={appGlobal.get('defaultWebEndpoint')}
           type={'text'}
           floatingLabelText={'Web Endpoint'}
           required
@@ -62,8 +62,8 @@ export class SettingForm extends Component {
             minWidth: '20rem',
             display: 'block',
           }}
-          errorText={webendpoint.error}
-          {...webendpoint}
+          errorText={webEndpoint.error}
+          {...webEndpoint}
           />
 
         <TextField
@@ -79,7 +79,7 @@ export class SettingForm extends Component {
 
         <div>
           <a
-            href={setting.tokenUrl}
+            href={appGlobal.get('tokenUrl')}
             onClick={electronOpenLinkInBrowser.bind(this)}
             >
             Get AccessToken
@@ -87,7 +87,7 @@ export class SettingForm extends Component {
         </div>
 
         <TextField
-          hintText={setting.defaultInterval}
+          hintText={appGlobal.get('defaultInterval')}
           type={'text'}
           floatingLabelText={'Autopilot interval (wip)'}
           required
@@ -115,19 +115,21 @@ export class SettingForm extends Component {
 SettingForm.propTypes = {
   fields: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  setting: PropTypes.object.isRequired,
+  appGlobal: PropTypes.object.isRequired,
 };
 
 SettingForm = reduxForm({
   form: 'setting',
-  fields: ['apiendpoint', 'webendpoint', 'token', 'interval'],
+  fields: ['apiEndpoint', 'webEndpoint', 'token', 'interval'],
   validate: validateSetting,
 })(SettingForm);
 
 function mapStateToProps(state) {
+  const appGlobal = new Map([state.appGlobal]);
+  appGlobal.set('tokenUrl', buildGithubTokenUrl(state.appGlobal.get('webEndpoint')));
   return {
     form: state.form,
-    setting: filterOutputSettings(state.setting),
+    appGlobal: appGlobal,
   };
 }
 
