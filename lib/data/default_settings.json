@@ -1,6 +1,6 @@
 {
-  "apiendpoint": "https://api.github.com",
-  "webendpoint": "https://github.com",
+  "apiEndpoint": "https://api.github.com",
+  "webEndpoint": "https://github.com",
   "token": "",
   "interval": 0
 }

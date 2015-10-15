@@ -42,8 +42,8 @@ export class SettingPage extends Component {
 }
 
 SettingPage.propTypes = {
-  initSettings: PropTypes.func.isRequired,
   saveSettings: PropTypes.func.isRequired,
+  initSettings: PropTypes.func.isRequired,
 };
 
 function mapStateToProps() {
@@ -53,7 +53,7 @@ function mapStateToProps() {
 export default connect(
   mapStateToProps,
   {
-    initSettings,
     saveSettings,
+    initSettings,
   }
 )(SettingPage);  // adds dispatch prop

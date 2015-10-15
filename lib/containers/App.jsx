@@ -23,6 +23,10 @@ import * as reducers from '../reducers';
 
 import urlTable from './urlTable';
 import withMaterialUI from '../decorators/withMaterialUI';
+import {
+  initApplicationConfig,
+} from '../utils/configs';
+
 
 let finalCreateStore;
 const middleware = [thunk, batchedUpdatesMiddleware];
@@ -55,6 +59,10 @@ function mapStateToProps(state) {
 }
 
 export class App extends Component {
+  constructor() {
+    super();
+    initApplicationConfig();
+  }
   // NOTE: [1.0.0-beta3] Nested Route with path="/" being matched, but this.props.children is undefined
   // github.com/rackt/react-router/issues/1570
   render() {
