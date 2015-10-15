@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 import urls from '../utils/urls';
 import {
   saveSettings,
-  initSettings,
   initApplication,
 } from '../actions/settingActionCreators';
 import Header from './Header.jsx';
@@ -43,7 +42,6 @@ export class SettingPage extends Component {
 }
 
 SettingPage.propTypes = {
-  initSettings: PropTypes.func.isRequired,
   saveSettings: PropTypes.func.isRequired,
   initApplication: PropTypes.func.isRequired,
 };
@@ -55,7 +53,6 @@ function mapStateToProps() {
 export default connect(
   mapStateToProps,
   {
-    initSettings,
     saveSettings,
     initApplication,
   }
