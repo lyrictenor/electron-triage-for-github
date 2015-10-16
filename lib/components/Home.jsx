@@ -71,7 +71,7 @@ Home.propTypes = {
 function mapStateToProps(state) {
   return {
     stories: state.story,
-    appGlobal: new Map([state.appGlobal]),
+    appGlobal: state.appGlobal,
   };
 }
 
