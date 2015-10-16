@@ -16,10 +16,10 @@ function validateSetting(data) {
   if (!data.webEndpoint) {
     errors.webEndpoint = 'Web Endpoint is required';
   }
-  if (!data.interval && data.interval !== 0) {// NOTE: This does not work yet
-    errors.interval = 'Interval is required';
-  } else if (!/\d*/.test(data.interval)) {// NOTE: This does not work yet
-    errors.interval = 'Interval requires zero or positive integer';
+  if (!data.autopilotInterval && data.autopilotInterval !== 0) {// NOTE: This does not work yet
+    errors.autopilotInterval = 'Autopilot interval is required';
+  } else if (!/\d*/.test(data.autopilotInterval)) {// NOTE: This does not work yet
+    errors.autopilotInterval = 'Autopilot interval requires zero or positive integer';
   }
   return errors;
 }
@@ -28,7 +28,13 @@ export class SettingForm extends Component {
 
   render() {
     const {
-      fields: { apiEndpoint, webEndpoint, token, interval },
+      fields: {
+        apiEndpoint,
+        webEndpoint,
+        token,
+        autopilotInterval,
+        enableAutopilot,
+        },
       handleSubmit,
       appGlobal,
     } = this.props;
@@ -77,7 +83,11 @@ export class SettingForm extends Component {
           {...token}
           />
 
-        <div>
+        <div
+          style={{
+            margin: '0.4rem 0rem 0rem',
+          }}
+          >
           <a
             href={appGlobal.get('tokenUrl')}
             onClick={electronOpenLinkInBrowser.bind(this)}
@@ -86,17 +96,37 @@ export class SettingForm extends Component {
           </a>.
         </div>
 
+        <div
+          style={{
+            margin: '1.8rem 0rem 0.8rem',
+          }}
+          >
+          Autopilot
+        </div>
+
+        <label htmlFor="enableAutopilot">
+          <input type="checkbox" id="enableAutopilot" {...enableAutopilot}/>
+          <span
+            style={{
+              margin: '0 0.4rem 0',
+            }}
+            >
+            Enable autopilot
+          </span>
+        </label>
+
         <TextField
-          hintText={appGlobal.get('defaultInterval')}
+          hintText={appGlobal.get('defaultAutopilotInterval')}
           type={'text'}
-          floatingLabelText={'Autopilot interval (wip)'}
+          floatingLabelText={'Autopilot interval seconds (wip)'}
           required
           style={{
             minWidth: '20rem',
             display: 'block',
           }}
-          errorText={interval.error}
-          {...interval}
+          errorText={autopilotInterval.error}
+          {...autopilotInterval}
+          disabled={!enableAutopilot.value}
           />
 
         <RaisedButton
@@ -120,7 +150,13 @@ SettingForm.propTypes = {
 
 SettingForm = reduxForm({
   form: 'setting',
-  fields: ['apiEndpoint', 'webEndpoint', 'token', 'interval'],
+  fields: [
+    'apiEndpoint',
+    'webEndpoint',
+    'token',
+    'autopilotInterval',
+    'enableAutopilot',
+  ],
   validate: validateSetting,
 })(SettingForm);
 

@@ -1,6 +1,6 @@
 {
   "name": "triage-for-github",
-  "version": "0.3.2",
+  "version": "0.4.1",
   "dependencies": {
     "classnames": {
       "version": "2.1.5",
@@ -482,9 +482,23 @@
       "resolved": "https://registry.npmjs.org/redux-batched-updates/-/redux-batched-updates-0.1.0.tgz"
     },
     "redux-form": {
-      "version": "2.1.0",
-      "from": "redux-form@*",
-      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-2.1.0.tgz"
+      "version": "2.4.0",
+      "from": "redux-form@2.4.0",
+      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-2.4.0.tgz",
+      "dependencies": {
+        "react-lazy-cache": {
+          "version": "3.0.0",
+          "from": "react-lazy-cache@>=3.0.0 <4.0.0",
+          "resolved": "https://registry.npmjs.org/react-lazy-cache/-/react-lazy-cache-3.0.0.tgz",
+          "dependencies": {
+            "deep-equal": {
+              "version": "1.0.1",
+              "from": "deep-equal@>=1.0.1 <2.0.0",
+              "resolved": "https://registry.npmjs.org/deep-equal/-/deep-equal-1.0.1.tgz"
+            }
+          }
+        }
+      }
     },
     "redux-react-router": {
       "version": "0.4.0",

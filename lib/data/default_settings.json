@@ -2,5 +2,6 @@
   "apiEndpoint": "https://api.github.com",
   "webEndpoint": "https://github.com",
   "token": "",
-  "interval": 0
+  "autopilotInterval": 0,
+  "enableAutopilot": false
 }
