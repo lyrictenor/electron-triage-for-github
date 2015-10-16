@@ -85,7 +85,7 @@ export class SettingForm extends Component {
 
         <div
           style={{
-            margin: '0.4rem 0rem 0rem',
+            margin: '0.4rem 0 0',
           }}
           >
           <a
@@ -98,7 +98,7 @@ export class SettingForm extends Component {
 
         <div
           style={{
-            margin: '1.8rem 0rem 0.8rem',
+            margin: '1.8rem 0 0.8rem',
           }}
           >
           Autopilot
