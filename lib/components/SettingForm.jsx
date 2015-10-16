@@ -16,10 +16,10 @@ function validateSetting(data) {
   if (!data.webEndpoint) {
     errors.webEndpoint = 'Web Endpoint is required';
   }
-  if (!data.interval && data.interval !== 0) {// NOTE: This does not work yet
-    errors.interval = 'Interval is required';
-  } else if (!/\d*/.test(data.interval)) {// NOTE: This does not work yet
-    errors.interval = 'Interval requires zero or positive integer';
+  if (!data.autopilotInterval && data.autopilotInterval !== 0) {// NOTE: This does not work yet
+    errors.autopilotInterval = 'Autopilot interval is required';
+  } else if (!/\d*/.test(data.autopilotInterval)) {// NOTE: This does not work yet
+    errors.autopilotInterval = 'Autopilot interval requires zero or positive integer';
   }
   return errors;
 }
@@ -28,7 +28,7 @@ export class SettingForm extends Component {
 
   render() {
     const {
-      fields: { apiEndpoint, webEndpoint, token, interval },
+      fields: { apiEndpoint, webEndpoint, token, autopilotInterval },
       handleSubmit,
       appGlobal,
     } = this.props;
@@ -87,7 +87,7 @@ export class SettingForm extends Component {
         </div>
 
         <TextField
-          hintText={appGlobal.get('defaultInterval')}
+          hintText={appGlobal.get('defaultAutopilotInterval')}
           type={'text'}
           floatingLabelText={'Autopilot interval (wip)'}
           required
@@ -95,8 +95,8 @@ export class SettingForm extends Component {
             minWidth: '20rem',
             display: 'block',
           }}
-          errorText={interval.error}
-          {...interval}
+          errorText={autopilotInterval.error}
+          {...autopilotInterval}
           />
 
         <RaisedButton
@@ -120,7 +120,7 @@ SettingForm.propTypes = {
 
 SettingForm = reduxForm({
   form: 'setting',
-  fields: ['apiEndpoint', 'webEndpoint', 'token', 'interval'],
+  fields: ['apiEndpoint', 'webEndpoint', 'token', 'autopilotInterval'],
   validate: validateSetting,
 })(SettingForm);
 
