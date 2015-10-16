@@ -5,6 +5,7 @@ import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import {
   RaisedButton,
   TextField,
+  Checkbox,
 } from 'material-ui';
 import buildGithubTokenUrl from '../utils/buildGithubTokenUrl';
 
@@ -28,10 +29,17 @@ export class SettingForm extends Component {
 
   render() {
     const {
-      fields: { apiEndpoint, webEndpoint, token, autopilotInterval },
+      fields: {
+        apiEndpoint,
+        webEndpoint,
+        token,
+        autopilotInterval,
+        enableAutopilot,
+        },
       handleSubmit,
       appGlobal,
     } = this.props;
+    const {checked, ...restEnableAutopilot } = enableAutopilot;
 
     return (
       <form
@@ -77,7 +85,11 @@ export class SettingForm extends Component {
           {...token}
           />
 
-        <div>
+        <div
+          style={{
+            margin: '0.4rem 0rem 0rem',
+          }}
+          >
           <a
             href={appGlobal.get('tokenUrl')}
             onClick={electronOpenLinkInBrowser.bind(this)}
@@ -86,10 +98,23 @@ export class SettingForm extends Component {
           </a>.
         </div>
 
+        <div
+          style={{
+            margin: '1.8rem 0rem 0.8rem',
+          }}
+          >
+          Autopilot
+        </div>
+
+        <Checkbox
+          label="Enable autopilot"
+          {...restEnableAutopilot}
+          />
+
         <TextField
           hintText={appGlobal.get('defaultAutopilotInterval')}
           type={'text'}
-          floatingLabelText={'Autopilot interval (wip)'}
+          floatingLabelText={'Autopilot interval seconds (wip)'}
           required
           style={{
             minWidth: '20rem',
@@ -97,6 +122,7 @@ export class SettingForm extends Component {
           }}
           errorText={autopilotInterval.error}
           {...autopilotInterval}
+          disabled={!enableAutopilot.value}
           />
 
         <RaisedButton
@@ -120,7 +146,13 @@ SettingForm.propTypes = {
 
 SettingForm = reduxForm({
   form: 'setting',
-  fields: ['apiEndpoint', 'webEndpoint', 'token', 'autopilotInterval'],
+  fields: [
+    'apiEndpoint',
+    'webEndpoint',
+    'token',
+    'autopilotInterval',
+    'enableAutopilot',
+  ],
   validate: validateSetting,
 })(SettingForm);
 
