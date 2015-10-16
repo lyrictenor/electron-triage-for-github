@@ -30,6 +30,10 @@ export class Home extends Component {
     if (appGlobal.get('storyUpdatedAt')) {
       lastStoryUpdated = moment(appGlobal.get('storyUpdatedAt')).format();
     }
+    let lastAutopiloted = '-';
+    if (appGlobal.get('autopilotedAt')) {
+      lastAutopiloted = moment(appGlobal.get('autopilotedAt')).format();
+    }
     return (
       <div>
         <Header
@@ -48,7 +52,8 @@ export class Home extends Component {
             onClick={this.props.fetchStories}
             >
             <NavigationRefresh />
-          </IconButton>
+          </IconButton><br />
+          Last autopiloted: {lastAutopiloted}
         </div>
         <StoryList
           stories={stories}
