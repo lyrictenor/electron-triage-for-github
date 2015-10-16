@@ -5,7 +5,6 @@ import electronOpenLinkInBrowser from 'electron-open-link-in-browser';
 import {
   RaisedButton,
   TextField,
-  Checkbox,
 } from 'material-ui';
 import buildGithubTokenUrl from '../utils/buildGithubTokenUrl';
 
@@ -39,7 +38,6 @@ export class SettingForm extends Component {
       handleSubmit,
       appGlobal,
     } = this.props;
-    const {checked, ...restEnableAutopilot } = enableAutopilot;
 
     return (
       <form
@@ -106,10 +104,16 @@ export class SettingForm extends Component {
           Autopilot
         </div>
 
-        <Checkbox
-          label="Enable autopilot"
-          {...restEnableAutopilot}
-          />
+        <label htmlFor="enableAutopilot">
+          <input type="checkbox" id="enableAutopilot" {...enableAutopilot}/>
+          <span
+            style={{
+              margin: '0 0.4rem 0',
+            }}
+            >
+            Enable autopilot
+          </span>
+        </label>
 
         <TextField
           hintText={appGlobal.get('defaultAutopilotInterval')}
