@@ -44,16 +44,27 @@ export class Home extends Component {
             margin: '0.6rem 1.4rem',
           }}
           >
-          Last updated: {lastStoryUpdated}
+          <span>
+            Last updated: {lastStoryUpdated}
+          </span>
+          <span
+            style={{
+              margin: '0 0.4rem',
+            }}
+            >
+            Last autopiloted: {lastAutopiloted}
+          </span>
           <IconButton
             tooltip="refresh"
             tooltipPosition="bottom-right"
             touch
+            style={{
+              margin: '0 0.4rem',
+            }}
             onClick={this.props.fetchStories}
             >
             <NavigationRefresh />
-          </IconButton><br />
-          Last autopiloted: {lastAutopiloted}
+          </IconButton>
         </div>
         <StoryList
           stories={stories}
