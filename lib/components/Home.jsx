@@ -26,6 +26,10 @@ export class Home extends Component {
   }
   render() {
     const { stories, appGlobal, ...props } = this.props;
+    let lastStoryUpdated = '-';
+    if (appGlobal.get('storyUpdatedAt')) {
+      lastStoryUpdated = moment(appGlobal.get('storyUpdatedAt')).format();
+    }
     return (
       <div>
         <Header
@@ -36,7 +40,7 @@ export class Home extends Component {
             margin: '0.6rem 1.4rem',
           }}
           >
-          Last updated: {(appGlobal.get('storyUpdatedAt')) ? moment(appGlobal.get('storyUpdatedAt')).format() : '-'}
+          Last updated: {lastStoryUpdated}
           <IconButton
             tooltip="refresh"
             tooltipPosition="bottom-right"
