@@ -1,3 +1,28 @@
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.4.1...v0.5.0) (2015-10-16)
+
+* Breaking change: change column interval -> autopilotInterval
+* Add enableAutopilot checkbox
+* Update storyUpdatedAt and autopilotedAt
+* Lock by autopiloting
+* Show storyUpdatedAt and autopilotedAt
+
+### Bug Fixes
+
+* **config:** not force to set autopilotedAt ([175b97b](https://github.com/lyrictenor/electron-triage-for-github/commit/175b97b))
+* **setting:** material-ui's Checkbox does not work with redux-form ([708d66c](https://github.com/lyrictenor/electron-triage-for-github/commit/708d66c))
+
+### Features
+
+* **autopilot:** add storyUpdatedAt for indexeddb and store ([7099e74](https://github.com/lyrictenor/electron-triage-for-github/commit/7099e74))
+* **autopilot:** change column interval -> autopilotInterval ([d54101b](https://github.com/lyrictenor/electron-triage-for-github/commit/d54101b))
+* **autopilot:** check autopiloting ([134e2ef](https://github.com/lyrictenor/electron-triage-for-github/commit/134e2ef))
+* **autopilot:** enable autopilot state ([590095b](https://github.com/lyrictenor/electron-triage-for-github/commit/590095b))
+* **autopilot:** show storyUpdatedAt ([b720916](https://github.com/lyrictenor/electron-triage-for-github/commit/b720916))
+* **autopilot:** update story updated at ([c257438](https://github.com/lyrictenor/electron-triage-for-github/commit/c257438))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.4.0...v0.4.1) (2015-10-16)
 
