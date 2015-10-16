@@ -15,6 +15,7 @@ import {
 import NavigationRefresh from 'material-ui/lib/svg-icons/navigation/refresh';
 import StoryList from './StoryList.jsx';
 import Header from './Header.jsx';
+import moment from 'moment';
 
 export class Home extends Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ export class Home extends Component {
     this.props.fetchStories();
   }
   render() {
-    const { stories, ...props } = this.props;
+    const { stories, appGlobal, ...props } = this.props;
     return (
       <div>
         <Header
@@ -35,7 +36,7 @@ export class Home extends Component {
             margin: '0.6rem 1.4rem',
           }}
           >
-          Last updated: 2015-10-14 12:23:34
+          Last updated: {(appGlobal.get('storyUpdatedAt')) ? moment(appGlobal.get('storyUpdatedAt')).format() : '-'}
           <IconButton
             tooltip="refresh"
             tooltipPosition="bottom-right"
@@ -64,11 +65,13 @@ export class Home extends Component {
 Home.propTypes = {
   stories: PropTypes.array.isRequired,
   fetchStories: PropTypes.func.isRequired,
+  appGlobal: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
     stories: state.story,
+    appGlobal: new Map([state.appGlobal]),
   };
 }
 
