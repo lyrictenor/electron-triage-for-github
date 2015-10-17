@@ -1,3 +1,13 @@
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.0...v0.5.1) (2015-10-17)
+
+
+### Bug Fixes
+
+* **autopilot:** prevent autopilot many times ([89907e2](https://github.com/lyrictenor/electron-triage-for-github/commit/89907e2))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.4.1...v0.5.0) (2015-10-16)
 
