@@ -1,6 +1,6 @@
 {
   "name": "triage-for-github",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "dependencies": {
     "classnames": {
       "version": "2.1.5",
@@ -37,6 +37,11 @@
       "version": "1.0.3",
       "from": "electron-template-menu@1.0.3",
       "resolved": "https://registry.npmjs.org/electron-template-menu/-/electron-template-menu-1.0.3.tgz"
+    },
+    "es6-error": {
+      "version": "2.0.0",
+      "from": "es6-error@*",
+      "resolved": "https://registry.npmjs.org/es6-error/-/es6-error-2.0.0.tgz"
     },
     "is-empty-object": {
       "version": "1.1.1",
