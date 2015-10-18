@@ -15,6 +15,7 @@ const packagerOptions = {
   out: outputPath,
   platform: 'all',
   arch: 'all',
+  asar: true,
 };
 const argv = yargs.default(packagerOptions).argv;
 const env = Object.assign({}, process.env, { NODE_ENV: 'production' });
@@ -40,6 +41,7 @@ spawn('npm', ['run', 'build:dist'], { stdio: 'inherit', env: env })
         out: argv.out,
         platform: argv.platform,
         arch: argv.arch,
+        asar: argv.asar,
       }, (err, appPath) => {
         if (err) {
           reject(err);
