@@ -118,7 +118,7 @@ export class SettingForm extends Component {
         <TextField
           hintText={appGlobal.get('defaultAutopilotInterval')}
           type={'text'}
-          floatingLabelText={'Autopilot interval seconds (wip)'}
+          floatingLabelText={'Autopilot interval seconds'}
           required
           style={{
             minWidth: '20rem',
