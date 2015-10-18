@@ -5,6 +5,10 @@ node_js:
 script: "npm run verify"
 after_success:
 - "is-travis-ci-build-for-tag && npm run electron:build && npm run electron:pack"
+addons:
+  apt:
+    packages:
+    - wine
 deploy:
   provider: "releases"
   api_key:
