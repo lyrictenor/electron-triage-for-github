@@ -15,6 +15,11 @@
 MIT © [sanemat](http://sane.jp)
 
 
+## Credit
+
+App icon made by [Freepik](http://www.freepik.com) from [www.flaticon.com](http://www.flaticon.com) is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+
+
 [travis-url]: https://travis-ci.org/lyrictenor/electron-triage-for-github
 [travis-image]: https://img.shields.io/travis/lyrictenor/electron-triage-for-github/master.svg?style=flat-square&label=travis
 [appveyor-url]: https://ci.appveyor.com/project/sanemat/electron-triage-for-github/branch/master
