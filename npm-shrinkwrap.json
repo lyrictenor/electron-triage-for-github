@@ -487,9 +487,9 @@
       "resolved": "https://registry.npmjs.org/redux-batched-updates/-/redux-batched-updates-0.1.0.tgz"
     },
     "redux-form": {
-      "version": "2.4.0",
-      "from": "redux-form@2.4.0",
-      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-2.4.0.tgz",
+      "version": "2.4.1",
+      "from": "redux-form@2.4.1",
+      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-2.4.1.tgz",
       "dependencies": {
         "react-lazy-cache": {
           "version": "3.0.0",
