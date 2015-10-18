@@ -1,3 +1,9 @@
+<a name="0.5.3"></a>
+## [0.5.3](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.2...v0.5.3) (2015-10-18)
+
+* Update electron
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.1...v0.5.2) (2015-10-18)
 
