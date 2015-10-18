@@ -6,7 +6,7 @@ import spawn from 'buffered-spawn';
 import path from 'path';
 import rimraf from 'rimraf';
 import packager from 'electron-packager';
-import { productName, electronVersion } from '../package.json';
+import { productName, electronVersion, version } from '../package.json';
 const outputPath = path.join(process.cwd(), 'output');
 const packagerOptions = {
   dir: path.join(process.cwd(), 'dist'),
@@ -16,6 +16,7 @@ const packagerOptions = {
   platform: 'all',
   arch: 'all',
   asar: true,
+  appVersion: version,
 };
 const argv = yargs.default(packagerOptions).argv;
 const env = Object.assign({}, process.env, { NODE_ENV: 'production' });
@@ -42,6 +43,7 @@ spawn('npm', ['run', 'build:dist'], { stdio: 'inherit', env: env })
         platform: argv.platform,
         arch: argv.arch,
         asar: argv.asar,
+        'app-version': argv.appVersion,
       }, (err, appPath) => {
         if (err) {
           reject(err);
