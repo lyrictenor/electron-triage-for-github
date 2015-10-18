@@ -17,6 +17,7 @@ const packagerOptions = {
   arch: 'all',
   asar: true,
   appVersion: version,
+  icon: path.join(process.cwd(), 'assets', 'injured2'),
 };
 const argv = yargs.default(packagerOptions).argv;
 const env = Object.assign({}, process.env, { NODE_ENV: 'production' });
@@ -44,6 +45,7 @@ spawn('npm', ['run', 'build:dist'], { stdio: 'inherit', env: env })
         arch: argv.arch,
         asar: argv.asar,
         'app-version': argv.appVersion,
+        icon: argv.icon,
       }, (err, appPath) => {
         if (err) {
           reject(err);
