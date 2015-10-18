@@ -1,3 +1,9 @@
+<a name="0.5.4"></a>
+## [0.5.4](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.3...v0.5.4) (2015-10-18)
+
+* Add resources
+
+
 <a name="0.5.3"></a>
 ## [0.5.3](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.2...v0.5.3) (2015-10-18)
 
