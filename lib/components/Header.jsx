@@ -4,11 +4,17 @@ import {
   LeftNav,
 } from 'material-ui';
 import urls from '../utils/urls';
+import { transitionTo } from 'redux-react-router';
+import { connect } from 'react-redux';
 
-export default class Header extends Component {
+export class Header extends Component {
   handleToggleNav(event) {
     event.preventDefault();
     this.refs.leftNav.toggle();
+  }
+  handleSelectNav(event, key, payload) {
+    console.log(payload);// eslint-disable-line no-console
+    this.props.dispatch(transitionTo(payload.route));
   }
 
   render() {
@@ -30,6 +36,7 @@ export default class Header extends Component {
           ref="leftNav"
           docked={false}
           menuItems={menuItems}
+          onChange={this.handleSelectNav.bind(this)}
           />
       </div>
     );
@@ -38,4 +45,7 @@ export default class Header extends Component {
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
+
+export default connect()(Header);
