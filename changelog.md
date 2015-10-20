@@ -1,3 +1,9 @@
+<a name="0.5.5"></a>
+## [0.5.5](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.4...v0.5.5) (2015-10-20)
+
+* Fix material-ui version
+
+
 <a name="0.5.4"></a>
 ## [0.5.4](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.3...v0.5.4) (2015-10-18)
 
