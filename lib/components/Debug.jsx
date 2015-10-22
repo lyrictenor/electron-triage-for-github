@@ -49,7 +49,7 @@ export class Debug extends Component {
               margin: '0 0.4rem',
             }}
             >
-            Reset indexedDb <i>{actualDatabaseName}</i>.
+            Reset indexedDb <i>{actualDatabaseName}</i>.<br />
             Reset localStorage.
           </CardText>
           <CardActions
@@ -59,7 +59,7 @@ export class Debug extends Component {
             >
             <RaisedButton
               onClick={this.handleResetStorage}
-              label={'reset storage'}
+              label={'reset'}
               />
           </CardActions>
         </Card>
