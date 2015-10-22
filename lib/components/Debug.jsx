@@ -73,7 +73,7 @@ export class Debug extends Component {
               margin: '0 0.4rem',
             }}
             >
-            LockState: {appGlobal.autopiloting ? 'locked' : 'free' }
+            LockState: {appGlobal.get('autopiloting') ? 'locked' : 'free' }
           </CardText>
           <CardActions
             style={{
