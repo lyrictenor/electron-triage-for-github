@@ -1,6 +1,6 @@
 {
   "name": "triage-for-github",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "dependencies": {
     "classnames": {
       "version": "2.2.0",
@@ -477,9 +477,9 @@
       "resolved": "https://registry.npmjs.org/react-tap-event-plugin/-/react-tap-event-plugin-0.1.7.tgz"
     },
     "redux": {
-      "version": "3.0.2",
-      "from": "redux@>=3.0.0 <4.0.0",
-      "resolved": "https://registry.npmjs.org/redux/-/redux-3.0.2.tgz"
+      "version": "3.0.3",
+      "from": "redux@3.0.3",
+      "resolved": "https://registry.npmjs.org/redux/-/redux-3.0.3.tgz"
     },
     "redux-batched-updates": {
       "version": "0.1.0",
@@ -487,9 +487,9 @@
       "resolved": "https://registry.npmjs.org/redux-batched-updates/-/redux-batched-updates-0.1.0.tgz"
     },
     "redux-form": {
-      "version": "2.4.1",
-      "from": "redux-form@2.4.1",
-      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-2.4.1.tgz",
+      "version": "2.4.5",
+      "from": "redux-form@2.4.5",
+      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-2.4.5.tgz",
       "dependencies": {
         "react-lazy-cache": {
           "version": "3.0.0",
