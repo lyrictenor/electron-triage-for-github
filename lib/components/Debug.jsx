@@ -26,6 +26,8 @@ export class Debug extends Component {
   }
   handleForceUnlockAutopiloting() {
     this.props.forceUnlockAutopiloting();
+    console.log('Force unlock autopiloting.');// eslint-disable-line no-console
+    window.location.reload();
   }
 
   render() {
