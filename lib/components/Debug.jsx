@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import resetStorage from 'reset-storage';
 import urls from '../utils/urls';
@@ -12,15 +13,25 @@ import {
 import { databaseName } from '../../package.json';
 const actualDatabaseName = `IDBWrapper-${databaseName}`;
 import Header from './Header.jsx';
+import {
+  forceUnlockAutopiloting,
+} from '../actions/settingActionCreators';
 
-export default class Debug extends Component {
+export class Debug extends Component {
   handleResetStorage() {
     resetStorage(actualDatabaseName).then(() => {
       console.log(`Reset localStorage and indexedDB: ${actualDatabaseName}`);// eslint-disable-line no-console
       window.location.reload();
     });
   }
+  handleForceUnlockAutopiloting() {
+    this.props.forceUnlockAutopiloting();
+    console.log('Force unlock autopiloting.');// eslint-disable-line no-console
+    window.location.reload();
+  }
+
   render() {
+    const { appGlobal } = this.props;
     return (
       <div>
         <Header
@@ -52,6 +63,31 @@ export default class Debug extends Component {
               />
           </CardActions>
         </Card>
+        <Card>
+          <CardTitle
+            title="Force unlock autopiloting"
+            style={{
+              margin: '0 0.4rem',
+            }}
+            />
+          <CardText
+            style={{
+              margin: '0 0.4rem',
+            }}
+            >
+            LockState: {appGlobal.get('autopiloting') ? 'locked' : 'free' }
+          </CardText>
+          <CardActions
+            style={{
+              margin: '0 0.4rem',
+            }}
+            >
+            <RaisedButton
+              onClick={this.handleForceUnlockAutopiloting.bind(this)}
+              label={'unlock'}
+              />
+          </CardActions>
+        </Card>
         <div
           style={{
             margin: '2rem 1.4rem',
@@ -63,3 +99,21 @@ export default class Debug extends Component {
     );
   }
 }
+
+Debug.propTypes = {
+  forceUnlockAutopiloting: PropTypes.func.isRequired,
+  appGlobal: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    appGlobal: state.appGlobal,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  {
+    forceUnlockAutopiloting,
+  }
+)(Debug);
