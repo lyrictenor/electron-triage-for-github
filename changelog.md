@@ -1,3 +1,13 @@
+<a name="0.5.7"></a>
+## [0.5.7](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.6...v0.5.7) (2015-10-23)
+
+
+### Features
+
+* **autopilot:** add force unlock button on debug page ([d9e7452](https://github.com/lyrictenor/electron-triage-for-github/commit/d9e7452))
+
+
+
 <a name="0.5.6"></a>
 ## [0.5.6](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.5...v0.5.6) (2015-10-22)
 
