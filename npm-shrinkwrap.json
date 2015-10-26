@@ -18,9 +18,9 @@
       "resolved": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.5.tgz"
     },
     "electron-debug": {
-      "version": "0.2.1",
-      "from": "electron-debug@0.2.1",
-      "resolved": "https://registry.npmjs.org/electron-debug/-/electron-debug-0.2.1.tgz"
+      "version": "0.3.0",
+      "from": "electron-debug@0.3.0",
+      "resolved": "https://registry.npmjs.org/electron-debug/-/electron-debug-0.3.0.tgz"
     },
     "electron-open-link-in-browser": {
       "version": "1.0.2",
