@@ -81,7 +81,7 @@
     "webpack-hot-middleware": "^2.1.0",
     "yargs": "^3.23.0"
   },
-  "electronVersion": "0.34.0",
+  "electronVersion": "0.34.1",
   "engines": {
     "node": ">=0.10.0"
   },
