@@ -6,7 +6,7 @@ import {
   RaisedButton,
   TextField,
 } from 'material-ui';
-import buildGithubTokenUrl from '../utils/buildGithubTokenUrl';
+import buildGithubTokenUrl from '../utils/build-github-token-url';
 
 function validateSetting(data) {
   const errors = {};

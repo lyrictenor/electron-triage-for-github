@@ -1,5 +1,5 @@
 import assert from 'power-assert';
-import { encryptData, decryptData } from '../lib/utils/cryptData';
+import { encryptData, decryptData } from '../lib/utils/crypt-data';
 
 it('should not encrypt empty string', () => {
   assert.strictEqual(encryptData(''), '');
