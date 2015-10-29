@@ -10,7 +10,7 @@ import {
   CardText,
   CardActions,
 } from 'material-ui';
-import { databaseName } from '../../package.json';
+import databaseName from '../utils/database-name-wrapper';
 const actualDatabaseName = `IDBWrapper-${databaseName}`;
 import Header from './Header.jsx';
 import {
