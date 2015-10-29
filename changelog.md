@@ -1,3 +1,9 @@
+<a name="0.6.1"></a>
+## [0.6.1](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.6.0...v0.6.1) (2015-10-29)
+
+* Add loading indicator
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.8...v0.6.0) (2015-10-29)
 
