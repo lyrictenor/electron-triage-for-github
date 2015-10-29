@@ -11,6 +11,7 @@ import {
 } from '../actions/storyActionCreators';
 import {
   IconButton,
+  CircularProgress,
 } from 'material-ui';
 import NavigationRefresh from 'material-ui/lib/svg-icons/navigation/refresh';
 import StoryList from './StoryList.jsx';
@@ -63,7 +64,14 @@ export class Home extends Component {
             }}
             onClick={this.props.fetchStories}
             >
-            <NavigationRefresh />
+            {appGlobal.get('autopiloting') ?
+              <CircularProgress
+                mode="indeterminate"
+                size="0.3"
+                />
+              :
+              <NavigationRefresh />
+            }
           </IconButton>
         </div>
         <StoryList
