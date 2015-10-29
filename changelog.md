@@ -1,3 +1,14 @@
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.8...v0.6.0) (2015-10-29)
+
+* Breaking change: add database suffix
+
+### Features
+
+* **database:** rename database ([be322f0](https://github.com/lyrictenor/electron-triage-for-github/commit/be322f0))
+
+
+
 <a name="0.5.8"></a>
 ## [0.5.8](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.5.7...v0.5.8) (2015-10-26)
 
