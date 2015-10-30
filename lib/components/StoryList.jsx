@@ -2,35 +2,27 @@ import React, { Component, PropTypes } from 'react';
 import StoryCardPull from './StoryCardPull.jsx';
 import StoryCardIssue from './StoryCardIssue.jsx';
 import StoryCardEmpty from './StoryCardEmpty.jsx';
-import {
-  TYPE_ISSUE,
-  TYPE_PULL,
-} from '../craftperson/story';
 
 class StoryList extends Component {
   render() {
-    const { stories, ...props } = this.props;
-    const storyCards = stories.map((story) => {
-      switch (story.type) {
-      case TYPE_ISSUE:
-        return (
-          <StoryCardIssue
-            story={story}
-            {...props}
-            />
-        );
-      case TYPE_PULL:
+    const { story, ...props } = this.props;
+    const issuesOrdered = story.get('issuesOrdered');
+    const pulls = story.get('pulls');
+    const storyCards = issuesOrdered.map((issueId) => {
+      if (pulls.has(issueId)) {
         return (
           <StoryCardPull
-            story={story}
+            issueId={issueId}
             {...props}
             />
         );
-      default:
-        return (
-          <div></div>
-        );
       }
+      return (
+        <StoryCardIssue
+          issueId={issueId}
+          {...props}
+          />
+      );
     });
 
     return (
@@ -45,7 +37,7 @@ class StoryList extends Component {
   }
 }
 StoryList.propTypes = {
-  stories: PropTypes.array.isRequired,
+  story: PropTypes.array.isRequired,
 };
 
 
