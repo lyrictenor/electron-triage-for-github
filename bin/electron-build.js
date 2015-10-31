@@ -17,7 +17,7 @@ const packagerOptions = {
   arch: 'all',
   asar: true,
   appVersion: version,
-  icon: path.join(process.cwd(), 'assets', 'injured2'),
+  icon: path.join(process.cwd(), 'assets', 'triage-logo-2'),
 };
 const argv = yargs.default(packagerOptions).argv;
 const env = Object.assign({}, process.env, { NODE_ENV: 'production' });
