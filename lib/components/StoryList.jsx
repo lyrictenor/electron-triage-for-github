@@ -8,19 +8,28 @@ class StoryList extends Component {
     const { story, ...props } = this.props;
     const issuesOrdered = story.get('issuesOrdered');
     const issuesById = story.get('issuesById');
+    const repos = story.get('repos');
+    const reposById = story.get('reposById');
     const pulls = story.get('pulls');
     const storyCards = issuesOrdered.map((issueId) => {
+      const issue = issuesById.get(issueId);
+      let repo = null;
+      if (issue && issue.repository && repos.has(issue.repository.id)) {
+        repo = reposById.get(issue.repository.id);
+      }
       if (pulls.has(issueId)) {
         return (
           <StoryCardPull
-            issue={issuesById.get(issueId)}
+            issue={issue}
+            repo={repo}
             {...props}
             />
         );
       }
       return (
         <StoryCardIssue
-          issue={issuesById.get(issueId)}
+          issue={issue}
+          repo={repo}
           {...props}
           />
       );

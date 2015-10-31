@@ -8,7 +8,13 @@ class StoryCardPull extends Component {
   render() {
     const {
       issue,
+      repo,
     } = this.props;
+    const identifier = {// eslint-disable-line no-unused-vars
+      owner: repo && repo.owner.login,
+      repo: repo && repo.name,
+      number: issue.number,
+    };
 
     return (
       <Card
@@ -24,6 +30,7 @@ class StoryCardPull extends Component {
 
 StoryCardPull.propTypes = {
   issue: PropTypes.object.isRequired,
+  repo: PropTypes.object.isRequired,
 };
 
 export default StoryCardPull;
