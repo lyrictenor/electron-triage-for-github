@@ -18,8 +18,9 @@ class StoryCardIssue extends Component {
     const {
       issue,
       repo,
+      reloadStory,
     } = this.props;
-    const identifier = {// eslint-disable-line no-unused-vars
+    const identifier = {
       owner: repo && repo.owner.login,
       repo: repo && repo.name,
       number: issue.number,
@@ -60,6 +61,7 @@ class StoryCardIssue extends Component {
           >
           <RaisedButton
             label="reload"
+            onClick={reloadStory.bind(this, identifier)}
             />
           <RaisedButton
             label="jump"
@@ -101,6 +103,7 @@ class StoryCardIssue extends Component {
 StoryCardIssue.propTypes = {
   issue: PropTypes.object.isRequired,
   repo: PropTypes.object.isRequired,
+  reloadStory: PropTypes.func.isRequired,
 };
 
 export default StoryCardIssue;

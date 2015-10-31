@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import urls from '../utils/urls';
 import {
   fetchStories,
+  reloadStory,
 } from '../actions/storyActionCreators';
 import {
   IconButton,
@@ -103,5 +104,6 @@ export default connect(
   mapStateToProps,
   {
     fetchStories,
+    reloadStory,
   }
 )(Home);
