@@ -7,15 +7,15 @@ import {
 class StoryCardPull extends Component {
   render() {
     const {
-      issueId,
-      } = this.props;
+      issue,
+    } = this.props;
 
     return (
       <Card
         initiallyExpanded={false}
         >
         <CardText>
-          pull! {issueId}
+          pull! {issue}
         </CardText>
       </Card>
     );
@@ -23,7 +23,7 @@ class StoryCardPull extends Component {
 }
 
 StoryCardPull.propTypes = {
-  issueId: PropTypes.object.isRequired,
+  issue: PropTypes.object.isRequired,
 };
 
 export default StoryCardPull;

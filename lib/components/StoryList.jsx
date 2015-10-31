@@ -7,19 +7,20 @@ class StoryList extends Component {
   render() {
     const { story, ...props } = this.props;
     const issuesOrdered = story.get('issuesOrdered');
+    const issuesById = story.get('issuesById');
     const pulls = story.get('pulls');
     const storyCards = issuesOrdered.map((issueId) => {
       if (pulls.has(issueId)) {
         return (
           <StoryCardPull
-            issueId={issueId}
+            issue={issuesById.get(issueId)}
             {...props}
             />
         );
       }
       return (
         <StoryCardIssue
-          issueId={issueId}
+          issue={issuesById.get(issueId)}
           {...props}
           />
       );
@@ -37,7 +38,7 @@ class StoryList extends Component {
   }
 }
 StoryList.propTypes = {
-  story: PropTypes.array.isRequired,
+  story: PropTypes.object.isRequired,
 };
 
 

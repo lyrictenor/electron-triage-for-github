@@ -87,7 +87,7 @@ export class Home extends Component {
 }
 
 Home.propTypes = {
-  story: PropTypes.array.isRequired,
+  story: PropTypes.object.isRequired,
   fetchStories: PropTypes.func.isRequired,
   appGlobal: PropTypes.object.isRequired,
 };

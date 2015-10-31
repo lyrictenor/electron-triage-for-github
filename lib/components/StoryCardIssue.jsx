@@ -7,15 +7,15 @@ import {
 class StoryCardIssue extends Component {
   render() {
     const {
-      issueId,
-      } = this.props;
+      issue,
+    } = this.props;
 
     return (
       <Card
         initiallyExpanded={false}
         >
         <CardText>
-          issue! {issueId}
+          issue! {issue}
         </CardText>
       </Card>
     );
@@ -23,7 +23,7 @@ class StoryCardIssue extends Component {
 }
 
 StoryCardIssue.propTypes = {
-  issueId: PropTypes.object.isRequired,
+  issue: PropTypes.object.isRequired,
 };
 
 export default StoryCardIssue;
