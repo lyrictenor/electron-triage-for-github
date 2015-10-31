@@ -11,7 +11,7 @@ class StoryList extends Component {
     const repos = story.get('repos');
     const reposById = story.get('reposById');
     const pulls = story.get('pulls');
-    const storyCards = issuesOrdered.map((issueId) => {
+    const storyCards = Array.from(issuesOrdered).reverse().map((issueId) => {
       const issue = issuesById.get(issueId);
       let repo = null;
       if (issue && issue.repository && repos.has(issue.repository.id)) {
