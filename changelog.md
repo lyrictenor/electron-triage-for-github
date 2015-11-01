@@ -1,3 +1,9 @@
+<a name="0.6.2"></a>
+## [0.6.2](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.6.1...v0.6.2) (2015-11-01)
+
+* Update app icon
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.6.0...v0.6.1) (2015-10-29)
 
