@@ -30,7 +30,7 @@ class StoryCardPull extends Component {
       pull,
       reloadStory,
     } = this.props;
-    const identifier = {// eslint-disable-line no-unused-vars
+    const identifier = {
       owner: repo && repo.owner.login,
       repo: repo && repo.name,
       number: issue.number,
@@ -102,11 +102,11 @@ class StoryCardPull extends Component {
         >
         <CardHeader
           title={`${pull.title}`}
-          subtitle={`${repo.fullName}#${pull.number}`}
+          subtitle={`${repo && repo.fullName}#${pull.number}`}
           avatar={<Avatar backgroundColor={iconColor}>P</Avatar>}
           />
         <CardText>
-          {pull.head.label} {ciStateIcon}<br />
+          {pull.head && pull.head.label} {ciStateIcon}<br />
           {pull.updatedAt && moment(pull.updatedAt).format()}<br />
           <CommunicationForum
             color={commentColor}
