@@ -11,17 +11,24 @@ class StoryList extends Component {
     const repos = story.get('repos');
     const reposById = story.get('reposById');
     const pulls = story.get('pulls');
+    const pullsByKey = story.get('pullsByKey');
     const storyCards = Array.from(issuesOrdered).reverse().map((issueId) => {
       const issue = issuesById.get(issueId);
       let repo = null;
       if (issue && issue.repository && repos.has(issue.repository.id)) {
         repo = reposById.get(issue.repository.id);
       }
-      if (pulls.has(issueId)) {
+      let pullKey = null;
+      if (issue && repo) {
+        pullKey = `${repo.fullName}#${issue.number}`;
+      }
+      if (pulls.has(pullKey)) {
+        const pull = pullsByKey.get(pullKey);
         return (
           <StoryCardPull
             issue={issue}
             repo={repo}
+            pull={pull}
             {...props}
             />
         );
