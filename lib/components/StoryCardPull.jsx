@@ -28,6 +28,7 @@ class StoryCardPull extends Component {
       issue,
       repo,
       pull,
+      status,
       reloadStory,
     } = this.props;
     const identifier = {
@@ -37,7 +38,13 @@ class StoryCardPull extends Component {
     };
     const branch = false;
 
-    const ciState = 'unknown';
+    let ciState;
+    if (status && status.totalCount >= 1) {
+      ciState = status.state;
+    } else {
+      ciState = 'unknown';
+    }
+
     let iconColor;
     if (pull.state === 'open') {
       iconColor = Colors.lightGreen400;
@@ -188,6 +195,7 @@ StoryCardPull.propTypes = {
   issue: PropTypes.object.isRequired,
   repo: PropTypes.object.isRequired,
   pull: PropTypes.object.isRequired,
+  status: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
 };
 
