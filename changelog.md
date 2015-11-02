@@ -1,3 +1,19 @@
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.6.3...v0.7.0) (2015-11-02)
+
+* Refactor reducer.
+
+### Features
+
+* **story:** delete branch ([8a0def6](https://github.com/lyrictenor/electron-triage-for-github/commit/8a0def6))
+* **story:** fetch branches ([619d822](https://github.com/lyrictenor/electron-triage-for-github/commit/619d822))
+* **story:** fetch pulls ([40da0f9](https://github.com/lyrictenor/electron-triage-for-github/commit/40da0f9))
+* **story:** fetch status ([c9d4934](https://github.com/lyrictenor/electron-triage-for-github/commit/c9d4934))
+* **story:** merge pull request ([56c9bdd](https://github.com/lyrictenor/electron-triage-for-github/commit/56c9bdd))
+* **story:** toggle story state ([df5fc71](https://github.com/lyrictenor/electron-triage-for-github/commit/df5fc71))
+
+
+
 <a name="0.6.3"></a>
 ## [0.6.3](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.6.2...v0.6.3) (2015-11-01)
 
