@@ -1,6 +1,6 @@
 {
   "name": "triage-for-github",
-  "description": "My spectacular module",
+  "description": "Desktop app for dividing GitHub issues and pull-requests into go or no-go quickly.",
   "version": "0.6.3",
   "author": {
     "name": "sanemat",
