@@ -32,6 +32,7 @@ class StoryCardPull extends Component {
       branchObject,
       reloadStory,
       toggleStoryState,
+      deleteStoryBranch,
     } = this.props;
     const identifier = {
       owner: repo && repo.owner.login,
@@ -164,6 +165,7 @@ class StoryCardPull extends Component {
           <RaisedButton label="revert" disabled />
           <RaisedButton
             label="delete branch"
+            onClick={deleteStoryBranch.bind(this, identifier)}
             disabled={!branchObject || pull.state === 'open'}
             />
         </CardActions>
@@ -202,6 +204,7 @@ StoryCardPull.propTypes = {
   branchObject: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
   toggleStoryState: PropTypes.func.isRequired,
+  deleteStoryBranch: PropTypes.func.isRequired,
 };
 
 export default StoryCardPull;

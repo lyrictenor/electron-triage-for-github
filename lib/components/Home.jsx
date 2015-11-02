@@ -6,6 +6,7 @@ import {
   fetchStories,
   reloadStory,
   toggleStoryState,
+  deleteStoryBranch,
 } from '../actions/storyActionCreators';
 import {
   IconButton,
@@ -107,5 +108,6 @@ export default connect(
     fetchStories,
     reloadStory,
     toggleStoryState,
+    deleteStoryBranch,
   }
 )(Home);
