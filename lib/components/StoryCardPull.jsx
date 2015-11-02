@@ -29,6 +29,7 @@ class StoryCardPull extends Component {
       repo,
       pull,
       status,
+      branchObject,
       reloadStory,
     } = this.props;
     const identifier = {
@@ -36,7 +37,6 @@ class StoryCardPull extends Component {
       repo: repo && repo.name,
       number: issue.number,
     };
-    const branch = false;
 
     let ciState;
     if (status && status.totalCount >= 1) {
@@ -161,7 +161,7 @@ class StoryCardPull extends Component {
           <RaisedButton label="revert" disabled />
           <RaisedButton
             label="delete branch"
-            disabled={!branch || pull.state === 'open'}
+            disabled={!branchObject || pull.state === 'open'}
             />
         </CardActions>
         <CardText
@@ -184,7 +184,7 @@ class StoryCardPull extends Component {
           updatedAt: {pull.updatedAt && moment(pull.updatedAt).format()}<br />
           createdAt: {pull.createdAt && moment(pull.createdAt).format()}<br />
           mergedAt: {pull.mergedAt && moment(pull.mergedAt).format()}<br />
-          closedAt: {pull.closedAt && moment(pull.closedAt).format()}
+          closedAt: {pull.closedAt && moment(pull.closedAt).format()}<br />
         </CardText>
       </Card>
     );
@@ -196,6 +196,7 @@ StoryCardPull.propTypes = {
   repo: PropTypes.object.isRequired,
   pull: PropTypes.object.isRequired,
   status: PropTypes.object.isRequired,
+  branchObject: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
 };
 

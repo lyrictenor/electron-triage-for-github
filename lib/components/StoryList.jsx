@@ -14,6 +14,8 @@ class StoryList extends Component {
     const pullsByKey = story.get('pullsByKey');
     const statuses = story.get('statuses');
     const statusesByKey = story.get('statusesByKey');
+    const branches = story.get('branches');
+    const branchesByRepoId = story.get('branchesByRepoId');
     const storyCards = Array.from(issuesOrdered).reverse().map((issueId) => {
       const issue = issuesById.get(issueId);
       let repo = null;
@@ -34,12 +36,23 @@ class StoryList extends Component {
         if (statuses.has(statusKey)) {
           status = statusesByKey.get(statusKey);
         }
+        // avoid name `branch`
+        let branchObject = null;
+        if (repo && branches.has(repo.id) && pull && pull.head) {
+          const repoBranches = branchesByRepoId.get(repo.id);
+          const branchName = pull.head.ref;
+          if (repoBranches.has(branchName)) {
+            branchObject = repoBranches.get(branchName);
+          }
+        }
+
         return (
           <StoryCardPull
             issue={issue}
             repo={repo}
             pull={pull}
             status={status}
+            branchObject={branchObject}
             {...props}
             />
         );
