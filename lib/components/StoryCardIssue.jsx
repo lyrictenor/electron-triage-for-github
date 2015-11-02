@@ -16,14 +16,14 @@ import moment from 'moment';
 class StoryCardIssue extends Component {
   render() {
     const {
-      story,
+      issue,
+      repo,
       reloadStory,
       toggleStoryState,
-      } = this.props;
-    const { repo, issue } = story;
+    } = this.props;
     const identifier = {
-      owner: repo.owner.login,
-      repo: repo.name,
+      owner: repo && repo.owner.login,
+      repo: repo && repo.name,
       number: issue.number,
     };
     let iconColor;
@@ -40,13 +40,14 @@ class StoryCardIssue extends Component {
     } else {
       commentColor = Colors.grey300;
     }
+
     return (
       <Card
         initiallyExpanded={false}
         >
         <CardHeader
           title={issue.title}
-          subtitle={`${repo.fullName}#${issue.number}`}
+          subtitle={`${repo && repo.fullName}#${issue.number}`}
           avatar={<Avatar backgroundColor={iconColor}>I</Avatar>}
           />
         <CardText>
@@ -103,7 +104,8 @@ class StoryCardIssue extends Component {
 }
 
 StoryCardIssue.propTypes = {
-  story: PropTypes.object.isRequired,
+  issue: PropTypes.object.isRequired,
+  repo: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
   toggleStoryState: PropTypes.func.isRequired,
 };

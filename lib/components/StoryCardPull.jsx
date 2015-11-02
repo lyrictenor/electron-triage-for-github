@@ -25,24 +25,29 @@ import moment from 'moment';
 class StoryCardPull extends Component {
   render() {
     const {
-      story,
+      issue,
+      repo,
+      pull,
+      status,
+      branchObject,
       reloadStory,
       toggleStoryState,
       deleteStoryBranch,
       mergeStoryPullRequest,
-      } = this.props;
-    const { repo, pull, issue, status, branch } = story;
+    } = this.props;
     const identifier = {
-      owner: repo.owner.login,
-      repo: repo.name,
+      owner: repo && repo.owner.login,
+      repo: repo && repo.name,
       number: issue.number,
     };
+
     let ciState;
-    if (status.totalCount >= 1) {
+    if (status && status.totalCount >= 1) {
       ciState = status.state;
     } else {
       ciState = 'unknown';
     }
+
     let iconColor;
     if (pull.state === 'open') {
       iconColor = Colors.lightGreen400;
@@ -107,11 +112,11 @@ class StoryCardPull extends Component {
         >
         <CardHeader
           title={`${pull.title}`}
-          subtitle={`${repo.fullName}#${pull.number}`}
+          subtitle={`${repo && repo.fullName}#${pull.number}`}
           avatar={<Avatar backgroundColor={iconColor}>P</Avatar>}
           />
         <CardText>
-          {pull.head.label} {ciStateIcon}<br />
+          {pull.head && pull.head.label} {ciStateIcon}<br />
           {pull.updatedAt && moment(pull.updatedAt).format()}<br />
           <CommunicationForum
             color={commentColor}
@@ -163,7 +168,7 @@ class StoryCardPull extends Component {
           <RaisedButton
             label="delete branch"
             onClick={deleteStoryBranch.bind(this, identifier)}
-            disabled={!branch || pull.state === 'open'}
+            disabled={!branchObject || pull.state === 'open'}
             />
         </CardActions>
         <CardText
@@ -186,7 +191,7 @@ class StoryCardPull extends Component {
           updatedAt: {pull.updatedAt && moment(pull.updatedAt).format()}<br />
           createdAt: {pull.createdAt && moment(pull.createdAt).format()}<br />
           mergedAt: {pull.mergedAt && moment(pull.mergedAt).format()}<br />
-          closedAt: {pull.closedAt && moment(pull.closedAt).format()}
+          closedAt: {pull.closedAt && moment(pull.closedAt).format()}<br />
         </CardText>
       </Card>
     );
@@ -194,7 +199,11 @@ class StoryCardPull extends Component {
 }
 
 StoryCardPull.propTypes = {
-  story: PropTypes.object.isRequired,
+  issue: PropTypes.object.isRequired,
+  repo: PropTypes.object.isRequired,
+  pull: PropTypes.object.isRequired,
+  status: PropTypes.object.isRequired,
+  branchObject: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
   toggleStoryState: PropTypes.func.isRequired,
   deleteStoryBranch: PropTypes.func.isRequired,

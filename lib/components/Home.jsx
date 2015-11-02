@@ -26,7 +26,7 @@ export class Home extends Component {
     this.props.fetchStories();
   }
   render() {
-    const { stories, appGlobal, ...props } = this.props;
+    const { story, appGlobal, ...props } = this.props;
     let lastStoryUpdated = '-';
     if (appGlobal.get('storyUpdatedAt')) {
       lastStoryUpdated = moment(appGlobal.get('storyUpdatedAt')).format();
@@ -75,7 +75,7 @@ export class Home extends Component {
           </IconButton>
         </div>
         <StoryList
-          stories={stories}
+          story={story}
           {...props}
           />
         <div
@@ -91,14 +91,14 @@ export class Home extends Component {
 }
 
 Home.propTypes = {
-  stories: PropTypes.array.isRequired,
+  story: PropTypes.object.isRequired,
   fetchStories: PropTypes.func.isRequired,
   appGlobal: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    stories: state.story,
+    story: state.story,
     appGlobal: state.appGlobal,
   };
 }
