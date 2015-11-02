@@ -5,6 +5,7 @@ import urls from '../utils/urls';
 import {
   fetchStories,
   reloadStory,
+  toggleStoryState,
 } from '../actions/storyActionCreators';
 import {
   IconButton,
@@ -105,5 +106,6 @@ export default connect(
   {
     fetchStories,
     reloadStory,
+    toggleStoryState,
   }
 )(Home);

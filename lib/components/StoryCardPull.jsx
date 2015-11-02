@@ -31,6 +31,7 @@ class StoryCardPull extends Component {
       status,
       branchObject,
       reloadStory,
+      toggleStoryState,
     } = this.props;
     const identifier = {
       owner: repo && repo.owner.login,
@@ -148,10 +149,12 @@ class StoryCardPull extends Component {
             />
           <RaisedButton
             label="close"
+            onClick={toggleStoryState.bind(this, identifier)}
             disabled={pull.state !== 'open'}
             />
           <RaisedButton
             label="reopen"
+            onClick={toggleStoryState.bind(this, identifier)}
             disabled={pull.state === 'open'}
             />
           <RaisedButton
@@ -198,6 +201,7 @@ StoryCardPull.propTypes = {
   status: PropTypes.object.isRequired,
   branchObject: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
+  toggleStoryState: PropTypes.func.isRequired,
 };
 
 export default StoryCardPull;
