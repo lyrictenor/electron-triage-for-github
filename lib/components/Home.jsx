@@ -67,7 +67,7 @@ export class Home extends Component {
             {appGlobal.get('autopiloting') ?
               <CircularProgress
                 mode="indeterminate"
-                size="0.3"
+                size={0.3}
                 />
               :
               <NavigationRefresh />
