@@ -7,6 +7,7 @@ import {
   reloadStory,
   toggleStoryState,
   deleteStoryBranch,
+  mergeStoryPullRequest,
 } from '../actions/storyActionCreators';
 import {
   IconButton,
@@ -109,5 +110,6 @@ export default connect(
     reloadStory,
     toggleStoryState,
     deleteStoryBranch,
+    mergeStoryPullRequest,
   }
 )(Home);
