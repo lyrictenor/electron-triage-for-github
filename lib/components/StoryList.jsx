@@ -48,6 +48,7 @@ class StoryList extends Component {
 
         return (
           <StoryCardPull
+            key={issue.id}
             issue={issue}
             repo={repo}
             pull={pull}
@@ -59,6 +60,7 @@ class StoryList extends Component {
       }
       return (
         <StoryCardIssue
+          key={issue.id}
           issue={issue}
           repo={repo}
           {...props}
