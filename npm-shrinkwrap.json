@@ -602,6 +602,90 @@
       "from": "redux-batched-updates@>=0.1.0 <0.2.0",
       "resolved": "https://registry.npmjs.org/redux-batched-updates/-/redux-batched-updates-0.1.0.tgz"
     },
+    "redux-devtools-dock-monitor": {
+      "version": "1.0.0-beta-3",
+      "from": "redux-devtools-dock-monitor@*",
+      "resolved": "https://registry.npmjs.org/redux-devtools-dock-monitor/-/redux-devtools-dock-monitor-1.0.0-beta-3.tgz",
+      "dependencies": {
+        "react-dock": {
+          "version": "0.2.3",
+          "from": "react-dock@>=0.2.1 <0.3.0",
+          "resolved": "https://registry.npmjs.org/react-dock/-/react-dock-0.2.3.tgz",
+          "dependencies": {
+            "lodash.debounce": {
+              "version": "3.1.1",
+              "from": "lodash.debounce@>=3.1.1 <4.0.0",
+              "resolved": "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-3.1.1.tgz",
+              "dependencies": {
+                "lodash._getnative": {
+                  "version": "3.9.1",
+                  "from": "lodash._getnative@>=3.0.0 <4.0.0",
+                  "resolved": "https://registry.npmjs.org/lodash._getnative/-/lodash._getnative-3.9.1.tgz"
+                }
+              }
+            },
+            "object-assign": {
+              "version": "4.0.1",
+              "from": "object-assign@>=4.0.1 <5.0.0",
+              "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.0.1.tgz"
+            }
+          }
+        },
+        "react-pure-render": {
+          "version": "1.0.2",
+          "from": "react-pure-render@>=1.0.2 <2.0.0",
+          "resolved": "https://registry.npmjs.org/react-pure-render/-/react-pure-render-1.0.2.tgz"
+        }
+      }
+    },
+    "redux-devtools-log-monitor": {
+      "version": "1.0.0-beta-3",
+      "from": "redux-devtools-log-monitor@*",
+      "resolved": "https://registry.npmjs.org/redux-devtools-log-monitor/-/redux-devtools-log-monitor-1.0.0-beta-3.tgz",
+      "dependencies": {
+        "react-json-tree": {
+          "version": "0.2.0",
+          "from": "react-json-tree@>=0.2.0 <0.3.0",
+          "resolved": "https://registry.npmjs.org/react-json-tree/-/react-json-tree-0.2.0.tgz",
+          "dependencies": {
+            "react-mixin": {
+              "version": "1.7.0",
+              "from": "react-mixin@>=1.7.0 <2.0.0",
+              "resolved": "https://registry.npmjs.org/react-mixin/-/react-mixin-1.7.0.tgz",
+              "dependencies": {
+                "object-assign": {
+                  "version": "2.1.1",
+                  "from": "object-assign@>=2.0.0 <3.0.0",
+                  "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-2.1.1.tgz"
+                },
+                "smart-mixin": {
+                  "version": "1.2.1",
+                  "from": "smart-mixin@>=1.2.0 <2.0.0",
+                  "resolved": "https://registry.npmjs.org/smart-mixin/-/smart-mixin-1.2.1.tgz"
+                }
+              }
+            }
+          }
+        },
+        "react-pure-render": {
+          "version": "1.0.2",
+          "from": "react-pure-render@>=1.0.2 <2.0.0",
+          "resolved": "https://registry.npmjs.org/react-pure-render/-/react-pure-render-1.0.2.tgz"
+        },
+        "redux-devtools-themes": {
+          "version": "1.0.0",
+          "from": "redux-devtools-themes@>=1.0.0 <2.0.0",
+          "resolved": "https://registry.npmjs.org/redux-devtools-themes/-/redux-devtools-themes-1.0.0.tgz",
+          "dependencies": {
+            "base16": {
+              "version": "1.0.0",
+              "from": "base16@>=1.0.0 <2.0.0",
+              "resolved": "https://registry.npmjs.org/base16/-/base16-1.0.0.tgz"
+            }
+          }
+        }
+      }
+    },
     "redux-form": {
       "version": "3.0.0-beta-4",
       "from": "redux-form@>=3.0.0-beta-4 <4.0.0",
