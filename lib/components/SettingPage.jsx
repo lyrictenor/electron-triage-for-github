@@ -47,7 +47,8 @@ SettingPage.propTypes = {
 };
 
 function mapStateToProps() {
-  return {};
+  return {
+  };
 }
 
 export default connect(

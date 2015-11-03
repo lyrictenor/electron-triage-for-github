@@ -48,6 +48,7 @@ class StoryList extends Component {
 
         return (
           <StoryCardPull
+            key={issue.id}
             issue={issue}
             repo={repo}
             pull={pull}
@@ -59,6 +60,7 @@ class StoryList extends Component {
       }
       return (
         <StoryCardIssue
+          key={issue.id}
           issue={issue}
           repo={repo}
           {...props}
@@ -66,13 +68,17 @@ class StoryList extends Component {
       );
     });
 
+    if (storyCards.length > 0) {
+      return (
+        <div>
+          {storyCards}
+        </div>
+      );
+    }
+
     return (
       <div>
-      {storyCards.length > 0 ?
-        {storyCards}
-        :
         <StoryCardEmpty />
-      }
       </div>
     );
   }

@@ -164,7 +164,6 @@ function mapStateToProps(state) {
   const appGlobal = new Map([state.appGlobal]);
   appGlobal.set('tokenUrl', buildGithubTokenUrl(state.appGlobal.get('webEndpoint')));
   return {
-    form: state.form,
     appGlobal: appGlobal,
   };
 }
