@@ -1,6 +1,6 @@
 /* global __DEVELOPMENT__, __DEVTOOLS__ */
 import React, { Component } from 'react';
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
 import { reducer as formReducer } from 'redux-form';
 
@@ -59,12 +59,6 @@ const reducer = combineReducers({
 
 const store = finalCreateStore(reducer);
 
-function mapStateToProps(state) {
-  return {
-    form: state.form,
-  };
-}
-
 export class App extends Component {
   constructor() {
     super();
@@ -80,15 +74,15 @@ export class App extends Component {
             <Router>
               <Route
                 path={urlTable.home}
-                component={connect(mapStateToProps)(Home)}
+                component={Home}
                 />
               <Route
                 path={urlTable.debug}
-                component={connect(mapStateToProps)(Debug)}
+                component={Debug}
                 />
               <Route
                 path={urlTable.settings}
-                component={connect(mapStateToProps)(SettingPage)}
+                component={SettingPage}
                 />
             </Router>
             <DevTools />
@@ -102,15 +96,15 @@ export class App extends Component {
         <Router>
           <Route
             path={urlTable.home}
-            component={connect(mapStateToProps)(Home)}
+            component={Home}
             />
           <Route
             path={urlTable.debug}
-            component={connect(mapStateToProps)(Debug)}
+            component={Debug}
             />
           <Route
             path={urlTable.settings}
-            component={connect(mapStateToProps)(SettingPage)}
+            component={SettingPage}
             />
         </Router>
       </Provider>

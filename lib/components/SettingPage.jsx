@@ -46,8 +46,10 @@ SettingPage.propTypes = {
   initSettings: PropTypes.func.isRequired,
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    form: state.form,
+  };
 }
 
 export default connect(
