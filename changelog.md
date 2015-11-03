@@ -1,3 +1,9 @@
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.7.1...v0.8.0) (2015-11-03)
+
+* Update react to v0.14.
+
+
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.7.0...v0.7.1) (2015-11-03)
 
