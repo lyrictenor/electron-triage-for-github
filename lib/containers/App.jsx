@@ -1,5 +1,5 @@
 /* global __DEVELOPMENT__, __DEVTOOLS__ */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
 import { Router, Route } from 'react-router';
 import {
@@ -112,10 +112,6 @@ export class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  history: PropTypes.object.isRequired,
-};
 
 App = withMaterialUI(App);
 
