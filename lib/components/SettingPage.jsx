@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import SettingForm from './SettingForm.jsx';
-import { Link } from 'react-router';
-import urls from '../utils/urls';
 import {
   saveSettings,
   initSettings,
@@ -29,13 +27,6 @@ export class SettingPage extends Component {
           title={'Settings'}
           />
         <SettingForm onSubmit={this.handleSubmit.bind(this)}/>
-        <div
-          style={{
-            margin: '2rem 1.4rem',
-          }}
-          >
-          <Link to={urls.get('home')}>home</Link>, <Link to={urls.get('debug')}>debug</Link>
-        </div>
       </div>
     );
   }
