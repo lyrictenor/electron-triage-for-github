@@ -25,7 +25,7 @@ But too many pull requests bother us.
 
 ![Too many pull requests](./pages/too-many-pull-requests.gif)
 
-Especially build app by empty pull request like ping, we want to close pull
+Especially build an app by empty pull request like ping, we want to close pull
 request quickly after confirming CI 'success'.
 
 
@@ -36,7 +36,7 @@ See: https://github.com/pulls
 ![github pulls](./pages/github-pulls.gif)
 
 to what we want. But we should click a pull request, open a
-pull request page, click close button, close pull request page, click a pull
+pull request page, click the close button, close pull request page, click a pull
 request, ...
 It's too much.
 
@@ -61,20 +61,19 @@ Download [Latest release](https://github.com/lyrictenor/electron-triage-for-gith
 
 Set GitHub personal token, scope `repo` or `public_repo`.
 
+
 ### Experimental: Autopilot
 
-Set autopilot on, then you get interval autopilot.
+Set autopilot enable, then you get interval autopilot.
 
-If your autopilot hang up, move to debug pane and execute force unlock.
+If your autopilot hangs up, move to debug pane and execute force unlock.
 
 
 ### Details
 
-There is details about an issue and a pull request with "v" icon.
+There are details about an issue and a pull request with "v" icon.
 
 ![show details](./pages/show-details.gif)
-
-
 
 
 ## Changelog
