@@ -94,8 +94,8 @@ App icon made by [Freepik](http://www.freepik.com) from [www.flaticon.com](http:
 
 
 [travis-url]: https://travis-ci.org/lyrictenor/electron-triage-for-github
-[travis-image]: https://img.shields.io/travis/lyrictenor/electron-triage-for-github/master.svg?style=flat-square&label=travis
+[travis-image]: https://img.shields.io/travis/lyrictenor/electron-triage-for-github/master.svg?style=flat-square&label=build%20%28linux%29
 [appveyor-url]: https://ci.appveyor.com/project/sanemat/electron-triage-for-github/branch/master
-[appveyor-image]: https://img.shields.io/appveyor/ci/sanemat/electron-triage-for-github/master.svg?style=flat-square&label=appveyor
+[appveyor-image]: https://img.shields.io/appveyor/ci/sanemat/electron-triage-for-github/master.svg?style=flat-square&label=build%20%28windows%29
 [daviddm-url]: https://david-dm.org/lyrictenor/electron-triage-for-github
 [daviddm-image]: https://img.shields.io/david/lyrictenor/electron-triage-for-github.svg?style=flat-square
