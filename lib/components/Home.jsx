@@ -15,6 +15,9 @@ import NavigationRefresh from 'material-ui/lib/svg-icons/navigation/refresh';
 import StoryList from './StoryList.jsx';
 import Header from './Header.jsx';
 import moment from 'moment';
+import {
+  tryToLogIn,
+} from '../utils/configs';
 
 export class Home extends Component {
   componentDidMount() {
@@ -33,6 +36,7 @@ export class Home extends Component {
     if (appGlobal.get('autopilotedAt')) {
       lastAutopiloted = moment(appGlobal.get('autopilotedAt')).format();
     }
+    const userTryToLogIn = tryToLogIn(appGlobal);
     return (
       <div>
         <Header
@@ -74,6 +78,7 @@ export class Home extends Component {
         </div>
         <StoryList
           story={story}
+          userTryToLogIn={userTryToLogIn}
           {...props}
           />
       </div>

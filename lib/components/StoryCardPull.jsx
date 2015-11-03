@@ -30,6 +30,7 @@ class StoryCardPull extends Component {
       pull,
       status,
       branchObject,
+      userTryToLogIn,
       reloadStory,
       toggleStoryState,
       deleteStoryBranch,
@@ -152,23 +153,23 @@ class StoryCardPull extends Component {
           <RaisedButton
             label="close"
             onClick={toggleStoryState.bind(this, identifier)}
-            disabled={pull.state !== 'open'}
+            disabled={!userTryToLogIn || pull.state !== 'open'}
             />
           <RaisedButton
             label="reopen"
             onClick={toggleStoryState.bind(this, identifier)}
-            disabled={pull.state === 'open'}
+            disabled={!userTryToLogIn || pull.state === 'open'}
             />
           <RaisedButton
             label="merge"
             onClick={mergeStoryPullRequest.bind(this, identifier)}
-            disabled={pull.state !== 'open' || pull.merged || !pull.mergeable}
+            disabled={!userTryToLogIn || pull.state !== 'open' || pull.merged || !pull.mergeable}
             />
           <RaisedButton label="revert" disabled />
           <RaisedButton
             label="delete branch"
             onClick={deleteStoryBranch.bind(this, identifier)}
-            disabled={!branchObject || pull.state === 'open'}
+            disabled={!userTryToLogIn || !branchObject || pull.state === 'open'}
             />
         </CardActions>
         <CardText
@@ -204,6 +205,7 @@ StoryCardPull.propTypes = {
   pull: PropTypes.object.isRequired,
   status: PropTypes.object.isRequired,
   branchObject: PropTypes.object.isRequired,
+  userTryToLogIn: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
   toggleStoryState: PropTypes.func.isRequired,
   deleteStoryBranch: PropTypes.func.isRequired,
