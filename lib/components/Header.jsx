@@ -11,6 +11,11 @@ export default class Header extends Component {
     this.refs.leftNav.toggle();
   }
 
+  handleSelectNav(event, key, payload) {
+    event.preventDefault();
+    this.context.history.pushState(null, payload.route);
+  }
+
   render() {
     const { title } = this.props;
     // FIXME: selectedIndex
@@ -30,6 +35,7 @@ export default class Header extends Component {
           ref="leftNav"
           docked={false}
           menuItems={menuItems}
+          onChange={this.handleSelectNav.bind(this)}
           />
       </div>
     );
@@ -38,4 +44,8 @@ export default class Header extends Component {
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+};
+
+Header.contextTypes = {
+  history: PropTypes.object.isRequired,
 };

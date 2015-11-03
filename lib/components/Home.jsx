@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import urls from '../utils/urls';
 import {
   fetchStories,
   reloadStory,
@@ -78,13 +76,6 @@ export class Home extends Component {
           story={story}
           {...props}
           />
-        <div
-          style={{
-            margin: '2rem 1.4rem',
-          }}
-          >
-          <Link to={urls.get('settings')}>settings</Link>
-        </div>
       </div>
     );
   }
