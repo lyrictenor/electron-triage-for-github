@@ -43,6 +43,8 @@ It's too much.
 
 ### Plan B: Triage for GitHub
 
+![Triage for GitHub](./pages/triage-for-github2.gif)
+
 That is where "Triage for GitHub" comes in.
 We can triage GitHub issues and pull requests.
 We can also "Jump" to details with GitHub UI.
