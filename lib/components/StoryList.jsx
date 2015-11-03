@@ -66,13 +66,17 @@ class StoryList extends Component {
       );
     });
 
+    if (storyCards.length > 0) {
+      return (
+        <div>
+          {storyCards}
+        </div>
+      );
+    }
+
     return (
       <div>
-      {storyCards.length > 0 ?
-        {storyCards}
-        :
         <StoryCardEmpty />
-      }
       </div>
     );
   }
