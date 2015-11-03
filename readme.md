@@ -35,9 +35,10 @@ See: https://github.com/pulls
 
 ![github pulls](./pages/github-pulls.gif)
 
-to what we want. But we should click a pull request, open a
+This is similar to what we want. But we should click a pull request, open a
 pull request page, click the close button, close pull request page, click a pull
 request, ...
+
 It's too much.
 
 
@@ -46,6 +47,7 @@ It's too much.
 ![Triage for GitHub](./pages/triage-for-github2.gif)
 
 That is where "Triage for GitHub" comes in.
+
 We can triage GitHub issues and pull requests.
 We can also "Jump" to details with GitHub UI.
 
@@ -55,11 +57,11 @@ We can also "Jump" to details with GitHub UI.
 
 ### Set up
 
-Download [Latest release](https://github.com/lyrictenor/electron-triage-for-github/releases/latest) for your own environment.
+Download from [Latest release](https://github.com/lyrictenor/electron-triage-for-github/releases/latest) for your own environment.
 
 ![settings](./pages/settings.gif)
 
-Set [GitHub personal token](https://github.com/settings/tokens/new), scope `repo` or `public_repo`.
+Set [GitHub personal token](https://github.com/settings/tokens/new) which scope is `repo` or `public_repo`.
 
 
 ### Experimental: Autopilot
