@@ -1,6 +1,6 @@
 {
   "name": "triage-for-github",
-  "version": "0.5.7",
+  "version": "0.7.0",
   "dependencies": {
     "classnames": {
       "version": "2.2.0",
@@ -527,9 +527,9 @@
       }
     },
     "rndm": {
-      "version": "1.1.1",
-      "from": "rndm@1.1.1",
-      "resolved": "https://registry.npmjs.org/rndm/-/rndm-1.1.1.tgz"
+      "version": "1.2.0",
+      "from": "rndm@1.2.0",
+      "resolved": "https://registry.npmjs.org/rndm/-/rndm-1.2.0.tgz"
     }
   }
 }
