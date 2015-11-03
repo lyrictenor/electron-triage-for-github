@@ -2,10 +2,6 @@
 import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
 import { Router, Route } from 'react-router';
-import {
-  reduxRouteComponent,
-  routerStateReducer,
-} from 'redux-router';
 import { reducer as formReducer } from 'redux-form';
 
 import Home from '../components/Home.jsx';
@@ -57,7 +53,6 @@ if (__DEVELOPMENT__ && __DEVTOOLS__) {
 }
 
 const reducer = combineReducers({
-  router: routerStateReducer,
   form: formReducer,
   ...reducers,
 });
@@ -66,7 +61,6 @@ const store = finalCreateStore(reducer);
 
 function mapStateToProps(state) {
   return {
-    router: state.router,
     form: state.form,
   };
 }
@@ -82,42 +76,8 @@ export class App extends Component {
     if (__DEVTOOLS__) {
       return (
         <Provider store={store}>
-          {() =>
-            <div>
-              <Router history={history}>
-                <Route
-                  component={reduxRouteComponent(store)}
-                  path="/"
-                  >
-                  <Route
-                    path={urlTable.home}
-                    component={connect(mapStateToProps)(Home)}
-                    />
-                  <Route
-                    path={urlTable.debug}
-                    component={connect(mapStateToProps)(Debug)}
-                    />
-                  <Route
-                    path={urlTable.settings}
-                    component={connect(mapStateToProps)(SettingPage)}
-                    />
-                </Route>
-              </Router>
-              <DevTools />
-            </div>
-          }
-        </Provider>
-      );
-    }
-
-    return (
-      <Provider store={store}>
-        {() =>
-          <Router history={history}>
-            <Route
-              component={reduxRouteComponent(store)}
-              path="/"
-              >
+          <div>
+            <Router>
               <Route
                 path={urlTable.home}
                 component={connect(mapStateToProps)(Home)}
@@ -130,9 +90,29 @@ export class App extends Component {
                 path={urlTable.settings}
                 component={connect(mapStateToProps)(SettingPage)}
                 />
-            </Route>
-          </Router>
-        }
+            </Router>
+            <DevTools />
+          </div>
+        </Provider>
+      );
+    }
+
+    return (
+      <Provider store={store}>
+        <Router>
+          <Route
+            path={urlTable.home}
+            component={connect(mapStateToProps)(Home)}
+            />
+          <Route
+            path={urlTable.debug}
+            component={connect(mapStateToProps)(Debug)}
+            />
+          <Route
+            path={urlTable.settings}
+            component={connect(mapStateToProps)(SettingPage)}
+            />
+        </Router>
       </Provider>
     );
   }

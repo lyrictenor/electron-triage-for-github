@@ -713,18 +713,6 @@
         }
       }
     },
-    "redux-router": {
-      "version": "1.0.0-beta3",
-      "from": "redux-router@1.0.0-beta3",
-      "resolved": "https://registry.npmjs.org/redux-router/-/redux-router-1.0.0-beta3.tgz",
-      "dependencies": {
-        "deep-equal": {
-          "version": "1.0.1",
-          "from": "deep-equal@>=1.0.1 <2.0.0",
-          "resolved": "https://registry.npmjs.org/deep-equal/-/deep-equal-1.0.1.tgz"
-        }
-      }
-    },
     "redux-thunk": {
       "version": "1.0.0",
       "from": "redux-thunk@>=1.0.0 <2.0.0",
