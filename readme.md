@@ -59,7 +59,7 @@ Download [Latest release](https://github.com/lyrictenor/electron-triage-for-gith
 
 ![settings](./pages/settings.gif)
 
-Set GitHub personal token, scope `repo` or `public_repo`.
+Set [GitHub personal token](https://github.com/settings/tokens/new), scope `repo` or `public_repo`.
 
 
 ### Experimental: Autopilot
