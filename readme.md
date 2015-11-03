@@ -59,16 +59,20 @@ Download [Latest release](https://github.com/lyrictenor/electron-triage-for-gith
 
 Set GitHub personal token, scope `repo` or `public_repo`.
 
-There is details about an issue and a pull request with "v" icon.
-
-![show details](./pages/show-details.gif)
-
-
 ### Experimental: Autopilot
 
 Set autopilot on, then you get interval autopilot.
 
 If your autopilot hang up, move to debug pane and execute force unlock.
+
+
+### Details
+
+There is details about an issue and a pull request with "v" icon.
+
+![show details](./pages/show-details.gif)
+
+
 
 
 ## Changelog
