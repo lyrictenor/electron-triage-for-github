@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import resetStorage from 'reset-storage';
-import urls from '../utils/urls';
 import {
   RaisedButton,
   Card,
@@ -88,13 +86,6 @@ export class Debug extends Component {
               />
           </CardActions>
         </Card>
-        <div
-          style={{
-            margin: '2rem 1.4rem',
-          }}
-          >
-          <Link to={urls.get('settings')}>settings</Link>, <Link to={urls.get('home')}>home</Link>
-        </div>
       </div>
     );
   }
