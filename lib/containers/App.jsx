@@ -69,7 +69,7 @@ export class App extends Component {
     const { history } = this.props;
     const elements = [];
     elements.push(
-      <Provider store={store}>
+      <Provider store={store} key="Provider">
         {() =>
           <Router history={history}>
             <Route
