@@ -18,6 +18,7 @@ class StoryCardIssue extends Component {
     const {
       issue,
       repo,
+      userTryToLogIn,
       reloadStory,
       toggleStoryState,
     } = this.props;
@@ -71,12 +72,12 @@ class StoryCardIssue extends Component {
           <RaisedButton
             label="close"
             onClick={toggleStoryState.bind(this, identifier)}
-            disabled={issue.state !== 'open'}
+            disabled={!userTryToLogIn || issue.state !== 'open'}
             />
           <RaisedButton
             label="reopen"
             onClick={toggleStoryState.bind(this, identifier)}
-            disabled={issue.state === 'open'}
+            disabled={!userTryToLogIn || issue.state === 'open'}
             />
           <RaisedButton label="merge" disabled />
           <RaisedButton label="revert" disabled />
@@ -106,6 +107,7 @@ class StoryCardIssue extends Component {
 StoryCardIssue.propTypes = {
   issue: PropTypes.object.isRequired,
   repo: PropTypes.object.isRequired,
+  userTryToLogIn: PropTypes.object.isRequired,
   reloadStory: PropTypes.func.isRequired,
   toggleStoryState: PropTypes.func.isRequired,
 };
