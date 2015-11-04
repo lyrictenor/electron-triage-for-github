@@ -1,7 +1,7 @@
 {
   "name": "triage-for-github",
   "description": "Desktop app for dividing GitHub issues and pull-requests into go or no-go quickly.",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "author": {
     "name": "sanemat",
     "email": "o.gata.ken@gmail.com",
