@@ -1,3 +1,9 @@
+<a name="0.8.2"></a>
+## [0.8.2](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.8.1...v0.8.2) (2015-11-04)
+
+* Show `lyrictenor/example-issues` for non log in user.
+
+
 <a name="0.8.1"></a>
 ## [0.8.1](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.8.0...v0.8.1) (2015-11-03)
 
