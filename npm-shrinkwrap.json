@@ -1,6 +1,6 @@
 {
   "name": "triage-for-github",
-  "version": "0.7.1",
+  "version": "0.8.2",
   "dependencies": {
     "classnames": {
       "version": "2.2.0",
@@ -18,9 +18,16 @@
       "resolved": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.5.tgz"
     },
     "electron-debug": {
-      "version": "0.3.0",
-      "from": "electron-debug@0.3.0",
-      "resolved": "https://registry.npmjs.org/electron-debug/-/electron-debug-0.3.0.tgz"
+      "version": "0.4.0",
+      "from": "electron-debug@0.4.0",
+      "resolved": "https://registry.npmjs.org/electron-debug/-/electron-debug-0.4.0.tgz",
+      "dependencies": {
+        "electron-localshortcut": {
+          "version": "0.3.2",
+          "from": "electron-localshortcut@>=0.3.2 <0.4.0",
+          "resolved": "https://registry.npmjs.org/electron-localshortcut/-/electron-localshortcut-0.3.2.tgz"
+        }
+      }
     },
     "electron-open-link-in-browser": {
       "version": "1.0.2",
@@ -39,9 +46,9 @@
       "resolved": "https://registry.npmjs.org/electron-template-menu/-/electron-template-menu-1.0.3.tgz"
     },
     "es6-error": {
-      "version": "2.0.1",
-      "from": "es6-error@>=2.0.0 <3.0.0",
-      "resolved": "https://registry.npmjs.org/es6-error/-/es6-error-2.0.1.tgz"
+      "version": "2.0.2",
+      "from": "es6-error@2.0.2",
+      "resolved": "https://registry.npmjs.org/es6-error/-/es6-error-2.0.2.tgz"
     },
     "history": {
       "version": "1.13.0",
@@ -725,9 +732,9 @@
       }
     },
     "redux-form": {
-      "version": "3.0.0-beta-4",
-      "from": "redux-form@>=3.0.0-beta-4 <4.0.0",
-      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-3.0.0-beta-4.tgz",
+      "version": "3.0.5",
+      "from": "redux-form@3.0.5",
+      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-3.0.5.tgz",
       "dependencies": {
         "deep-equal": {
           "version": "1.0.1",
