@@ -112,7 +112,7 @@
     "electron:pack": "babel-node bin/electron-pack.js",
     "eslint": "npm run eslint:es5 && npm run eslint:es6",
     "eslint:es5": "eslint -c es5.eslintrc lib/main.js lib/server.js",
-    "eslint:es6": "eslint --ext .js,.jsx --ignore-pattern \"lib/{main,server}.js\" lib test bin",
+    "eslint:es6": "eslint --ext .js,.jsx --ignore-pattern \"lib/main.js\" --ignore-pattern \"lib/server.js\" lib test bin",
     "fetch:font:roboto": "webfont-dl \"http://fonts.googleapis.com/css?family=Roboto:400,300,500:latin\" -o assets/roboto.css --woff1=omit --woff2=data --svg=omit --ttf=omit --eot=omit",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
