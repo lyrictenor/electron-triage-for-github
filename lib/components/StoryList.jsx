@@ -5,7 +5,7 @@ import StoryCardEmpty from './StoryCardEmpty.jsx';
 
 class StoryList extends Component {
   render() {
-    const { story, ...props } = this.props;
+    const { story, ...props } = this.props;// eslint-disable-line no-redeclare
     const issuesOrdered = story.get('issuesOrdered');
     const issuesById = story.get('issuesById');
     const repos = story.get('repos');

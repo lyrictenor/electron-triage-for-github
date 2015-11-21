@@ -27,7 +27,7 @@ export class Home extends Component {
     this.props.fetchStories();
   }
   render() {
-    const { story, appGlobal, ...props } = this.props;
+    const { story, appGlobal, ...props } = this.props;// eslint-disable-line no-redeclare
     let lastStoryUpdated = '-';
     if (appGlobal.get('storyUpdatedAt')) {
       lastStoryUpdated = moment(appGlobal.get('storyUpdatedAt')).format();
