@@ -1,3 +1,9 @@
+<a name="0.8.7"></a>
+## [0.8.7](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.8.6...v0.8.7) (2015-11-22)
+
+* Update release build process
+
+
 <a name="0.8.6"></a>
 ## [0.8.6](https://github.com/lyrictenor/electron-triage-for-github/compare/v0.8.5...v0.8.6) (2015-11-22)
 
