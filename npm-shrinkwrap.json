@@ -18,14 +18,14 @@
       "resolved": "https://registry.npmjs.org/crypto-js/-/crypto-js-3.1.5.tgz"
     },
     "electron-debug": {
-      "version": "0.4.0",
-      "from": "electron-debug@0.4.0",
-      "resolved": "https://registry.npmjs.org/electron-debug/-/electron-debug-0.4.0.tgz",
+      "version": "0.5.1",
+      "from": "electron-debug@0.5.1",
+      "resolved": "https://registry.npmjs.org/electron-debug/-/electron-debug-0.5.1.tgz",
       "dependencies": {
         "electron-localshortcut": {
-          "version": "0.3.2",
-          "from": "electron-localshortcut@>=0.3.2 <0.4.0",
-          "resolved": "https://registry.npmjs.org/electron-localshortcut/-/electron-localshortcut-0.3.2.tgz"
+          "version": "0.6.0",
+          "from": "electron-localshortcut@>=0.6.0 <0.7.0",
+          "resolved": "https://registry.npmjs.org/electron-localshortcut/-/electron-localshortcut-0.6.0.tgz"
         }
       }
     },
