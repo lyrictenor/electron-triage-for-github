@@ -1,11 +1,11 @@
 {
   "name": "triage-for-github",
-  "version": "0.8.3",
+  "version": "0.8.8",
   "dependencies": {
     "classnames": {
-      "version": "2.2.0",
-      "from": "classnames@>=2.1.3 <3.0.0",
-      "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.2.0.tgz"
+      "version": "2.2.1",
+      "from": "classnames@2.2.1",
+      "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.2.1.tgz"
     },
     "crossing": {
       "version": "1.0.1",
@@ -111,9 +111,9 @@
       "resolved": "https://registry.npmjs.org/is-empty-object/-/is-empty-object-1.1.1.tgz"
     },
     "level-js": {
-      "version": "2.2.2",
-      "from": "level-js@>=2.2.2 <3.0.0",
-      "resolved": "https://registry.npmjs.org/level-js/-/level-js-2.2.2.tgz",
+      "version": "2.2.3",
+      "from": "level-js@2.2.3",
+      "resolved": "https://registry.npmjs.org/level-js/-/level-js-2.2.3.tgz",
       "dependencies": {
         "abstract-leveldown": {
           "version": "0.12.4",
@@ -127,18 +127,18 @@
           }
         },
         "idb-wrapper": {
-          "version": "1.6.0",
+          "version": "1.6.1",
           "from": "idb-wrapper@>=1.5.0 <2.0.0",
-          "resolved": "https://registry.npmjs.org/idb-wrapper/-/idb-wrapper-1.6.0.tgz"
+          "resolved": "https://registry.npmjs.org/idb-wrapper/-/idb-wrapper-1.6.1.tgz"
         },
         "isbuffer": {
           "version": "0.0.0",
           "from": "isbuffer@>=0.0.0 <0.1.0"
         },
         "ltgt": {
-          "version": "1.2.0",
-          "from": "ltgt@>=1.0.1 <2.0.0",
-          "resolved": "https://registry.npmjs.org/ltgt/-/ltgt-1.2.0.tgz"
+          "version": "2.1.2",
+          "from": "ltgt@>=2.1.2 <3.0.0",
+          "resolved": "https://registry.npmjs.org/ltgt/-/ltgt-2.1.2.tgz"
         },
         "typedarray-to-buffer": {
           "version": "1.0.4",
@@ -284,9 +284,9 @@
       }
     },
     "levelup": {
-      "version": "1.3.0",
-      "from": "levelup@1.3.0",
-      "resolved": "https://registry.npmjs.org/levelup/-/levelup-1.3.0.tgz",
+      "version": "1.3.1",
+      "from": "levelup@1.3.1",
+      "resolved": "https://registry.npmjs.org/levelup/-/levelup-1.3.1.tgz",
       "dependencies": {
         "deferred-leveldown": {
           "version": "1.2.1",
@@ -301,9 +301,9 @@
           }
         },
         "level-codec": {
-          "version": "6.0.0",
-          "from": "level-codec@>=6.0.0 <6.1.0",
-          "resolved": "https://registry.npmjs.org/level-codec/-/level-codec-6.0.0.tgz"
+          "version": "6.1.0",
+          "from": "level-codec@>=6.1.0 <6.2.0",
+          "resolved": "https://registry.npmjs.org/level-codec/-/level-codec-6.1.0.tgz"
         },
         "level-errors": {
           "version": "1.0.4",
@@ -363,9 +363,9 @@
           "resolved": "https://registry.npmjs.org/prr/-/prr-1.0.1.tgz"
         },
         "semver": {
-          "version": "5.0.3",
-          "from": "semver@>=5.0.3 <5.1.0",
-          "resolved": "https://registry.npmjs.org/semver/-/semver-5.0.3.tgz"
+          "version": "5.1.0",
+          "from": "semver@>=5.1.0 <5.2.0",
+          "resolved": "https://registry.npmjs.org/semver/-/semver-5.1.0.tgz"
         },
         "xtend": {
           "version": "4.0.1",
@@ -577,9 +577,9 @@
       "resolved": "https://registry.npmjs.org/moment/-/moment-2.10.6.tgz"
     },
     "octokat": {
-      "version": "0.4.14",
-      "from": "octokat@0.4.14",
-      "resolved": "https://registry.npmjs.org/octokat/-/octokat-0.4.14.tgz",
+      "version": "0.4.15",
+      "from": "octokat@0.4.15",
+      "resolved": "https://registry.npmjs.org/octokat/-/octokat-0.4.15.tgz",
       "dependencies": {
         "es6-promise": {
           "version": "3.0.2",
@@ -713,9 +713,9 @@
       "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-0.14.3.tgz"
     },
     "react-redux": {
-      "version": "4.0.0",
-      "from": "react-redux@>=4.0.0 <5.0.0",
-      "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-4.0.0.tgz",
+      "version": "4.0.1",
+      "from": "react-redux@4.0.1",
+      "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-4.0.1.tgz",
       "dependencies": {
         "hoist-non-react-statics": {
           "version": "1.0.3",
@@ -723,9 +723,9 @@
           "resolved": "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-1.0.3.tgz"
         },
         "invariant": {
-          "version": "2.1.2",
+          "version": "2.2.0",
           "from": "invariant@>=2.0.0 <3.0.0",
-          "resolved": "https://registry.npmjs.org/invariant/-/invariant-2.1.2.tgz",
+          "resolved": "https://registry.npmjs.org/invariant/-/invariant-2.2.0.tgz",
           "dependencies": {
             "loose-envify": {
               "version": "1.1.0",
@@ -744,9 +744,9 @@
       }
     },
     "react-router": {
-      "version": "1.0.0",
-      "from": "react-router@1.0.0",
-      "resolved": "https://registry.npmjs.org/react-router/-/react-router-1.0.0.tgz",
+      "version": "1.0.2",
+      "from": "react-router@1.0.2",
+      "resolved": "https://registry.npmjs.org/react-router/-/react-router-1.0.2.tgz",
       "dependencies": {
         "invariant": {
           "version": "2.2.0",
@@ -825,9 +825,9 @@
       }
     },
     "redux": {
-      "version": "3.0.4",
-      "from": "redux@>=3.0.0 <4.0.0",
-      "resolved": "https://registry.npmjs.org/redux/-/redux-3.0.4.tgz"
+      "version": "3.0.5",
+      "from": "redux@3.0.5",
+      "resolved": "https://registry.npmjs.org/redux/-/redux-3.0.5.tgz"
     },
     "redux-batched-updates": {
       "version": "0.1.0",
@@ -919,9 +919,9 @@
       }
     },
     "redux-form": {
-      "version": "3.0.11",
-      "from": "redux-form@3.0.11",
-      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-3.0.11.tgz",
+      "version": "3.1.7",
+      "from": "redux-form@3.1.7",
+      "resolved": "https://registry.npmjs.org/redux-form/-/redux-form-3.1.7.tgz",
       "dependencies": {
         "deep-equal": {
           "version": "1.0.1",
