@@ -116,7 +116,7 @@
     "fetch:font:roboto": "webfont-dl \"http://fonts.googleapis.com/css?family=Roboto:400,300,500:latin\" -o assets/roboto.css --woff1=omit --woff2=data --svg=omit --ttf=omit --eot=omit",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
-    "lint": "npm run eclint && npm run eslint",
+    "lint": "npm run eslint",
     "ncu": "ncu -u",
     "resource": "cpy package.json dist && npm run resource:main",
     "resource:main": "cpy lib/main.js dist && cd dist && npm install electron-debug electron-template-menu && cd ..",
